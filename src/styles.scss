@@ -186,7 +186,7 @@ textarea {
   }
 }
 
-/*----------------------- COLORES ----------------------*/
+/*----------------------- COLORES TEXTO----------------------*/
 
 $primary: #B94F37;
 $primary-hover: #D49E92;
@@ -228,6 +228,35 @@ $grey2: #BDBDBD;
   color: #BDBDBD;
 }
 
+/*----------------------- COLORES CONTENEDORES Y BOTONES----------------------*/
+
+.primarybg {
+  background-color: #B94F37;
+}
+
+.secundarybg {
+  background-color: #D49E92;
+}
+
+.creambg {
+  background-color: #FDF9F0;
+}
+
+.whitebg {
+  background-color: #fff;
+}
+
+.carbonbg {
+  background-color: #4F4F4F;
+}
+
+.grey1bg {
+  background-color: #828282;
+}
+
+.grey2bg {
+  background-color: #BDBDBD;
+}
 
 
 /* Párrafos */
