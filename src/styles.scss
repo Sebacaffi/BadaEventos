@@ -3,59 +3,67 @@
 /* MEDIA QUERIES */
 
 $breakpoint: 640px;
+
 @media (max-width: $breakpoint) {
-	/*------------------------------------------------------*/
-	/*-------------- TAMAÑOS DE LA TIPOGRAFÍA --------------*/
-	/*------------------------------------------------------*/
-	$font: 0.8vmin;
-	@for $i from 1 through 20 {
-		.font-#{$i} {
-			@if $i < 6 {
-				font-size: $font*$i * 1.15;
-				line-height: $font*$i * 1.5;
-	 		}@else{
-				font-size: $font*$i - $i/10;
-				line-height: $font*$i * 2 / 2;
-			}
-		}
-	}
+  /*------------------------------------------------------*/
+  /*-------------- TAMAÑOS DE LA TIPOGRAFÍA --------------*/
+  /*------------------------------------------------------*/
+  $font: 0.8vmin;
 
-	/*------------------------------------------------------*/
-	/*---------------------- GENERALES ---------------------*/
-	/*------------------------------------------------------*/
-	@for $i from 1 through 3 {
-		.columns-#{$i} {
-			-webkit-column-count: 1;
-			-moz-column-count: 1;
-			column-count: 1;
-			-webkit-column-gap: 0;
-			-moz-column-gap: 0;
-			column-gap: 0;
-		}
-	}
+  @for $i from 1 through 20 {
+    .font-#{$i} {
+      @if $i < 6 {
+        font-size: $font*$i * 1.15;
+        line-height: $font*$i * 1.5;
+      }
 
-	@for $i from 1 through 4 {
-		.grid-column-#{$i} {
-			display: inline-block;
-			grid-template-columns: repeat(1, 0);
-		}
-	}
+      @else {
+        font-size: $font*$i - $i/10;
+        line-height: $font*$i * 2 / 2;
+      }
+    }
+  }
 
-	.flex{
-		display: block;
-	}
+  /*------------------------------------------------------*/
+  /*---------------------- GENERALES ---------------------*/
+  /*------------------------------------------------------*/
+  @for $i from 1 through 3 {
+    .columns-#{$i} {
+      -webkit-column-count: 1;
+      -moz-column-count: 1;
+      column-count: 1;
+      -webkit-column-gap: 0;
+      -moz-column-gap: 0;
+      column-gap: 0;
+    }
+  }
 
-	.flex-children{
-		width: 100%;
-		display: block;
-		float: left;
-	}
-}//Se termina el media
+  @for $i from 1 through 4 {
+    .grid-column-#{$i} {
+      display: inline-block;
+      grid-template-columns: repeat(1, 0);
+    }
+  }
+
+  .flex {
+    display: block;
+  }
+
+  .flex-children {
+    width: 100%;
+    display: block;
+    float: left;
+  }
+}
+
+//Se termina el media
 
 
 $breakpoint: 1100px;
-@media (max-width: $breakpoint) {
-}//Se termina el media
+
+@media (max-width: $breakpoint) {}
+
+//Se termina el media
 
 
 /* Normalización Bootstrap */
@@ -200,6 +208,7 @@ $grey2: #BDBDBD;
 .inicio {
   color: $primary;
 }
+
 .primary {
   color: #B94F37;
 }
@@ -285,140 +294,145 @@ form,
 fieldset,
 p,
 blockquote {
-    font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
 
 p,
 .p1 {
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 22px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
 }
 
 .p2 {
-    font-weight: 400;
-    font-size: 22px;
-    line-height: 28px;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 28px;
 }
 
 .p3 {
-    font-weight: 400;
-    font-size: 26px;
-    line-height: 32px;
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 32px;
 }
 
 
 
 h1 {
-    font-weight: 300;
-    font-size: 56px;
-    line-height: 66px;
+  font-weight: 300;
+  font-size: 56px;
+  line-height: 66px;
 }
 
 h2 {
-    font-weight: 600;
-    font-size: 48px;
-    line-height: 65px;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 65px;
 }
 
 h3 {
-    font-weight: 300;
-    font-size: 34px;
-    line-height: 40px;
+  font-weight: 300;
+  font-size: 34px;
+  line-height: 40px;
 }
 
 h4 {
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 28px;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
 }
 
 h5 {
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 24px;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
 }
 
 h6 {
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 18px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
 }
 
 .thin {
-    font-weight: 100;
+  font-weight: 100;
 }
 
 .extra-light {
-    font-weight: 200;
+  font-weight: 200;
 }
 
 .light {
-    font-weight: 300;
+  font-weight: 300;
 }
 
 .regular {
-    font-weight: 400;
+  font-weight: 400;
 }
 
 .medium {
-    font-weight: 500;
+  font-weight: 500;
 }
 
 .bold {
-    font-weight: 700;
+  font-weight: 700;
 }
 
 .extra-bold {
-    font-weight: 800;
+  font-weight: 800;
 }
 
 .black {
-    font-weight: 900;
+  font-weight: 900;
 }
 
 .italic {
-    font-style: italic;
+  font-style: italic;
 }
 
 
 .uppercase {
-    text-transform: uppercase;
+  text-transform: uppercase;
 }
 
 .text-center {
-    text-align: center;
+  text-align: center;
 }
 
 .text-right {
-    text-align: right
+  text-align: right
 }
 
 .text-justify {
-    text-align: justify;
+  text-align: justify;
 }
 
 /*-------------- TAMAÑOS DE LA TIPOGRAFÍA --------------*/
 $font: 1px;
+
 @for $i from 1 through 100 {
-    .font-#{$i} {
-        font-size: $font*$i;
-        @if $i < 21 {
-            line-height: 140%;
-        }@else{
-            line-height: 120%;
-        } 
+  .font-#{$i} {
+    font-size: $font*$i;
+
+    @if $i < 21 {
+      line-height: 140%;
     }
+
+    @else {
+      line-height: 120%;
+    }
+  }
 }
+
 // BOTONES
 
 .btn-primary,
 
 .btn-primary:active,
 .btn-primary:visited {
-    background-color: $primary;
-    border-color: $primary;
+  background-color: $primary;
+  border-color: $primary;
 }
 
 .btn-primary:hover,
@@ -435,41 +449,52 @@ $font: 1px;
 
 .dropshadow {
   -webkit-filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.4));
-          filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.4));
+  filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.4));
 }
 
 .hover-dropshadow {
   -webkit-transition: all .2s;
-  transition: all .2s; 
+  transition: all .2s;
 
   &:hover {
-  -webkit-filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.4));
-          filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.4));
-}
+    -webkit-filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.4));
+    filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.4));
+  }
 }
 
 .zoom-on-hover {
-	display: inline-block;
-	border: 0;
-	position: relative;
-	-webkit-transition: all 200ms ease-in;
-	-webkit-transform: scale(1);
-	-ms-transition: all 200ms ease-in;
-	-ms-transform: scale(1);
-	-moz-transition: all 200ms ease-in;
-	-moz-transform: scale(1);
-	transition: all 200ms ease-in;
-	transform: scale(1);
+  display: inline-block;
+  border: 0;
+  position: relative;
+  -webkit-transition: all 200ms ease-in;
+  -webkit-transform: scale(1);
+  -ms-transition: all 200ms ease-in;
+  -ms-transform: scale(1);
+  -moz-transition: all 200ms ease-in;
+  -moz-transform: scale(1);
+  transition: all 200ms ease-in;
+  transform: scale(1);
 
 
-&:hover {
-	z-index: 2;
-	-webkit-transition: all 200ms ease-in;
-	-webkit-transform: scale(1.05);
-	-ms-transition: all 200ms ease-in;
-	-ms-transform: scale(1.05);
-	-moz-transition: all 200ms ease-in;
-	-moz-transform: scale(1.05);
-	transition: all 200ms ease-in;
-	transform: scale(1.05);
-}}
+  &:hover {
+    z-index: 2;
+    -webkit-transition: all 200ms ease-in;
+    -webkit-transform: scale(1.05);
+    -ms-transition: all 200ms ease-in;
+    -ms-transform: scale(1.05);
+    -moz-transition: all 200ms ease-in;
+    -moz-transform: scale(1.05);
+    transition: all 200ms ease-in;
+    transform: scale(1.05);
+  }
+}
+
+.veil {
+  position: absolute;
+  color:rgba(0, 0, 0, 0.4);
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
