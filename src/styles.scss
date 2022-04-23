@@ -427,3 +427,49 @@ $font: 1px;
   border-color: $primary-hover;
 }
 
+// EFECTOS
+
+.pointer {
+  cursor: pointer;
+}
+
+.dropshadow {
+  -webkit-filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.4));
+          filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.4));
+}
+
+.hover-dropshadow {
+  -webkit-transition: all .2s;
+  transition: all .2s; 
+
+  &:hover {
+  -webkit-filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.4));
+          filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.4));
+}
+}
+
+.zoom-on-hover {
+	display: inline-block;
+	border: 0;
+	position: relative;
+	-webkit-transition: all 200ms ease-in;
+	-webkit-transform: scale(1);
+	-ms-transition: all 200ms ease-in;
+	-ms-transform: scale(1);
+	-moz-transition: all 200ms ease-in;
+	-moz-transform: scale(1);
+	transition: all 200ms ease-in;
+	transform: scale(1);
+
+
+&:hover {
+	z-index: 2;
+	-webkit-transition: all 200ms ease-in;
+	-webkit-transform: scale(1.05);
+	-ms-transition: all 200ms ease-in;
+	-ms-transform: scale(1.05);
+	-moz-transition: all 200ms ease-in;
+	-moz-transform: scale(1.05);
+	transition: all 200ms ease-in;
+	transform: scale(1.05);
+}}
