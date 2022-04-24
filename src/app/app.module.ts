@@ -6,7 +6,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeroComponent } from './components/hero/hero.component';
 import { SliderComponent } from './components/slider/slider.component';
-// import { FormularioContactoComponent } from './formulario-contacto/formulario-contacto.component';
+import { FormularioContactoComponent } from './components/formulario-contacto/formulario-contacto.component';
 
 @NgModule({
   declarations: [
@@ -14,8 +14,8 @@ import { SliderComponent } from './components/slider/slider.component';
     NavbarComponent,
     FooterComponent,
     HeroComponent,
-    SliderComponent
-    // FormularioContactoComponent
+    SliderComponent,
+    FormularioContactoComponent
   ],
   imports: [
     BrowserModule
