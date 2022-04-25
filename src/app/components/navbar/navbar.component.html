@@ -25,7 +25,29 @@
         </li>
         <li class="pe-3"></li>
         <li class="nav-item">
-          <a href="#"><img src="assets/iconos/bandeja_icon.svg" alt="" width="40" height="40"></a>
+          <a href="#"><img data-bs-whatever="@getbootstrap" data-bs-toggle="modal" data-bs-target="#exampleModal" src="assets/iconos/bandeja_icon.svg" alt="" width="40" height="40"></a>
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Seguimiento Evento</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form>
+                    <div class="mb-3">
+                      <label for="recipient-name" class="col-form-label">Ingrese el ID de su Evento:</label>
+                      <input type="text" class="form-control" id="recipient-name">
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                  <button type="button" class="btn btn-primary">Conocer Estado</button>
+                </div>
+              </div>
+            </div>
+          </div>
         </li>
       </ul>
     </div>
