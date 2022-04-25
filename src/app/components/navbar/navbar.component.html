@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light creambg">
   <div class="container-fluid">
     <a class="navbar-brand ps-3" href="#">
-      <img src="../assets/logos/logo_navBar.svg" alt="logo_navBar" width="auto" height="50">
+      <img src="../assets/logos/logo_navbar.svg" alt="logo_navBar" width="auto" height="50">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -21,11 +21,37 @@
           <a class="nav-link">Contacto</a>
         </li>
         <li class="nav-item">
-          <button type="button" class="btn btn-primary secundarybg rounded-pill shadow-sm">Crea tu evento</button>
+          <button type="button" class="btn btn-primary rounded-pill shadow-sm">Crea tu evento</button>
         </li>
         <li class="pe-3"></li>
         <li class="nav-item">
-          <a href="#"><img src="assets/iconos/bandeja_icon.svg" alt="" width="40" height="40"></a>
+          <a href="#"><img data-bs-whatever="@getbootstrap" data-bs-toggle="modal" data-bs-target="#exampleModal" src="assets/iconos/bandeja_icon.svg" alt="" width="40" height="40">
+            <span class="position-absolute justify-content-end translate-middle p-2 primarybg border border-light rounded-circle ">
+              <span class="visually-hidden">New alerts</span>
+            </span>
+          </a>
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Seguimiento Evento</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form>
+                    <div class="mb-3">
+                      <label for="recipient-name" class="col-form-label">Ingrese el ID de su Evento:</label>
+                      <input type="text" class="form-control" id="recipient-name">
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                  <button type="button" class="btn btn-primary">Conocer Estado</button>
+                </div>
+              </div>
+            </div>
+          </div>
         </li>
       </ul>
     </div>
