@@ -12,7 +12,7 @@ export class ContactoService {
   constructor() { }
 
   enviarContacto(contacto: Contacto) {
-    return new Promise<any> (resolve, reject) => {
+    return new Promise<any> (resolve, rejects) => {
       //TODO
     }
   }
