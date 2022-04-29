@@ -1,3 +1,4 @@
+import { Placeholder } from '@angular/compiler/src/i18n/i18n_ast';
 import { Component, OnInit } from '@angular/core';
 import { ContactoService } from 'src/app/services/contacto.service';
 
@@ -15,10 +16,11 @@ export class FormularioContactoComponent implements OnInit {
   }
 
   getContactInputs(data: any) {
-    console.log(data)
+
+    console.log("post enviado", JSON.stringify(data))
 
     this.service.sendContactForm(data).subscribe((result) =>
-      console.log(result)
+      console.log('resultado', result)
     )
   }
 

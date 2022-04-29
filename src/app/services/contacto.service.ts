@@ -11,7 +11,7 @@ export class ContactoService {
 
   constructor(private http: HttpClient) { }
 
-  sendContactForm(data: any) {
+  sendContactForm(data) {
     return this.http.post(this.url, data)
   }
 
