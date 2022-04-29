@@ -7,6 +7,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HeroComponent } from './components/hero/hero.component';
 import { SliderComponent } from './components/slider/slider.component';
 import { FormularioContactoComponent } from './components/formulario-contacto/formulario-contacto.component';
+import { NosotrosComponent } from './components/nosotros/nosotros.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { FormularioContactoComponent } from './components/formulario-contacto/fo
     FooterComponent,
     HeroComponent,
     SliderComponent,
-    FormularioContactoComponent
+    FormularioContactoComponent,
+    NosotrosComponent
   ],
   imports: [
     BrowserModule
