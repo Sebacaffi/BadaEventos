@@ -6,21 +6,23 @@
         </div>
         <div class="col-50 md-4 mt-4">
             <h1 class="display-6 mb-4 regular">Contacto</h1>
-            <form id="contact-form" #contacto="ngForm">
+            
+            <form id="contact-form" #contact="ngForm" (ngSubmit)="getContactInputs(contact.value)">
                 <div class="mb-3">
-                  <label for="nombre" class="form-label">Nombre</label>
-                  <input type="text" class="form-control rounded-pill" id="nombre" aria-describedby="emailHelp" placeholder="Ingresa tu nombre y apellido">
+                  <label for="name" class="form-label">Nombre</label>
+                  <input ngModel name="name" type="text" class="form-control rounded-pill" id="name" aria-describedby="emailHelp" placeholder="Ingresa tu nombre y apellido">
                 </div>
                 <div class="mb-3">
-                  <label for="correo" class="form-label">Correo</label>
-                  <input type="email" class="form-control rounded-pill" id="correo" placeholder="ejemplo@badaevento.com">
+                  <label for="email" class="form-label">Correo</label>
+                  <input ngModel name="email" type="email" class="form-control rounded-pill" id="email" placeholder="ejemplo@badaevento.com">
                 </div>
                 <div class="mb-3">
-                    <label for="mensaje" class="form-label">Mensaje</label>
-                    <textarea class="form-control rounded" id="mensaje" rows="3" placeholder="Escriba su mensaje aqui..."></textarea>
+                    <label for="message" class="form-label">Mensaje</label>
+                    <textarea ngModel name="message" class="form-control rounded" id="message" rows="3" placeholder="Escriba su mensaje aqui..."></textarea>
                   </div>
                 <button type="submit" class="btn btn-primary">Enviar</button>   
             </form>
+
         </div>
     </div>
 </div>

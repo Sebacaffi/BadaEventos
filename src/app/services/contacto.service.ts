@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
-import { rejects } from 'assert';
-import { resolve } from 'dns';
-import { Contacto } from '../models/contacto.model';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -9,11 +7,12 @@ import { Contacto } from '../models/contacto.model';
 
 export class ContactoService {
 
-  constructor() { }
+  url = 'https://badaeventos.herokuapp.com/api/contact/'
 
-  enviarContacto(contacto: Contacto) {
-    return new Promise<any> (resolve, rejects) => {
-      //TODO
-    }
+  constructor(private http: HttpClient) { }
+
+  sendContactForm(data: any) {
+    return this.http.post(this.url, data)
   }
+
 }

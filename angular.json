@@ -75,7 +75,8 @@
               "browserTarget": "badaEventos:build:production"
             },
             "development": {
-              "browserTarget": "badaEventos:build:development"
+              "browserTarget": "badaEventos:build:development",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

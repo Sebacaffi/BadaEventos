@@ -1,0 +1,6 @@
+{
+    "/api": {
+    "target": "https://badaeventos.herokuapp.com/api/",
+    "secure": false
+    }
+}
