@@ -1,7 +1,5 @@
-# Desarroladores
-Seba
-Lloni
-Nico
+# Link
+https://bada-eventos.firebaseapp.com/
 
 # BadaEventos
 
