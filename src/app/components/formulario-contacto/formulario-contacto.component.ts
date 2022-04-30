@@ -17,7 +17,7 @@ export class FormularioContactoComponent implements OnInit {
 
   getContactInputs(data: any) {
 
-    console.log("post enviado", JSON.stringify(data))
+    console.log("post enviado", data)
 
     this.service.sendContactForm(data).subscribe((result) =>
       console.log('resultado', result)

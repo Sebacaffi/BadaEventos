@@ -1,5 +1,5 @@
 export class Contacto {
-    nombre: string;
-    correo: string;
-    mensaje: string;
+    name: string;
+    email: string;
+    message: string;
 }
