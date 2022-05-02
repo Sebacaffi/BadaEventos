@@ -2,6 +2,14 @@
 
 /* MEDIA QUERIES */
 
+
+@media (max-width: 720px) {
+  html {
+    font-size: 80% !important;
+  }
+}
+
+
 $breakpoint: 640px;
 
 @media (max-width: $breakpoint) {
@@ -74,6 +82,7 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
+
 }
 
 body,
@@ -310,64 +319,55 @@ fieldset,
 p,
 blockquote {
   font-family: 'Open Sans', sans-serif;
+  line-height: 120%;
 }
-
 
 p,
 .p1 {
   font-weight: 400;
-  font-size: 18px;
-  line-height: 22px;
+  font-size: 1rem;
 }
 
 .p2 {
   font-weight: 400;
-  font-size: 22px;
-  line-height: 28px;
+  font-size: 1.25rem;
 }
 
 .p3 {
   font-weight: 400;
-  font-size: 26px;
-  line-height: 32px;
+  font-size: 1.5rem;
 }
 
 
 
 h1 {
   font-weight: 300;
-  font-size: 56px;
-  line-height: 66px;
+  font-size: 3.5rem;
 }
 
 h2 {
   font-weight: 600;
-  font-size: 48px;
-  line-height: 65px;
+  font-size: 3rem;
 }
 
 h3 {
   font-weight: 300;
-  font-size: 34px;
-  line-height: 40px;
+  font-size: 2.125rem;
 }
 
 h4 {
   font-weight: 400;
-  font-size: 24px;
-  line-height: 28px;
+  font-size: 1.5rem;
 }
 
 h5 {
   font-weight: 700;
-  font-size: 20px;
-  line-height: 24px;
+  font-size: 1.25rem;
 }
 
 h6 {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 18px;
+  font-size: 1rem;
 }
 
 .thin {
@@ -425,6 +425,10 @@ h6 {
 
 .text-justify {
   text-align: justify;
+}
+
+.over-ellipsis {
+  text-overflow: ellipsis;
 }
 
 /*-------------- TAMAÑOS DE LA TIPOGRAFÍA --------------*/
