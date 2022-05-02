@@ -5,4 +5,11 @@
     background-position: center; 
     background-repeat: no-repeat; 
     background-size: cover;
+    overflow: hidden;
 }
+
+@media (max-width: 720px) {
+    .nosotros-bgimg {
+      font-size: 80% !important;
+    }
+  } 
