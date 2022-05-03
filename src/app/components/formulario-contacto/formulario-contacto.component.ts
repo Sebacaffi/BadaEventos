@@ -1,4 +1,3 @@
-import { Placeholder } from '@angular/compiler/src/i18n/i18n_ast';
 import { Component, OnInit } from '@angular/core';
 import { ContactoService } from 'src/app/services/contacto.service';
 

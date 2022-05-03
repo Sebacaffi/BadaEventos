@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/bada-eventos",
+    "public": "dist",
     "ignore": [
       "firebase.json",
       "**/.*",
