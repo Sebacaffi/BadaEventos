@@ -16,7 +16,7 @@ export class NavbarComponent implements OnInit {
 
   alertaSeguimiento(){
     Swal.fire({
-      title: 'Ingrese el ID de su evento',
+      title: 'Seguimiento evento',
       input: 'text',
       inputAttributes: {
         autocapitalize: 'off'
