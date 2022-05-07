@@ -5,7 +5,7 @@
           <div class="col-50 my-4 px-3">
             <h1 class="display-6 mb-4 regular">Contacto</h1>
             
-            <form id="contact-form" #contact="ngForm" (ngSubmit)="getContactInputs(contact.value)">
+            <form id="contactForm" #contact="ngForm" (ngSubmit)="getContactInputs(contact.value);contact.reset()">
                 <div class="mb-3">
                   <label for="name" class="form-label">Nombre</label>
                   <input ngModel name="name" type="text" class="form-control rounded-pill" id="name" aria-describedby="emailHelp" placeholder="Ingresa tu nombre y apellido">
@@ -18,7 +18,7 @@
                     <label for="message" class="form-label">Mensaje</label>
                     <textarea ngModel name="message" class="form-control rounded" id="message" rows="3" placeholder="Escriba su mensaje aqui..."></textarea>
                   </div>
-                <button type="submit" class="btn btn-primary">Enviar</button>   
+                <button type="submit" (click)="alertaEnvio()" class="btn btn-primary">Enviar</button>
             </form>
         </div>
     </div>

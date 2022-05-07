@@ -25,7 +25,7 @@ import { NosotrosComponent } from './components/nosotros/nosotros.component';
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
