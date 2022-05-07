@@ -23,7 +23,7 @@ export class NavbarComponent implements OnInit {
       },
       showCancelButton: true,
       cancelButtonText:'Cancelar',
-      confirmButtonText: 'Aceptar',
+      confirmButtonText: 'Buscar',
       showLoaderOnConfirm: true,
       preConfirm: (login) => {
         return fetch(`//api.github.com/users/${login}`)
