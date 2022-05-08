@@ -27,10 +27,12 @@ export class FormularioContactoComponent implements OnInit {
   }
 
   alertaEnvio(){
-    Swal.fire(
-      'Mensaje enviado!',
-      'Lo contactaremos en breve!',
-      'success'
-    )
+
+    Swal.fire({
+      icon: 'success',
+      title: 'Mensaje enviado!',
+      text: 'Lo contactaremos en breve!',
+      confirmButtonColor:'#B94F37',
+    })
   }
 }
