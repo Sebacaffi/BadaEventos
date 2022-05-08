@@ -25,6 +25,7 @@ export class NavbarComponent implements OnInit {
       cancelButtonText:'Cancelar',
       confirmButtonText: 'Buscar',
       showLoaderOnConfirm: true,
+      confirmButtonColor:'#B94F37',
       preConfirm: (login) => {
         return fetch(`//api.github.com/users/${login}`)
           .then(response => {
