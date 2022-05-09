@@ -461,6 +461,15 @@ $font: 1px;
   border-color: $primary-hover;
 }
 
+#btn-back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s linear;
+}
+
 // EFECTOS
 
 .pointer {
