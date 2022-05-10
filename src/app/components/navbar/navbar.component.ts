@@ -16,8 +16,9 @@ export class NavbarComponent implements OnInit {
 
   alertaSeguimiento(){
     Swal.fire({
-      title: 'Seguimiento evento',
+      title: 'Detalles Evento',
       input: 'text',
+      inputPlaceholder:'Ingrese su ID aqui...',
       inputAttributes: {
         autocapitalize: 'off'
       },
@@ -49,6 +50,5 @@ export class NavbarComponent implements OnInit {
         })
       }
     })
-  }
-
+  }  
 }

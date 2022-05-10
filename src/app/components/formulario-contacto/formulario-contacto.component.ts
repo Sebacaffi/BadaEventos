@@ -26,7 +26,6 @@ export class FormularioContactoComponent implements OnInit {
   }
 
   alertaEnvio(){
-
     Swal.fire({
       icon: 'success',
       title: 'Mensaje enviado!',
