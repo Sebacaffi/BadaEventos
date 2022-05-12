@@ -11,6 +11,7 @@ import { HeroComponent } from './home/hero/hero.component';
 import { SliderComponent } from './home/slider/slider.component';
 import { FormularioContactoComponent } from './home/formulario-contacto/formulario-contacto.component';
 import { NosotrosComponent } from './home/nosotros/nosotros.component';
+import { AcordeonComponent } from './evento/acordeon/acordeon.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { NosotrosComponent } from './home/nosotros/nosotros.component';
     HeroComponent,
     SliderComponent,
     FormularioContactoComponent,
-    NosotrosComponent
+    NosotrosComponent,
+    AcordeonComponent
   ],
   imports: [
     BrowserModule,
