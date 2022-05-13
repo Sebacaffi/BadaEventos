@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ContactoService } from 'src/app/services/contacto.service';
+import { ContactoService } from 'src/app/home/services/contacto.service';
 
 import Swal from 'sweetalert2'
 
