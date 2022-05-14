@@ -12,6 +12,7 @@ import { SliderComponent } from './home/slider/slider.component';
 import { FormularioContactoComponent } from './home/formulario-contacto/formulario-contacto.component';
 import { NosotrosComponent } from './home/nosotros/nosotros.component';
 import { AcordeonComponent } from './evento/acordeon/acordeon.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { AcordeonComponent } from './evento/acordeon/acordeon.component';
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
