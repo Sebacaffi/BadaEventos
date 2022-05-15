@@ -1,22 +1,22 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-// import { LoginComponent } from "./admin/components/login/login.component";
-// import { HomeComponent } from "./components/home/home.component";
+import { EventoComponentsComponent } from './evento/evento-components/evento-components.component';
+import { HomeComponentsComponent } from './home/home-components/home-components.component';
 
 const routes: Routes = [
-  // {
-  //   path:'',
-  //   component:HomeComponent
-  // },
-  // {
-  //   path:'admin',
-  //   component:LoginComponent
-  // }
+  {
+    path:'',
+    component: HomeComponentsComponent
+  },
+  {
+    path:'evento',
+    component: EventoComponentsComponent
+  }
 ];
 
 @NgModule({
   declarations: [],
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,{enableTracing: true})],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

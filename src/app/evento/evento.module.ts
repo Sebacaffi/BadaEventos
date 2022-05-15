@@ -1,17 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AcordeonComponent } from './components/acordeon/acordeon.component';
-import { FrameDatosComponent } from './components/frame-datos/frame-datos.component';
+import { EventoComponentsComponent } from './evento-components/evento-components.component';
 
 
 
 @NgModule({
   declarations: [
-    AcordeonComponent,
-    FrameDatosComponent
+    EventoComponentsComponent
   ],
   imports: [
     CommonModule
+  ],
+  exports:[
+    EventoComponentsComponent
   ]
 })
 export class EventoModule { }
