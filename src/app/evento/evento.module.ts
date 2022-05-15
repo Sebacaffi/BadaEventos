@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AcordeonComponent } from './acordeon/acordeon.component';
-import { FrameDatosComponent } from './frame-datos/frame-datos.component';
+import { AcordeonComponent } from './components/acordeon/acordeon.component';
+import { FrameDatosComponent } from './components/frame-datos/frame-datos.component';
 
 
 
