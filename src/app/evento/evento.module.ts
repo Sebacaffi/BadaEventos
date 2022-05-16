@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { EventoComponentsComponent } from './evento-components/evento-components.component';
+import { EventoComponentsComponent } from './components/evento-components/evento-components.component';
 
 
 

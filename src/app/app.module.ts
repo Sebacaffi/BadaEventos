@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { HomeModule } from './home/home.module';
 import { EventoModule } from './evento/evento.module';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { EventoModule } from './evento/evento.module';
     FormsModule,
     RouterModule,
     HomeModule,
-    EventoModule
+    EventoModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

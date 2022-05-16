@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { EventoComponentsComponent } from './evento/evento-components/evento-components.component';
-import { HomeComponentsComponent } from './home/home-components/home-components.component';
+import { EventoComponentsComponent } from './evento/components/evento-components/evento-components.component';
+import { HomeComponentsComponent } from './home/components/home-components/home-components.component';
 
 const routes: Routes = [
   {
@@ -16,7 +16,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [],
-  imports: [RouterModule.forRoot(routes,{enableTracing: true})],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
