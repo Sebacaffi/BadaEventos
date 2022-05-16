@@ -2,12 +2,11 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HomeComponentsComponent } from './components/home-components/home-components.component';
-import { NavbarComponent } from '../core/components/navbar/navbar.component';
 import { HeroComponent } from './components/hero/hero.component';
-import { FooterComponent } from '../core/components/footer/footer.component';
 import { SliderComponent } from './components/slider/slider.component';
 import { NosotrosComponent } from './components/nosotros/nosotros.component';
 import { FormularioContactoComponent } from './components/formulario-contacto/formulario-contacto.component';
+import { CoreModule } from '../core/core.module';
 
 
 
@@ -15,9 +14,6 @@ import { FormularioContactoComponent } from './components/formulario-contacto/fo
   declarations: [
     HomeComponentsComponent,
     HeroComponent,
-    NavbarComponent,
-    HeroComponent,
-    FooterComponent,
     SliderComponent,
     NosotrosComponent,
     FormularioContactoComponent
@@ -25,6 +21,7 @@ import { FormularioContactoComponent } from './components/formulario-contacto/fo
   imports: [
     CommonModule,
     FormsModule,
+    CoreModule
   ],
   exports:[
     HomeComponentsComponent
