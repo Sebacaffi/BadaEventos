@@ -13,7 +13,6 @@ export class EventoService {
 
   sendContactForm(data) {
 
-    var post = JSON.stringify(data)
     return this.http.post(this.url, data)
   }
 
