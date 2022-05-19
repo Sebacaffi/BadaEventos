@@ -4,13 +4,14 @@ import { EventoComponentsComponent } from './components/evento-components/evento
 import { AcordeonComponent } from './components/acordeon/acordeon.component';
 import { CoreModule } from '../core/core.module';
 import { CalendarModule } from '@syncfusion/ej2-angular-calendars';
-
+import { FrameDatosComponent } from './components/frame-datos/frame-datos.component';
 
 
 @NgModule({
   declarations: [
     EventoComponentsComponent,
     AcordeonComponent,
+    FrameDatosComponent
   ],
   imports: [
     CommonModule,
