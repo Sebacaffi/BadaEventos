@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { EventoComponentsComponent } from './evento/components/evento-components/evento-components.component';
 import { HomeComponentsComponent } from './home/components/home-components/home-components.component';
+import { ReservaComponentsComponent } from './reserva/components/reserva-components/reserva-components.component';
 
 const routes: Routes = [
   {
@@ -11,6 +12,10 @@ const routes: Routes = [
   {
     path:'evento',
     component: EventoComponentsComponent
+  },
+  {
+    path:'reserva',
+    component: ReservaComponentsComponent
   }
 ];
 
