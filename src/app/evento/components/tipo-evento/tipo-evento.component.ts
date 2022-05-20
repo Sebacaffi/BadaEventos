@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EventoService } from '../../services/evento.service';
-import { Pevent } from '../../models/evento.model';
+import { Prevent } from '../../models/evento.model';
 
 @Component({
   selector: 'app-tipo-evento',
@@ -9,12 +9,13 @@ import { Pevent } from '../../models/evento.model';
 })
 export class TipoEventoComponent implements OnInit {
 
-  public resultados:Pevent[] = [];
+  public resultados:Prevent[] = [];
 
   constructor(private service: EventoService) { }
 
+  resp = this.service.getEvents()
+
   ngOnInit(): void {
-    this.service.getEvents()
   }
 
 }

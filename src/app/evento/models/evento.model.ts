@@ -1,4 +1,4 @@
-export class Pevent {
+export class Prevent {
     id: number; // ID tipo evento
     site: Site;
     catering: Catering;
@@ -9,6 +9,7 @@ export class Pevent {
     type: string; // nombre tipo evento
     urlBase: string;
     image: string;
+    drinks: Drinks;
 }
 
 export class Age {
@@ -50,6 +51,16 @@ export class Entertainment {
     id: number;
     items: string;
     value: number;
+}
+
+export class Drinks {
+    id: number;
+    items: string;
+    value: number;
+    urlBase: string;
+    image: string;
+    description: string;
+    description2: string;
 }
 
 //clases para uso posterior
