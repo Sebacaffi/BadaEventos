@@ -6,13 +6,15 @@ import { CoreModule } from '../core/core.module';
 import { CalendarModule } from '@syncfusion/ej2-angular-calendars';
 import { FrameDatosComponent } from './components/frame-datos/frame-datos.component';
 import { RouterModule } from '@angular/router';
+import { TipoEventoComponent } from './components/tipo-evento/tipo-evento.component';
 
 
 @NgModule({
   declarations: [
     EventoComponentsComponent,
     AcordeonComponent,
-    FrameDatosComponent
+    FrameDatosComponent,
+    TipoEventoComponent,
   ],
   imports: [
     CommonModule,
