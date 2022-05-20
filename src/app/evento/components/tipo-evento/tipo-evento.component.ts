@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { EventoService } from '../../services/evento.service';
 import { Prevent } from '../../models/evento.model';
+import { EventoService } from '../../services/evento.service';
 
 @Component({
   selector: 'app-tipo-evento',
@@ -9,13 +9,14 @@ import { Prevent } from '../../models/evento.model';
 })
 export class TipoEventoComponent implements OnInit {
 
-  public resultados:Prevent[] = [];
+  resultList: Prevent[];
 
-  constructor(private service: EventoService) { }
-
-  resp = this.service.getEvents()
+  constructor(private eventService: EventoService) { }
 
   ngOnInit(): void {
+    this.eventService.getEvents().subscribe((eventsFromApi: Prevent[]) =>
+      this.resultList = eventsFromApi
+    ), error => console.error(error)
   }
 
 }
