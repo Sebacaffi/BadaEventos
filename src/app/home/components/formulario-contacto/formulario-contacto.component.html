@@ -15,7 +15,7 @@
                   <input ngModel required name="email" type="email" class="form-control rounded-pill" id="email" placeholder="ejemplo@badaevento.com">
                 </div>
                 <div class="mb-3">
-                    <label for="message" class="form-label">Mensaje</label>
+                    <label for="message" class="form-label">Mensaje</label>                    
                     <textarea ngModel required name="message" class="form-control rounded" id="message" rows="3" placeholder="Escriba su mensaje aqui..."></textarea>
                   </div>
                 <button [disabled]="contact.invalid" type="submit" (click)="alertaEnvio()" class="btn btn-primary">Enviar</button>

@@ -5,6 +5,7 @@ import { AcordeonComponent } from './components/acordeon/acordeon.component';
 import { CoreModule } from '../core/core.module';
 import { CalendarModule } from '@syncfusion/ej2-angular-calendars';
 import { FrameDatosComponent } from './components/frame-datos/frame-datos.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { FrameDatosComponent } from './components/frame-datos/frame-datos.compon
   imports: [
     CommonModule,
     CoreModule,
-    CalendarModule
+    CalendarModule,
+    RouterModule
   ],
   exports:[
     EventoComponentsComponent
