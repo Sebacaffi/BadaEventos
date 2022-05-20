@@ -7,13 +7,16 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 export class EventoService {
 
-  url = 'https://badaeventos.herokuapp.com/api/pevent/site/'
+  url = 'https://badaeventos.herokuapp.com/api/pevent/'
 
   constructor(private http: HttpClient) {   }
 
-  sendContactForm(data) {
-
-    return this.http.post(this.url, data)
+  getEvents(){
+    this.http.get(this.url)
+      .subscribe( resp => {
+        console.log(resp)
+      })
   }
+  
 
 }
