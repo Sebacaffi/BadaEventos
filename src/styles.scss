@@ -90,7 +90,12 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
+  height: 100%;
+}
 
+body {
+  height: 100vh;
+  padding-top: 70px;
 }
 
 body,
