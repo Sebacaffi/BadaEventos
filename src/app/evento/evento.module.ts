@@ -23,7 +23,8 @@ import { TipoEventoComponent } from './components/tipo-evento/tipo-evento.compon
     RouterModule
   ],
   exports:[
-    EventoComponentsComponent
+    EventoComponentsComponent,
+    FrameDatosComponent
   ]
 })
 export class EventoModule { }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { EventoService } from '../../services/evento.service';
+import { Prevent } from '../../models/evento.model';
 
 @Component({
   selector: 'app-acordeon',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AcordeonComponent implements OnInit {
 
-  constructor() { }
+  resultList: Prevent[];
+
+  constructor(private eventService: EventoService) { }
 
   ngOnInit(): void {
+
+    this.eventService.getEvents().subscribe((eventsFromApi: Prevent[]) =>
+    this.resultList = eventsFromApi
+  ), error => console.error(error)
   }
 
 }
