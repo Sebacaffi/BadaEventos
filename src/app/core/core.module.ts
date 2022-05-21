@@ -19,7 +19,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
   ],
   exports:[
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    NotFoundComponent
   ]
 })
 export class CoreModule { }
