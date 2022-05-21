@@ -36,7 +36,7 @@ export class FrameDatosComponent implements OnInit {
         this.navegarPago()
       } else if (
         result.dismiss === Swal.DismissReason.cancel
-      ) {
+      ){
         this.alertaEmail()
       }
     })

@@ -21,16 +21,15 @@ export class NavbarComponent implements OnInit {
       
       title: 'Revise el estado de tu evento',
       input: 'text',
-      inputLabel: 'Ingrese el ID de su evento',
-      showCancelButton: true
+      inputLabel: 'Ingrese el ID de su evento'
     })
 
-    if(idEvento){
-      this.navegar404()
-    }else{
+    if(!idEvento){
       Swal.fire('Debe ingresar un ID!', '', 'error')
+    }else{
+      this.navegar404()
     }
-  }  
+  }
 
   navegar404(){
     this.router.navigateByUrl('/notFound')
