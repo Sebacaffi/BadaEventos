@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 
 export class EventoService {
 
-  url = 'https://badaeventos.herokuapp.com/api/pevent'
+  url = 'https://badaeventos.herokuapp.com/api/pevent/'
 
   constructor(private http: HttpClient) {   }
 
