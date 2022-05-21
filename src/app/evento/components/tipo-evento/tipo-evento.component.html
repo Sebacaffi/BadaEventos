@@ -2,7 +2,7 @@
 <div>
     Tipo
 </div>
-<div class="col-30 pt-5 " *ngIf="resultList">
+<div class="col-30 pt-5 stretched-link pointer" routerLink="/evento" routerLinkActive="active" *ngIf="resultList">
     <div *ngFor="let result of resultList">
         <div class="card bg-dark text-white">
             <img src="{{result.urlBase+result.image}}" class="card-img" alt="..." height="500" width="100">
