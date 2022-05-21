@@ -10,6 +10,7 @@ export class Prevent {
     urlBase: string;
     image: string;
     drinks: Drinks;
+    description: string
 }
 
 export class Age {
@@ -29,7 +30,7 @@ export class Catering {
 
 export class Site {
     id: number;
-    site: string;
+    items: string;
     address: string;
     capacity: number;
     value: number;

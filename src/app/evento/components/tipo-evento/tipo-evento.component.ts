@@ -11,12 +11,21 @@ export class TipoEventoComponent implements OnInit {
 
   resultList: Prevent[];
 
-  constructor(private eventService: EventoService) { }
+  constructor(private eventService: EventoService) {
+   }
+
 
   ngOnInit(): void {
+
     this.eventService.getEvents().subscribe((eventsFromApi: Prevent[]) =>
       this.resultList = eventsFromApi
     ), error => console.error(error)
+
   }
+
+  // getId(id: number) {
+  //   this.eventService.getEventById(id)
+  //   console.log()
+  // }
 
 }

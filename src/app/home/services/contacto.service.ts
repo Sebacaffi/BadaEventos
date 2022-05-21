@@ -13,7 +13,6 @@ export class ContactoService {
 
   sendContactForm(data) {
 
-    var post = JSON.stringify(data)
     return this.http.post(this.url, data)
   }
 
