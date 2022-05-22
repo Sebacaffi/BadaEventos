@@ -19,7 +19,7 @@ export class EventoService {
   }
 
   getAge(): Observable<Age[]> {
-    let endpoint = "public"
+    let endpoint = "public/"
     return this.http.get<Age[]>(this.url+endpoint);
   }
 

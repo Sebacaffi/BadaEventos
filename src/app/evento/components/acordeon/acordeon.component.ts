@@ -23,7 +23,11 @@ export class AcordeonComponent implements OnInit {
     this.eventService.getAge().subscribe((agesFromApi: Age[]) =>
     this.ageResult = agesFromApi
   ), error => console.error(error)
-  
+
+  }
+
+  getGroup(id: number) {
+    console.log(id)
   }
 
 }
