@@ -15,7 +15,7 @@ export class Prevent {
 
 export class Age {
     id: number;
-    items: string;
+    ages: string;
 }
 
 export class Catering {

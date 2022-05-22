@@ -12,12 +12,9 @@
         <div>
           <div class="sub-item">
             <p>Tipo de cumpleaños:</p>
-            <select class="form-select" aria-label="Default select example">
-              <option selected>Mixto</option>
-              <option value="1">Adulto</option>
-              <option value="2">Juvenil</option>
-              <option value="3">Infantil</option>
-            </select>
+              <select class="form-select" aria-label="Default select example" >
+                <option *ngFor="let age of ageResult" value="{{age.id}}">{{age.ages}}</option>
+              </select>
           </div>
           <div class="sub-item">
             <p>Cantidad invitados:</p>
