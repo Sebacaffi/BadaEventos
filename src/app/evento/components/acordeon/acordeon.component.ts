@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EventoService } from '../../services/evento.service';
-import { Age, Prevent } from '../../models/evento.model';
+import { Age, Catering, Drinks, Entertainment, Music, Prevent, Site } from '../../models/evento.model';
 
 @Component({
   selector: 'app-acordeon',
@@ -11,6 +11,11 @@ export class AcordeonComponent implements OnInit {
 
   resultList: Prevent[];
   ageResult: Age[];
+  cateringResult: Catering[];
+  siteResult: Site[];
+  musicResult: Music[];
+  entertainmentResult: Entertainment[];
+  drinksResult: Drinks[];
 
   constructor(private eventService: EventoService) { }
 
@@ -24,6 +29,25 @@ export class AcordeonComponent implements OnInit {
     this.ageResult = agesFromApi
   ), error => console.error(error)
 
+    this.eventService.getCatering().subscribe((cateringFromApi: Catering[]) =>
+    this.cateringResult = cateringFromApi
+  ), error => console.error(error)
+
+    this.eventService.getSite().subscribe((siteFromApi: Site[]) =>
+    this.siteResult = siteFromApi
+  ), error => console.error(error)
+
+    this.eventService.getMusic().subscribe((musicFromApi: Music[]) =>
+    this.musicResult = musicFromApi
+  ), error => console.error(error)
+
+    this.eventService.getEntertainment().subscribe((entertainmentFromApi: Entertainment[]) =>
+    this.entertainmentResult = entertainmentFromApi
+  ), error => console.error(error)
+    
+    this.eventService.getDrinks().subscribe((drinksFromApi: Drinks[]) =>
+    this.drinksResult = drinksFromApi
+  ), error => console.error(error)
   }
 
   getGroup(id: number) {
