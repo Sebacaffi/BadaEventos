@@ -37,20 +37,21 @@
   </h2>
   <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
     data-bs-parent="#accordionExample">
-    <div class="accordion-body">
+    <div class="accordion-body" *ngFor="let catering of cateringResult">
       <div class="form-check">
         <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
         <label class="form-check-label" for="flexRadioDefault1">
           <div class="card mb-3" style="max-width: 540px;">
             <div class="row g-0">
               <div class="col-md-4">
-                <img src="assets/img/banqueteria.jpg" class="img-fluid rounded-start" alt="...">
+                <img src="{{catering.urlBase}}" class="img-fluid rounded-start" alt="...">
               </div>
               <div class="col-md-8">
                 <div class="card-body">
-                  <h5 class="card-title">Bocadillos surtidos</h5>
-                  <p class="card-text"><small>-Principal: Ostras en salsa blanca</small></p>
-                  <p class="card-text"><small>-Complemento: variedad de canapes</small></p>
+                  <h5 class="card-title">{{catering.items}}</h5>
+                  <p class="card-text"><small>{{catering.description}}</small></p>
+                  <p class="card-text"><small>{{catering.description2}}</small></p>
+                  <p class="card-text"><small>- Valor: ${{catering.value}}</small></p>
                 </div>
               </div>
             </div>
@@ -69,20 +70,21 @@
   </h2>
   <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
     data-bs-parent="#accordionExample">
-    <div class="accordion-body">
+    <div class="accordion-body" *ngFor="let site of siteResult">
       <div class="form-check">
         <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
         <label class="form-check-label" for="flexRadioDefault1">
           <div class="card mb-3" style="max-width: 540px;">
             <div class="row g-0">
               <div class="col-md-4">
-                <img src="assets/img/wedding-1.jpg" class="img-fluid rounded-start" alt="...">
+                <img src="{{site.urlBase}}" class="img-fluid rounded-start" alt="...">
               </div>
               <div class="col-md-8">
                 <div class="card-body">
-                  <h5 class="card-title">Salón Marlon Premium</h5>
-                  <p class="card-text"><small>-Calle limache 1113, Vina del mar</small></p>
-                  <p class="card-text"><small>-Capacidad: 60 personas</small></p>
+                  <h5 class="card-title">{{site.items}}</h5>
+                  <p class="card-text"><small>{{site.address}}</small></p>
+                  <p class="card-text"><small>{{site.capacity}}</small></p>
+                  <p class="card-text"><small>- Valor: ${{site.value}}</small></p>  
                 </div>
               </div>
             </div>
@@ -101,20 +103,21 @@
   </h2>
   <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
     data-bs-parent="#accordionExample">
-    <div class="accordion-body">
+    <div class="accordion-body" *ngFor="let music of musicResult">
       <div class="form-check">
         <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
         <label class="form-check-label" for="flexRadioDefault1">
           <div class="card mb-3" style="max-width: 540px;">
             <div class="row g-0">
               <div class="col-md-4">
-                <img src="assets/img/orquesta.jpg" class="img-fluid rounded-start" alt="...">
+                <img src="{{music.urlBase}}" class="img-fluid rounded-start" alt="...">
               </div>
               <div class="col-md-8">
                 <div class="card-body">
-                  <h5 class="card-title">Orquesta en vivo</h5>
-                  <p class="card-text"><small>-Ritmos: tropicales y cumbias</small></p>
-                  <p class="card-text"><small>-Disponible: 3 horas</small></p>
+                  <h5 class="card-title">{{music.items}}</h5>
+                  <p class="card-text"><small>{{music.description}}</small></p>
+                  <p class="card-text"><small>{{music.description2}}</small></p>
+                  <p class="card-text"><small>- Valor: ${{music.value}}</small></p>
                 </div>
               </div>
             </div>
@@ -133,20 +136,21 @@
   </h2>
   <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
     data-bs-parent="#accordionExample">
-    <div class="accordion-body">
+    <div class="accordion-body" *ngFor="let entertainment of entertainmentResult">
       <div class="form-check">
         <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
         <label class="form-check-label" for="flexRadioDefault1">
           <div class="card mb-3" style="max-width: 540px;">
             <div class="row g-0">
               <div class="col-md-4">
-                <img src="assets/img/juegos.jpg" class="img-fluid rounded-start" alt="...">
+                <img src="{{entertainment.urlBase}}" class="img-fluid rounded-start" alt="...">
               </div>
               <div class="col-md-8">
                 <div class="card-body">
-                  <h5 class="card-title">Juego inflable grande</h5>
-                  <p class="card-text"><small>-Dimensiones: 5m alto x 4m ancho </small></p>
-                  <p class="card-text"><small>-Disponible: todo el evento</small></p>
+                  <h5 class="card-title">{{entertainment.items}}</h5>
+                  <p class="card-text"><small>{{entertainment.description}}</small></p>
+                  <p class="card-text"><small>{{entertainment.description2}}</small></p>
+                  <p class="card-text"><small>- Valor: ${{entertainment.value}}</small></p>
                 </div>
               </div>
             </div>
@@ -165,20 +169,21 @@
   </h2>
   <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
     data-bs-parent="#accordionExample">
-    <div class="accordion-body">
+    <div class="accordion-body" *ngFor="let drinks of drinksResult">
       <div class="form-check">
         <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
         <label class="form-check-label" for="flexRadioDefault1">
           <div class="card mb-3" style="max-width: 540px;">
             <div class="row g-0">
               <div class="col-md-4">
-                <img src="assets/img/copete.jpg" class="img-fluid rounded-start" alt="...">
+                <img src="{{drinks.urlBase}}" class="img-fluid rounded-start" alt="...">
               </div>
               <div class="col-md-8">
                 <div class="card-body">
-                  <h5 class="card-title">Bebestibles fiesta</h5>
-                  <p class="card-text"><small>-Principal: Ron con leche (3 pp)</small></p>
-                  <p class="card-text"><small>-Complemento: Cervezas (10 pp)</small></p>
+                  <h5 class="card-title">{{drinks.items}}</h5>
+                  <p class="card-text"><small>{{drinks.description}}</small></p>
+                  <p class="card-text"><small>{{drinks.description2}}</small></p>
+                  <p class="card-text"><small>- Valor: ${{drinks.value}}</small></p>
                 </div>
               </div>
             </div>

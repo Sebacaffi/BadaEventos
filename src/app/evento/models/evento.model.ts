@@ -51,7 +51,10 @@ export class Music {
 export class Entertainment {
     id: number;
     items: string;
+    urlBase: string;
     value: number;
+    description: string;
+    description2: string;
 }
 
 export class Drinks {
