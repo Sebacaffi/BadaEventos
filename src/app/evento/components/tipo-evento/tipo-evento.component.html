@@ -5,7 +5,7 @@
 <div class="col-30 pt-5" *ngIf="resultList">
     <div *ngFor="let result of resultList">
         <div class="card bg-dark text-white  stretched-link pointer" routerLink="/evento" routerLinkActive="active" >
-            <img src="{{result.urlBase+result.image}}" class="card-img" alt="..." height="500" width="100">
+            <img src="{{result.urlBase}}" class="card-img" alt="..." height="500" width="100">
             <div class="card-img-overlay">
                 <h5 class="card-title">{{result.type}}</h5>
                 <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
