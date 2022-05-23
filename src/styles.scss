@@ -10,7 +10,6 @@
 @import '../node_modules/@syncfusion/ej2-angular-calendars/styles/material.css';
 
 // Bada theme - Bootstrap styles
-
 @import "../node_modules/bootstrap/scss/functions";
 @import "../node_modules/bootstrap/scss/variables";
 @import '../node_modules/bootstrap/scss/bootstrap.scss';
@@ -104,6 +103,7 @@ html {
 body {
   height: 100vh;
   padding-top: 70px;
+  background-color: #FDF9F0;
 }
 
 body,
