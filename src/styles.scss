@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+
 @import '../node_modules/@syncfusion/ej2-base/styles/material.css';
 @import '../node_modules/@syncfusion/ej2-buttons/styles/material.css';
 @import '../node_modules/@syncfusion/ej2-inputs/styles/material.css';
@@ -7,6 +8,12 @@
 @import '../node_modules/@syncfusion/ej2-splitbuttons/styles/material.css';
 @import '../node_modules/@syncfusion/ej2-calendars/styles/material.css';
 @import '../node_modules/@syncfusion/ej2-angular-calendars/styles/material.css';
+
+// Bada theme - Bootstrap styles
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+@import '../node_modules/bootstrap/scss/bootstrap.scss';
+
 
 /* MEDIA QUERIES */
 
@@ -96,6 +103,7 @@ html {
 body {
   height: 100vh;
   padding-top: 70px;
+  background-color: #FDF9F0;
 }
 
 body,
@@ -223,54 +231,54 @@ textarea {
 
 /*----------------------- COLORES TEXTO----------------------*/
 
-$primary: #B94F37;
-$primary-hover: #D49E92;
-$secundary: #D49E92;
-$cream: #FDF9F0;
-$white: #fff;
-$carbon: #4F4F4F;
-$grey1: #828282;
-$grey2: #BDBDBD;
+// $primary: #B94F37;
+// $primary-hover: #D49E92;
+// $secundary: #D49E92;
+// $cream: #FDF9F0;
+// $white: #fff;
+// $carbon: #4F4F4F;
+// $grey1: #828282;
+// $grey2: #BDBDBD;
 
-.inicio {
-  color: $primary;
-}
+// .inicio {
+//   color: $primary;
+// }
 
-.primary {
-  color: #B94F37;
-}
+// .primary {
+//   color: #B94F37;
+// }
 
-.secundary {
-  color: #D49E92;
-}
+// .secundary {
+//   color: #D49E92;
+// }
 
-.cream {
-  color: #FDF9F0;
-}
+// .cream {
+//   color: #FDF9F0;
+// }
 
-.white {
-  color: #fff;
-}
+// .white {
+//   color: #fff;
+// }
 
-.black{
-  color: #0000;
-}
+// .black{
+//   color: #0000;
+// }
 
-.carbon {
-  color: #4F4F4F;
-}
+// .carbon {
+//   color: #4F4F4F;
+// }
 
-.grey1 {
-  color: #828282;
-}
+// .grey1 {
+//   color: #828282;
+// }
 
-.grey2 {
-  color: #BDBDBD;
-}
+// .grey2 {
+//   color: #BDBDBD;
+// }
 
-.grey3 {
-  color: #dfdfdf;
-}
+// .grey3 {
+//   color: #dfdfdf;
+// }
 
 /*----------------------- COLORES CONTENEDORES Y BOTONES----------------------*/
 
@@ -310,11 +318,6 @@ $grey2: #BDBDBD;
   background-color: #af3434;
 }
 
-.btn-primary.disabled, .btn-primary:disabled {
-  color: #fff;
-  background-color: #828282;
-  border-color: #828282;
-}
 
 /* Párrafos */
 
@@ -471,16 +474,16 @@ $font: 1px;
 
 // BOTONES
 
-.btn-primary {
-  background-color: $primary;
-  border-color: $primary;
-}
+// .btn-primary {
+//   background-color: $primary;
+//   border-color: $primary;
+// }
 
-.btn-primary:hover,
-.btn-primary:focus {
-  background-color: $primary-hover;
-  border-color: $primary-hover;
-}
+// .btn-primary:hover,
+// .btn-primary:focus {
+//   background-color: $primary-hover;
+//   border-color: $primary-hover;
+// }
 
 #btn-back-to-top {
   position: fixed;
