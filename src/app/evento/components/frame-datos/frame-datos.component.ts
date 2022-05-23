@@ -29,8 +29,7 @@ export class FrameDatosComponent implements OnInit {
       icon: 'question',
       showCancelButton: true,
       confirmButtonText: 'Pagar',
-      cancelButtonText: 'Guardar',
-      reverseButtons: true
+      cancelButtonText: 'Guardar'
     }).then((result) => {
       if (result.isConfirmed) {
         this.navegarPago()

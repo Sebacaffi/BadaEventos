@@ -21,12 +21,14 @@ export class NavbarComponent implements OnInit {
       
       title: 'Revise el estado de tu evento',
       input: 'text',
-      inputLabel: 'Ingrese el ID de su evento'
+      inputLabel: 'Ingrese el ID de su evento',
+      showCancelButton: true,
+      confirmButtonText: 'OK',
     })
 
     if(!idEvento){
       Swal.fire('Debe ingresar un ID!', '', 'error')
-    }else{
+    }else if(idEvento){
       this.navegar404()
     }
   }
