@@ -26,6 +26,10 @@ const routes: Routes = [
   {
     path:'notFound',
     component: NotFoundComponent
+  },
+  {
+    path:'**',
+    component: NotFoundComponent
   }
 ];
 
