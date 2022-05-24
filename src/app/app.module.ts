@@ -12,6 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { CalendarModule } from '@syncfusion/ej2-angular-calendars';
 import { ReservaModule } from './reserva/reserva.module';
+import { AdminModule } from './admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ReservaModule } from './reserva/reserva.module';
     HomeModule,
     EventoModule,
     ReservaModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AdminModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,15 +1,15 @@
 export class Prevent {
     id: number; // ID tipo evento
     site: Site;
-    catering: Catering;
+    event_catering: Catering;
     group: Age;
     music: Music;
-    entertainment: Entertainment;
+    event_entertainment: Entertainment;
     value: number;
     type: string; // nombre tipo evento
     urlBase: string;
     image: string;
-    drinks: Drinks;
+    event_drinks: Drinks;
     description: string
 }
 
@@ -23,9 +23,9 @@ export class Catering {
     items: string;
     value: number;
     urlBase: string;
-    image: string;
     description: string;
     description2: string;
+    eventType: number;
 }
 
 export class Site {
@@ -35,7 +35,6 @@ export class Site {
     capacity: number;
     value: number;
     urlBase: string;
-    image: string;
 }
 
 export class Music {
@@ -43,7 +42,6 @@ export class Music {
     items: string;
     value: number;
     urlBase: string;
-    image: string;
     description: string;
     description2: string;
 }
@@ -55,6 +53,7 @@ export class Entertainment {
     value: number;
     description: string;
     description2: string;
+    eventType: number;
 }
 
 export class Drinks {
@@ -62,9 +61,9 @@ export class Drinks {
     items: string;
     value: number;
     urlBase: string;
-    image: string;
     description: string;
     description2: string;
+    eventType: number;
 }
 
 //clases para uso posterior
