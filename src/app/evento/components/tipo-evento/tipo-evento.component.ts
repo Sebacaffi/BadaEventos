@@ -28,6 +28,7 @@ export class TipoEventoComponent implements OnInit {
     let result = this.resultList[id-1]
     this.resultEvent = result
     console.log(this.resultEvent)
+    localStorage.setItem("prevent", JSON.stringify(this.resultEvent))
   }
 
 }
