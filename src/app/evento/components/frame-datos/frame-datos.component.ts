@@ -9,7 +9,11 @@ import Swal from 'sweetalert2';
 })
 export class FrameDatosComponent implements OnInit {
 
-  constructor( private router: Router) { }
+  prevent = JSON.parse(localStorage.getItem("prevent"))
+
+  constructor( private router: Router) {
+    
+  }
 
   ngOnInit(): void {
   }
