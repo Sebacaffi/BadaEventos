@@ -1,86 +1,24 @@
 <app-navbar></app-navbar>
-<!-- <div>
-    Tipo
-</div>
-<div class="container my-5 pt-5" *ngIf="resultList">
-    <div class="justify-content-lg-center d-flex flex-row">
-    <div *ngFor="let result of resultList">
-        <div class="card m-2 text-white stretched-link pointer" style="max-width: 200px;" routerLink="/evento" routerLinkActive="active" >
-            <img src="{{result.urlBase}}" class="card-img-2 card-cover" alt="..." height="500" width="auto">
-            <div class="card-img-overlay card-caption">
-                <h4 class="card-title">{{result.type}}</h4>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-        </div>
-    </div>
-    </div>
-</div>
-<div class="container-md col-60 mx-auto mb-5">
-    <div class="">
-    <label for="ID">¿Ya tiene un ID de evento? Realice el seguimiento aquí</label>        
-    <input type="text" class="form-control" placeholder="Ingrese su ID aquí.." aria-describedby="basic-addon1">
-</div>
-</div> -->
-
-<section id="tipo-evento" class="container py-5 mt-5">
+<section id="tipo-evento" class="container py-5 my-5">
     <h2 class="section-title text-center py-5 text-shadow-h2">¿Qué vas a celebrar?</h2>
     <!--  -->
-    <div class="row row-cols-lg-5 row-cols-md-2 justify-content-center"><!-- *ngIf="resultList" -->
-
-        <div> <!-- *ngFor="let result of resultList" -->
-            <div class="card m-2 tipo-evento-card text-white shadow pointer"> <!-- routerLink="/evento" routerLinkActive="active" -->
-                <img src="..\assets\img\bparty.jpg" class="card-img img-fluid" alt="..." style="object-fit: cover; height: -webkit-fill-available;">
+    <div class="row row-cols-lg-5 row-cols-md-2 justify-content-center" *ngIf="resultList">
+        <div *ngFor="let result of resultList">
+            <div class="card tipo-evento-card text-white shadow pointer" routerLink="/evento" routerLinkActive="active">
+                <img src="{{result.urlBase}}" class="card-img img-fluid" alt="..."
+                    style="object-fit: cover; height: -webkit-fill-available;">
                 <div class="card-img-overlay caption-bg">
-                    <h4 class="card-title">Título</h4>
+                    <h4 class="card-title">{{result.type}}</h4>
                     <p class="card-text p1">Acá va una breve descripción de no más de 80 caracteres que explique el evento</p>
                 </div>
             </div>
         </div>
-
-
-        <div> <!-- *ngFor="let result of resultList" -->
-            <div class="card m-2 tipo-evento-card text-white shadow pointer"> <!-- routerLink="/evento" routerLinkActive="active" -->
-                <img src="..\assets\img\bparty.jpg" class="card-img img-fluid" alt="..." style="object-fit: cover; height: -webkit-fill-available;">
-                <div class="card-img-overlay caption-bg">
-                    <h4 class="card-title">Título</h4>
-                    <p class="card-text p1">Acá va una breve descripción de no más de 80 caracteres que explique el evento</p>
-                </div>
-            </div>
+    </div>
+    <div class="container-md text-center mx-auto m-5 justify-content-center">
+        <div class="col-md-6 mx-auto">
+            <label for="ID" class="p2 p-1">¿Ya tiene un ID de evento? Realice el seguimiento aquí</label>
+            <input type="text" class="form-control" placeholder="Ingrese su ID aquí.." aria-describedby="basic-addon1">
         </div>
-
-
-        <div> <!-- *ngFor="let result of resultList" -->
-            <div class="card m-2 tipo-evento-card text-white shadow pointer"> <!-- routerLink="/evento" routerLinkActive="active" -->
-                <img src="..\assets\img\bparty.jpg" class="card-img img-fluid" alt="..." style="object-fit: cover; height: -webkit-fill-available;">
-                <div class="card-img-overlay caption-bg">
-                    <h4 class="card-title">Título</h4>
-                    <p class="card-text p1">Acá va una breve descripción de no más de 80 caracteres que explique el evento</p>
-                </div>
-            </div>
-        </div>
-
-
-        <div> <!-- *ngFor="let result of resultList" -->
-            <div class="card m-2 tipo-evento-card text-white shadow pointer"> <!-- routerLink="/evento" routerLinkActive="active" -->
-                <img src="..\assets\img\bparty.jpg" class="card-img img-fluid" alt="..." style="object-fit: cover; height: -webkit-fill-available;">
-                <div class="card-img-overlay caption-bg">
-                    <h4 class="card-title">Título</h4>
-                    <p class="card-text p1">Acá va una breve descripción de no más de 80 caracteres que explique el evento</p>
-                </div>
-            </div>
-        </div>
-
-
-        <div> <!-- *ngFor="let result of resultList" -->
-            <div class="card m-2 tipo-evento-card text-white shadow pointer"> <!-- routerLink="/evento" routerLinkActive="active" -->
-                <img src="..\assets\img\bparty.jpg" class="card-img img-fluid" alt="..." style="object-fit: cover; height: -webkit-fill-available;">
-                <div class="card-img-overlay caption-bg">
-                    <h4 class="card-title">Título</h4>
-                    <p class="card-text p1">Acá va una breve descripción de no más de 80 caracteres que explique el evento</p>
-                </div>
-            </div>
-        </div>
-
     </div>
 
 </section>
