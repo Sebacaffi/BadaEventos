@@ -10,6 +10,7 @@ import { EventoService } from '../../services/evento.service';
 export class TipoEventoComponent implements OnInit {
 
   resultList: Prevent[];
+  resultEvent: Prevent;
 
   constructor(private eventService: EventoService) {
    }
@@ -23,9 +24,10 @@ export class TipoEventoComponent implements OnInit {
 
   }
 
-  // getId(id: number) {
-  //   this.eventService.getEventById(id)
-  //   console.log()
-  // }
+  getEventById(id: number) {
+    let result = this.resultList[id-1]
+    this.resultEvent = result
+    console.log(this.resultEvent)
+  }
 
 }
