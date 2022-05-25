@@ -21,8 +21,8 @@ export class FrameDatosComponent implements OnInit {
   alertaReserva(){
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
-        confirmButton: 'btn btn-success',
-        cancelButton: 'btn btn-danger'
+        confirmButton: 'btn btn-primary',
+        cancelButton: 'btn btn-secondary'
       },
       buttonsStyling: false
     })

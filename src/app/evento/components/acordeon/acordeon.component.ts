@@ -40,33 +40,36 @@ export class AcordeonComponent implements OnInit {
 
   ngOnInit(): void {
 
+    //servicios para el consumo de la API
     this.eventService.getEvents().subscribe((eventsFromApi: Prevent[]) =>
-    this.resultList = eventsFromApi
-  ), error => console.error(error)
-    
+      this.resultList = eventsFromApi
+    ), error => console.error(error)
+      
     this.eventService.getAge().subscribe((agesFromApi: Age[]) =>
-    this.ageResult = agesFromApi
-  ), error => console.error(error)
+      this.ageResult = agesFromApi
+    ), console.log(this.ageResult)
+    
+    // error => console.error(error)
 
     this.eventService.getCatering().subscribe((cateringFromApi: Catering[]) =>
-    this.cateringResult = cateringFromApi
-  ), error => console.error(error)
+      this.cateringResult = cateringFromApi
+    ), error => console.error(error)
 
     this.eventService.getSite().subscribe((siteFromApi: Site[]) =>
-    this.siteResult = siteFromApi
-  ), error => console.error(error)
+      this.siteResult = siteFromApi
+    ), error => console.error(error)
 
     this.eventService.getMusic().subscribe((musicFromApi: Music[]) =>
-    this.musicResult = musicFromApi
-  ), error => console.error(error)
+      this.musicResult = musicFromApi
+    ), error => console.error(error)
 
     this.eventService.getEntertainment().subscribe((entertainmentFromApi: Entertainment[]) =>
-    this.entertainmentResult = entertainmentFromApi
-  ), error => console.error(error)
-    
+      this.entertainmentResult = entertainmentFromApi
+    ), error => console.error(error)
+      
     this.eventService.getDrinks().subscribe((drinksFromApi: Drinks[]) =>
-    this.drinksResult = drinksFromApi
-  ), error => console.error(error)
+       this.drinksResult = drinksFromApi
+    ), error => console.error(error)
   }
 
   getGroup(id: number) {

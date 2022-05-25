@@ -15,21 +15,47 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  async alertaSeguimiento(){
+  alertaSeguimiento(){
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-primary',
+        cancelButton: 'btn btn-secondary'
+      },
+      buttonsStyling: false
+    })
+    
+    swalWithBootstrapButtons.fire({
+      title: '¿Qué desea hacer con su evento?',
+      text: "Seleccione si desea PAGAR o MODIFICAR su evento",
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonText: 'Pagar',
+      cancelButtonText: 'Modificar',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.navegarPago()
+      } else if (
+        result.dismiss === Swal.DismissReason.cancel
+      ){
+        this.navegarEvento()
+      }
+    })
+  }
 
+  async alertaID(){
     const { value: idEvento } = await Swal.fire({
-      
-      title: 'Revise el estado de tu evento',
+      title: 'Ingrese el ID de su evento',
       input: 'text',
       inputLabel: 'Ingrese el ID de su evento',
-      showCancelButton: true,
+      inputPlaceholder: 'Ingrese el ID de su evento aquí ...',
+      icon:'info',
       confirmButtonText: 'OK',
     })
-
+    
     if(!idEvento){
       Swal.fire('Debe ingresar un ID!', '', 'error')
     }else if(idEvento){
-      this.navegar404()
+      this.alertaSeguimiento()
     }
   }
 
@@ -37,4 +63,11 @@ export class NavbarComponent implements OnInit {
     this.router.navigateByUrl('/notFound')
   }
 
+  navegarEvento(){
+    this.router.navigateByUrl('/evento')
+  }
+
+  navegarPago(){
+    this.router.navigateByUrl("/reserva");
+  }
 }
