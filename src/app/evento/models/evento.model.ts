@@ -1,16 +1,15 @@
 export class Prevent {
-    id: number; // ID tipo evento
-    site: Site;
-    event_catering: Catering;
+    id: number;
     group: Age;
+    site: Site;
     music: Music;
-    event_entertainment: Entertainment;
-    value: number;
-    type: string; // nombre tipo evento
-    urlBase: string;
-    image: string;
-    event_drinks: Drinks;
+    event_catering: Catering[];
+    event_drinks: Drinks[];
+    event_entertainment: Entertainment[];
+    type: string;
     description: string
+    urlBase: string;
+    value: number;
 }
 
 export class Age {
