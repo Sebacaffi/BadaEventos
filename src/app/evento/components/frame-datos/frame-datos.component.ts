@@ -16,6 +16,7 @@ export class FrameDatosComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.prevent)
   }
 
   alertaReserva(){

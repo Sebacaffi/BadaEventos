@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Catering, Drinks, Entertainment, Music, Prevent, Site } from '../models/evento.model';
 import { Age } from '../models/evento.model';
 import { Observable } from 'rxjs';
