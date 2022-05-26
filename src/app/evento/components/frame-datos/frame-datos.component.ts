@@ -12,11 +12,10 @@ export class FrameDatosComponent implements OnInit {
   prevent = JSON.parse(localStorage.getItem("prevent"))
 
   constructor( private router: Router) {
-    
   }
 
   ngOnInit(): void {
-    console.log(this.prevent)
+    console.log(this.prevent.id)
   }
 
   alertaReserva(){

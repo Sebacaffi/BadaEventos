@@ -13,7 +13,8 @@ export class EventoService {
   urlPrevent = 'https://badaeventos.herokuapp.com/api/p-event/'
   urlDetail = 'https://badaeventos.herokuapp.com/api/pevent/'
 
-  constructor(private http: HttpClient) {   }
+  constructor(private http: HttpClient) {  
+   }
 
   getEvents(): Observable<Prevent[]> {
     return this.http.get<Prevent[]>(this.urlPrevent);
@@ -24,9 +25,9 @@ export class EventoService {
     return this.http.get<Age[]>(this.urlDetail+endpoint);
   }
 
-  getCatering(): Observable<Catering[]> {
-    let endpoint = "catering/"
-    return this.http.get<Catering[]>(this.urlDetail+endpoint);
+  getCatering(id: number): Observable<Catering[]> {
+    let endpoint = "/catering/"
+    return this.http.get<Catering[]>(this.urlDetail+id+endpoint);
   }
 
   getSite(): Observable<Site[]> {
@@ -39,14 +40,14 @@ export class EventoService {
     return this.http.get<Music[]>(this.urlDetail+endpoint);
   }
 
-  getEntertainment(): Observable<Entertainment[]> {
-    let endpoint = "entertainment/"
-    return this.http.get<Entertainment[]>(this.urlDetail+endpoint);
+  getEntertainment(id: number): Observable<Entertainment[]> {
+    let endpoint = "/entertainment/"
+    return this.http.get<Entertainment[]>(this.urlDetail+id+endpoint);
   }
 
-  getDrinks(): Observable<Drinks[]> {
-    let endpoint = "drinks/"
-    return this.http.get<Drinks[]>(this.urlDetail+endpoint);
+  getDrinks(id: number): Observable<Drinks[]> {
+    let endpoint = "/drinks/"
+    return this.http.get<Drinks[]>(this.urlDetail+id+endpoint);
   }
 
   // getEventById(id: number): Observable<Prevent[]> {

@@ -36,6 +36,8 @@ export class AcordeonComponent implements OnInit {
   entertainmentResult: Entertainment[];
   drinksResult: Drinks[];
 
+  id = parseInt(localStorage.getItem("id"))
+
   constructor(private eventService: EventoService) { }
 
   ngOnInit(): void {
@@ -51,7 +53,7 @@ export class AcordeonComponent implements OnInit {
     
     // error => console.error(error)
 
-    this.eventService.getCatering().subscribe((cateringFromApi: Catering[]) =>
+    this.eventService.getCatering(this.id).subscribe((cateringFromApi: Catering[]) =>
       this.cateringResult = cateringFromApi
     ), error => console.error(error)
 
@@ -63,11 +65,11 @@ export class AcordeonComponent implements OnInit {
       this.musicResult = musicFromApi
     ), error => console.error(error)
 
-    this.eventService.getEntertainment().subscribe((entertainmentFromApi: Entertainment[]) =>
+    this.eventService.getEntertainment(this.id).subscribe((entertainmentFromApi: Entertainment[]) =>
       this.entertainmentResult = entertainmentFromApi
     ), error => console.error(error)
       
-    this.eventService.getDrinks().subscribe((drinksFromApi: Drinks[]) =>
+    this.eventService.getDrinks(this.id).subscribe((drinksFromApi: Drinks[]) =>
        this.drinksResult = drinksFromApi
     ), error => console.error(error)
   }
