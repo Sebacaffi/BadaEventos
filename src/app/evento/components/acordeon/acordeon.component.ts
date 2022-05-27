@@ -113,8 +113,6 @@ export class AcordeonComponent implements OnInit {
     //suma valores de radioButton
     totalValue = this.musicValue + this.siteValue+ this.entertaimentValue+ this.drinksValue+ this.cateringValue;
     this.totalItems = totalValue;
-
-    console.log("Total Value is : ", totalValue);
     console.log("Total Items is : ", this.totalItems);
  }
 
