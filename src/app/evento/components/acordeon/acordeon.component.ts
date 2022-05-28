@@ -3,6 +3,7 @@ import { EventoService } from '../../services/evento.service';
 import { Router } from '@angular/router';
 import { Age, Catering, Drinks, Entertainment, Music, Prevent, Site } from '../../models/evento.model';
 import Swal from 'sweetalert2';
+import { nullSafeIsEquivalent } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-acordeon',
@@ -10,11 +11,6 @@ import Swal from 'sweetalert2';
   styleUrls: ['./acordeon.component.scss']
 })
 export class AcordeonComponent implements OnInit {
-
-  DateSelected: any
-  onDateChange() {
-    console.log(this.DateSelected)
-  }
   
   ageResult: Age[];
   cateringResult: Catering[];
@@ -50,12 +46,12 @@ export class AcordeonComponent implements OnInit {
   constructor(
     private eventService: EventoService,
     private router: Router
-    ) {}
+  ) {}
 
   ngOnInit(): void {
 
     this.setEventObject(this.getEvent)
-    console.log(this.event.id)
+    console.log(this.event)
       
     this.eventService.getAge().subscribe((agesFromApi: Age[]) =>
       this.ageResult = agesFromApi
@@ -80,10 +76,6 @@ export class AcordeonComponent implements OnInit {
     this.eventService.getDrinks(this.id).subscribe((drinksFromApi: Drinks[]) =>
        this.drinksResult = drinksFromApi
     ), error => console.error(error)
-  }
-  
-  getGroup(id: number) {
-    console.log(id)
   }
 
   setEventObject(obj: Prevent) {
@@ -118,6 +110,7 @@ export class AcordeonComponent implements OnInit {
     }
     
     localStorage.setItem("prevent", JSON.stringify(this.event));
+
     //suma valores de radioButton
     totalValue = this.musicValue + this.siteValue+ this.entertaimentValue+ this.drinksValue+ this.cateringValue;
     this.totalItems = totalValue;

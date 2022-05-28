@@ -18,7 +18,7 @@ export class FrameDatosComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-    this.prevent
+    
   }
 
   alertaReserva(){
