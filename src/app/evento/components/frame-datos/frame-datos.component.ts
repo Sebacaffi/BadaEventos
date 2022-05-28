@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
   templateUrl: './frame-datos.component.html',
   styleUrls: ['./frame-datos.component.scss']
 })
-export class FrameDatosComponent implements OnInit {
+export class FrameDatosComponent implements OnInit, OnChanges {
 
   prevent = JSON.parse(localStorage.getItem("prevent"))
 
@@ -15,7 +15,10 @@ export class FrameDatosComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.prevent.id)
+  }
+
+  ngOnChanges() {
+    this.prevent
   }
 
   alertaReserva(){
