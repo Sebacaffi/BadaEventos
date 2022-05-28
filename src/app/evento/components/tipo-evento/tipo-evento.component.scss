@@ -6,7 +6,9 @@
 .tipo-evento-card {
     min-height: 100px;
     height: 20vw;
-    max-height: 400px
+    max-height: 400px;
+    text-size-adjust: 80%;
+    width: 100%
 }
 
 @media only screen and (min-width: 990px) {

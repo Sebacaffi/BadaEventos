@@ -1,9 +1,9 @@
-<div id="contacto" class="container-fluid col-80 mb-5">
+<div id="contacto" class="container-fluid col-lg-12 mb-5">
     <div class="row">
-        <div class="image-contact col-50 mr-3 dropshadow">
+        <div class="image-contact col-lg-6 mr-3 shadow-lg">
         </div>
-          <div class="col-50 my-4 px-3">
-            <h1 class="display-6 mb-4 regular">Contacto</h1>
+          <div class="col-md-6 my-4 px-5">
+            <h2 class="mb-4 regular">Contacto</h2>
             
             <form id="contactForm" #contact="ngForm" (ngSubmit)="getContactInputs(contact.value);contact.reset()">
                 <div class="mb-3">
@@ -18,7 +18,7 @@
                     <label for="message" class="form-label">Mensaje</label>                    
                     <textarea ngModel required name="message" class="form-control rounded" id="message" rows="3" placeholder="Escriba su mensaje aqui..."></textarea>
                   </div>
-                <button [disabled]="contact.invalid" type="submit" (click)="alertaEnvio()" class="btn btn-primary">Enviar</button>
+                <button [disabled]="contact.invalid" type="submit" (click)="alertaEnvio()" class="nav-link rounded-pill p2 shadow btn btn-primary text-light mt-3">Enviar</button>
             </form>
         </div>
     </div>

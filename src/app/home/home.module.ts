@@ -6,7 +6,7 @@ import { HeroComponent } from './components/hero/hero.component';
 import { SliderComponent } from './components/slider/slider.component';
 import { NosotrosComponent } from './components/nosotros/nosotros.component';
 import { FormularioContactoComponent } from './components/formulario-contacto/formulario-contacto.component';
-import { CoreModule } from '../core/core.module';
+
 
 
 
@@ -20,8 +20,7 @@ import { CoreModule } from '../core/core.module';
   ],
   imports: [
     CommonModule,
-    FormsModule,
-    CoreModule
+    FormsModule
   ],
   exports:[
     HomeComponentsComponent
