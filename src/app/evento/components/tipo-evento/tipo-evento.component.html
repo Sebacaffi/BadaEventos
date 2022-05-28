@@ -1,7 +1,7 @@
 <section id="tipo-evento" class="container py-5 mt-5">
     <h2 class="section-title text-center py-5">¿Qué vas a celebrar?</h2>
     <!--  -->
-    <!-- <div class="row row-cols-lg-5 row-cols-md-2 justify-content-center" *ngIf="resultList">
+    <div class="row row-cols-lg-5 row-cols-md-2 justify-content-center" *ngIf="resultList">
         <div *ngFor="let result of resultList">
             <div class="card tipo-evento-card text-white shadow pointer my-2 zoom-on-hover" routerLink="/evento" routerLinkActive="active" (click)="getEventById(result.id)">
                 <img src="{{result.urlBase}}" class="card-img img-fluid h-100" alt="..."
@@ -12,7 +12,7 @@
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>
     <div class="container-md text-center mx-auto m-5 justify-content-center">
         <div class="col-md-8 mx-auto">
             <label for="ID" class="p-1">¿Ya tiene un ID de evento? Realice el seguimiento aquí</label>
