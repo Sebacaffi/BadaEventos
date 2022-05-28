@@ -3,7 +3,6 @@ import { EventoService } from '../../services/evento.service';
 import { Router } from '@angular/router';
 import { Age, Catering, Drinks, Entertainment, Music, Prevent, Site } from '../../models/evento.model';
 import Swal from 'sweetalert2';
-import { nullSafeIsEquivalent } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-acordeon',
@@ -23,6 +22,8 @@ export class AcordeonComponent implements OnInit {
   entertaimentValue = 0;
   drinksValue = 0;
   cateringValue = 0;
+
+  displayValue="1";
 
   totalItems = 0;
 
@@ -99,7 +100,7 @@ export class AcordeonComponent implements OnInit {
         this.event.event_entertainment = object
         break;
       case 'drinks': console.log(" Value is : ", value);
-        this.drinksValue = value;
+        this.drinksValue = value; 
         this.event.event_drinks = object
         break;
       case 'catering': console.log(" Value is : ", value);
@@ -110,12 +111,19 @@ export class AcordeonComponent implements OnInit {
     }
     
     localStorage.setItem("prevent", JSON.stringify(this.event));
+    localStorage.setItem("valueEvent", JSON.stringify(this.totalItems));
 
     //suma valores de radioButton
-    totalValue = this.musicValue + this.siteValue+ this.entertaimentValue+ this.drinksValue+ this.cateringValue;
+    totalValue = this.musicValue + this.siteValue+ this.entertaimentValue+ (this.drinksValue*parseInt(this.displayValue))+ (this.cateringValue*parseInt(this.displayValue));
     this.totalItems = totalValue;
     console.log("Total Items is : ", this.totalItems);
  }
+
+ getValue(val:string){
+  this.displayValue = val;
+  console.warn(val)
+ }
+ 
 //-----------------------------------------------------------------
  alertaReserva(){
   const swalWithBootstrapButtons = Swal.mixin({

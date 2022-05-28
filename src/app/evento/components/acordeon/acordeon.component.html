@@ -18,11 +18,11 @@
           </div>
           <div class="sub-item">
             <p>Cantidad invitados:</p>
-            <input class="form-control" type="number" placeholder="20">
+            <input class="form-control" #box (keyup)="getValue(box.value)" type="number" min="20" placeholder="Ingrese cantidad aquí...">
           </div>
           <div class="sub-item">
             <p>Fecha del evento:</p>
-            <input type="date">
+            <input class="form-control" type="date">
             <button>Seleccionar fecha</button>
           </div>
         </div>
@@ -233,7 +233,7 @@
             </tr>
             <tr>
               <td>Banqueteria:</td>
-              <td>{{getEvent.event_catering[0].items}}</td>
+              <td>{{getEvent.event_catering.items}}</td>
             </tr>
             <tr>
               <td>Música:</td>
@@ -241,7 +241,7 @@
             </tr>
             <tr>
               <td>Entretenimiento:</td>
-              <td>{{getEvent.event_entertainment[0].items}}</td>
+              <td>{{getEvent.event_entertainment.items}}</td>
             </tr>
             <tr>
               <td>Recinto:</td>
@@ -249,14 +249,14 @@
             </tr>
             <tr>
               <td>Bebestibles:</td>
-              <td>{{getEvent.event_drinks[0].items}}</td>
+              <td>{{getEvent.event_drinks.items}}</td>
             </tr>
           </tbody>
         </table>
   </div>
 
   <div>
-      <h4>Total evento: ${{getEvent.value}}</h4>
+      <h4>Total evento: ${{totalItems}}</h4>
       <button (click)="alertaReserva()" type="submit" class="btn btn-primary">Reservar</button>
   </div>
 </div>
