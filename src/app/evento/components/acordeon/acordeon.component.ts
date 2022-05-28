@@ -88,6 +88,7 @@ export class AcordeonComponent implements OnInit {
 
   setEventObject(obj: Prevent) {
     this.event = obj
+    
   }
 
   //obtiene la selección de radioButton y seteo de valores obtenidos
