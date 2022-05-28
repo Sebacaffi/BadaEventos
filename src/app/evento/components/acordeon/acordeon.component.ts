@@ -10,11 +10,6 @@ import Swal from 'sweetalert2';
   styleUrls: ['./acordeon.component.scss']
 })
 export class AcordeonComponent implements OnInit {
-
-  DateSelected: any
-  onDateChange() {
-    console.log(this.DateSelected)
-  }
   
   ageResult: Age[];
   cateringResult: Catering[];
@@ -27,6 +22,8 @@ export class AcordeonComponent implements OnInit {
   entertaimentValue = 0;
   drinksValue = 0;
   cateringValue = 0;
+
+  displayValue="1";
 
   totalItems = 0;
 
@@ -50,12 +47,12 @@ export class AcordeonComponent implements OnInit {
   constructor(
     private eventService: EventoService,
     private router: Router
-    ) {}
+  ) {}
 
   ngOnInit(): void {
 
     this.setEventObject(this.getEvent)
-    console.log(this.event.id)
+    console.log(this.event)
       
     this.eventService.getAge().subscribe((agesFromApi: Age[]) =>
       this.ageResult = agesFromApi
@@ -81,10 +78,6 @@ export class AcordeonComponent implements OnInit {
        this.drinksResult = drinksFromApi
     ), error => console.error(error)
   }
-  
-  getGroup(id: number) {
-    console.log(id)
-  }
 
   setEventObject(obj: Prevent) {
     this.event = obj
@@ -107,7 +100,7 @@ export class AcordeonComponent implements OnInit {
         this.event.event_entertainment = object
         break;
       case 'drinks': console.log(" Value is : ", value);
-        this.drinksValue = value;
+        this.drinksValue = value; 
         this.event.event_drinks = object
         break;
       case 'catering': console.log(" Value is : ", value);
@@ -118,13 +111,19 @@ export class AcordeonComponent implements OnInit {
     }
     
     localStorage.setItem("prevent", JSON.stringify(this.event));
-    //suma valores de radioButton
-    totalValue = this.musicValue + this.siteValue+ this.entertaimentValue+ this.drinksValue+ this.cateringValue;
-    this.totalItems = totalValue;
+    localStorage.setItem("valueEvent", JSON.stringify(this.totalItems));
 
-    console.log("Total Value is : ", totalValue);
+    //suma valores de radioButton
+    totalValue = this.musicValue + this.siteValue+ this.entertaimentValue+ (this.drinksValue*parseInt(this.displayValue))+ (this.cateringValue*parseInt(this.displayValue));
+    this.totalItems = totalValue;
     console.log("Total Items is : ", this.totalItems);
  }
+
+ getValue(val:string){
+  this.displayValue = val;
+  console.warn(val)
+ }
+ 
 //-----------------------------------------------------------------
  alertaReserva(){
   const swalWithBootstrapButtons = Swal.mixin({
