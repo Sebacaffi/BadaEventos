@@ -10,7 +10,6 @@ import { HomeModule } from './home/home.module';
 import { EventoModule } from './evento/evento.module';
 import { AppRoutingModule } from './app-routing.module';
 
-import { CalendarModule } from '@syncfusion/ej2-angular-calendars';
 import { ReservaModule } from './reserva/reserva.module';
 import { AdminModule } from './admin/admin.module';
 
