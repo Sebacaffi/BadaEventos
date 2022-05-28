@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './admin/components/dashboard/dashboard.component';
 import { LoginComponent } from './admin/components/login/login.component';
-import { NotFoundComponent } from './core/components/not-found/not-found.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 import { EventoComponentsComponent } from './evento/components/evento-components/evento-components.component';
 import { TipoEventoComponent } from './evento/components/tipo-evento/tipo-evento.component';
 import { HomeComponentsComponent } from './home/components/home-components/home-components.component';
