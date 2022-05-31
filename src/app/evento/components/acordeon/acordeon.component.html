@@ -1,262 +1,266 @@
-<div class="accordion pt-5" id="accordionExample">
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingOne">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
-        aria-expanded="true" aria-controls="collapseOne">
-        <p>Evento</p>
-      </button>
-    </h2>
-    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-      data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        <div>
-          <div class="sub-item">
-            <p>Tipo de público:</p>
-              <select class="form-select" aria-label="Default select example" >
+<div class='row'>
+
+  <div class="accordion col-md-6 " id="accordionExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+          aria-expanded="true" aria-controls="collapseOne">
+          <p>Evento</p>
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+        data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <div>
+            <div class="sub-item">
+              <p>Tipo de público:</p>
+              <select class="form-select" aria-label="Default select example">
                 <option *ngFor="let age of ageResult, index as id">{{age.ages}}</option>
               </select>
-          </div>
-          <div class="sub-item">
-            <p>Cantidad invitados:</p>
-            <input class="form-control" #box (keyup)="getValue(box.value)" type="number" min="20" placeholder="Ingrese cantidad aquí...">
-          </div>
-          <div class="sub-item">
-            <p>Fecha del evento:</p>
-            <input class="form-control" type="date">
-            <button>Seleccionar fecha</button>
+            </div>
+            <div class="sub-item">
+              <p>Cantidad invitados:</p>
+              <input class="form-control" #box (keyup)="getValue(box.value)" type="number" min="20"
+                placeholder="Ingrese cantidad aquí...">
+            </div>
+            <div class="sub-item">
+              <p>Fecha del evento:</p>
+              <input class="form-control" type="date">
+              <!-- <button>Seleccionar fecha</button> -->
+            </div>
           </div>
         </div>
       </div>
     </div>
-</div>
-<div class="accordion-item">
-  <h2 class="accordion-header" id="headingTwo">
-    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
-      aria-expanded="false" aria-controls="collapseTwo">
-      Banquetería
-    </button>
-  </h2>
-  <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-    data-bs-parent="#accordionExample">
-    <div class="accordion-body" *ngFor="let catering of cateringResult">
-      <div class="form-check">
-        <input class="form-check-input" type="radio" value="catering" 
-        (ngModel)="catering.value" name="catering" value="i" [checked]="false" 
-        (change)="onItemChange(catering.value, 'catering', catering)">
-        <label class="form-check-label" for="flexRadioDefault1">
-          <div class="card mb-3" style="max-width: 540px;">
-            <div class="row g-0">
-              <div class="col-md-4">
-                <img src="{{catering.urlBase}}" class="img-fluid rounded-start" alt="...">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">{{catering.items}}</h5>
-                  <p class="card-text"><small>{{catering.description}}</small></p>
-                  <p class="card-text"><small>{{catering.description2}}</small></p>
-                  <p class="card-text"><small>- Valor: ${{catering.value}}</small></p>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingTwo">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+          aria-expanded="false" aria-controls="collapseTwo">
+          Banquetería
+        </button>
+      </h2>
+      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+        data-bs-parent="#accordionExample">
+        <div class="accordion-body" *ngFor="let catering of cateringResult">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" value="catering" (ngModel)="catering.value" name="catering"
+              value="i" [checked]="false" (change)="onItemChange(catering.value, 'catering', catering)">
+            <label class="form-check-label" for="flexRadioDefault1">
+              <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="{{catering.urlBase}}" class="img-fluid rounded-start" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">{{catering.items}}</h5>
+                      <p class="card-text"><small>{{catering.description}}</small></p>
+                      <p class="card-text"><small>{{catering.description2}}</small></p>
+                      <p class="card-text"><small>- Valor: ${{catering.value}}</small></p>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
+            </label>
           </div>
-        </label>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingThree">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Recinto
+        </button>
+      </h2>
+      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+        data-bs-parent="#accordionExample">
+        <div class="accordion-body" *ngFor="let site of siteResult">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" type="radio" value="site" (ngModel)="site.value" name="site"
+              value="i" [checked]="false" (change)="onItemChange(site.value, 'site', site)">
+            <label class="form-check-label" for="flexRadioDefault1">
+              <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="{{site.urlBase}}" class="img-fluid rounded-start" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">{{site.items}}</h5>
+                      <p class="card-text"><small>{{site.address}}</small></p>
+                      <p class="card-text"><small>{{site.capacity}}</small></p>
+                      <p class="card-text"><small>- Valor: ${{site.value}}</small></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingFour">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+          Música
+        </button>
+      </h2>
+      <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+        data-bs-parent="#accordionExample">
+        <div class="accordion-body" *ngFor="let music of musicResult">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" value="music" (ngModel)="music.value" name="site" value="i"
+              [checked]="false" (change)="onItemChange(music.value, 'music', music)">
+            <label class="form-check-label" for="radioMusic">
+              <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="{{music.urlBase}}" class="img-fluid rounded-start" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">{{music.items}}</h5>
+                      <p class="card-text"><small>{{music.description}}</small></p>
+                      <p class="card-text"><small>{{music.description2}}</small></p>
+                      <p class="card-text"><small>- Valor: ${{music.value}}</small></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingFive">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+          Entretenimiento
+        </button>
+      </h2>
+      <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
+        data-bs-parent="#accordionExample">
+        <div class="accordion-body" *ngFor="let entertainment of entertainmentResult">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" value="entertainment" (ngModel)="entertainment.value"
+              name="entertainment" value="i" [checked]="false"
+              (change)="onItemChange(entertainment.value, 'entertainment', entertainment)">
+            <label class="form-check-label" for="flexRadioDefault1">
+              <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="{{entertainment.urlBase}}" class="img-fluid rounded-start" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">{{entertainment.items}}</h5>
+                      <p class="card-text"><small>{{entertainment.description}}</small></p>
+                      <p class="card-text"><small>{{entertainment.description2}}</small></p>
+                      <p class="card-text"><small>- Valor: ${{entertainment.value}}</small></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingSix">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix"
+          aria-expanded="false" aria-controls="collapseSix">
+          Bebestibles
+        </button>
+      </h2>
+      <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
+        data-bs-parent="#accordionExample">
+        <div class="accordion-body" *ngFor="let drinks of drinksResult">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" value="drinks" (ngModel)="drinks.value" name="drinks" value="i"
+              [checked]="false" (change)="onItemChange(drinks.value, 'drinks', drinks)">
+            <label class="form-check-label" for="flexRadioDefault1">
+              <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="{{drinks.urlBase}}" class="img-fluid rounded-start" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">{{drinks.items}}</h5>
+                      <p class="card-text"><small>{{drinks.description}}</small></p>
+                      <p class="card-text"><small>{{drinks.description2}}</small></p>
+                      <p class="card-text"><small>- Valor: ${{drinks.value}}</small></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </label>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<div class="accordion-item">
-  <h2 class="accordion-header" id="headingThree">
-    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree"
-      aria-expanded="false" aria-controls="collapseThree">
-      Recinto
-    </button>
-  </h2>
-  <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
-    data-bs-parent="#accordionExample">
-    <div class="accordion-body" *ngFor="let site of siteResult">
-      <div class="form-check">
-        <input class="form-check-input" type="radio" type="radio" value="site" 
-        (ngModel)="site.value" name="site" value="i" [checked]="false" 
-        (change)="onItemChange(site.value, 'site', site)">
-        <label class="form-check-label" for="flexRadioDefault1">
-          <div class="card mb-3" style="max-width: 540px;">
-            <div class="row g-0">
-              <div class="col-md-4">
-                <img src="{{site.urlBase}}" class="img-fluid rounded-start" alt="...">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">{{site.items}}</h5>
-                  <p class="card-text"><small>{{site.address}}</small></p>
-                  <p class="card-text"><small>{{site.capacity}}</small></p>
-                  <p class="card-text"><small>- Valor: ${{site.value}}</small></p>  
-                </div>
-              </div>
-            </div>
-          </div>
-        </label>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="accordion-item">
-  <h2 class="accordion-header" id="headingFour">
-    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour"
-      aria-expanded="false" aria-controls="collapseFour">
-      Música
-    </button>
-  </h2>
-  <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
-    data-bs-parent="#accordionExample">
-    <div class="accordion-body" *ngFor="let music of musicResult">
-      <div class="form-check">
-        <input class="form-check-input" type="radio" value="music" 
-        (ngModel)="music.value" name="site" value="i" [checked]="false" 
-        (change)="onItemChange(music.value, 'music', music)">
-        <label class="form-check-label" for="radioMusic">
-          <div class="card mb-3" style="max-width: 540px;">
-            <div class="row g-0">
-              <div class="col-md-4">
-                <img src="{{music.urlBase}}" class="img-fluid rounded-start" alt="...">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">{{music.items}}</h5>
-                  <p class="card-text"><small>{{music.description}}</small></p>
-                  <p class="card-text"><small>{{music.description2}}</small></p>
-                  <p class="card-text"><small>- Valor: ${{music.value}}</small></p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </label>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="accordion-item">
-  <h2 class="accordion-header" id="headingFive">
-    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive"
-      aria-expanded="false" aria-controls="collapseFive">
-      Entretenimiento
-    </button>
-  </h2>
-  <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
-    data-bs-parent="#accordionExample">
-    <div class="accordion-body" *ngFor="let entertainment of entertainmentResult">
-      <div class="form-check">
-        <input class="form-check-input" type="radio" value="entertainment" 
-        (ngModel)="entertainment.value" name="entertainment" value="i" [checked]="false" 
-        (change)="onItemChange(entertainment.value, 'entertainment', entertainment)">
-        <label class="form-check-label" for="flexRadioDefault1">
-          <div class="card mb-3" style="max-width: 540px;">
-            <div class="row g-0">
-              <div class="col-md-4">
-                <img src="{{entertainment.urlBase}}" class="img-fluid rounded-start" alt="...">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">{{entertainment.items}}</h5>
-                  <p class="card-text"><small>{{entertainment.description}}</small></p>
-                  <p class="card-text"><small>{{entertainment.description2}}</small></p>
-                  <p class="card-text"><small>- Valor: ${{entertainment.value}}</small></p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </label>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="accordion-item">
-  <h2 class="accordion-header" id="headingSix">
-    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix"
-      aria-expanded="false" aria-controls="collapseSix">
-      Bebestibles
-    </button>
-  </h2>
-  <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
-    data-bs-parent="#accordionExample">
-    <div class="accordion-body" *ngFor="let drinks of drinksResult">
-      <div class="form-check">
-        <input class="form-check-input" type="radio" value="drinks" 
-        (ngModel)="drinks.value" name="drinks" value="i" [checked]="false" 
-        (change)="onItemChange(drinks.value, 'drinks', drinks)">
-        <label class="form-check-label" for="flexRadioDefault1">
-          <div class="card mb-3" style="max-width: 540px;">
-            <div class="row g-0">
-              <div class="col-md-4">
-                <img src="{{drinks.urlBase}}" class="img-fluid rounded-start" alt="...">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">{{drinks.items}}</h5>
-                  <p class="card-text"><small>{{drinks.description}}</small></p>
-                  <p class="card-text"><small>{{drinks.description2}}</small></p>
-                  <p class="card-text"><small>- Valor: ${{drinks.value}}</small></p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </label>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-<div>
-  <div class="card bg-dark text-white">
+  <div id="frameEvento" class="col-md bg-cream">
+    <div class="card bg-dark text-white">
       <img src="{{getEvent.urlBase}}" class="card-img" alt="...">
       <div class="card-img-overlay card-caption">
         <h5 class="card-title">{{getEvent.type}}</h5>
         <p class="card-text">{{getEvent.description}}</p>
       </div>
-  </div>
+    </div>
 
-  <div>
+    <div>
       <table class="table table-borderless">
-          <tbody>
-            <tr>
-              <!-- revisar fechas API -->
-              <td>Fecha:</td>
-              <td>31 de febrero de 2022</td>
-            </tr>
-            <tr>
-              <td>Tipo de público:</td>
-              <td>{{getEvent.group.ages}}</td>
-            </tr>
-            <tr>
-              <!-- revisar cantidad API -->
-              <td>Cantidad de personas:</td>
-              <td>{{cantidadPersonas}} personas</td>
-            </tr>
-            <tr>
-              <td>Banqueteria:</td>
-              <td>{{getEvent.event_catering.items}}</td>
-            </tr>
-            <tr>
-              <td>Música:</td>
-              <td>{{getEvent.music.items}}</td>
-            </tr>
-            <tr>
-              <td>Entretenimiento:</td>
-              <td>{{getEvent.event_entertainment.items}}</td>
-            </tr>
-            <tr>
-              <td>Recinto:</td>
-              <td>{{getEvent.site.items}}</td>
-            </tr>
-            <tr>
-              <td>Bebestibles:</td>
-              <td>{{getEvent.event_drinks.items}}</td>
-            </tr>
-          </tbody>
-        </table>
-  </div>
+        <tbody>
+          <tr class="table-row">
+            <!-- revisar fechas API -->
+            <td><p>Fecha:</p></td>
+            <td><p class="description">31 de febrero de 2022</p></td>
+          </tr>
+          <tr class="table-row">
+            <td><p>Tipo de público:</p></td>
+            <td><p class="description">{{getEvent.group.ages}}</p></td>
+          </tr>
+          <tr class="table-row">
+            <!-- revisar cantidad API -->
+            <td><p>Cantidad de personas:</p></td>
+            <td><p class="description">20 personas</p></td>
+          </tr>
+          <tr class="table-row">
+            <td><p>Banqueteria:</p></td>
+            <td><p class="description">{{getEvent.event_catering.items}}</p></td>
+          </tr>
+          <tr class="table-row">
+            <td><p>Música:</p></td>
+            <td><p class="description">{{getEvent.music.items}}</p></td>
+          </tr>
+          <tr class="table-row">
+            <td><p>Entretenimiento:</p></td>
+            <td><p class="description">{{getEvent.event_entertainment.items}}</p></td>
+          </tr>
+          <tr class="table-row">
+            <td><p>Recinto:</p></td>
+            <td><p class="description">{{getEvent.site.items}}</p></td>
+          </tr>
+          <tr class="table-row">
+            <td><p>Bebestibles:</p></td>
+            <td><p class="description">{{getEvent.event_drinks.items}}</p></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
-  <div>
-      <h4>Total evento: ${{totalItems}}</h4>
-      <button (click)="alertaReserva()" type="submit" class="btn btn-primary">Reservar</button>
+    <div class="row  justify-content-center">
+      <div class="col-md-9">
+        <h3>Valor total: ${{totalItems}}</h3>
+      </div>
+      <div class="col-md">
+        <button (click)="alertaReserva()" type="submit" class="btn btn-primary rounded-pill px-4 shadow">Reservar</button>
+      </div>
+    </div>
   </div>
 </div>
