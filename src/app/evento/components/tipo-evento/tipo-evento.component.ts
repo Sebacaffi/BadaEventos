@@ -25,8 +25,12 @@ export class TipoEventoComponent implements OnInit {
   }
 
   getEventById(id: number) {
-    let result = this.resultList[id-1]
-    this.resultEvent = result
+
+    this.resultList.forEach(event => {
+      if (event.id == id) {
+        this.resultEvent = event
+      }
+    });
     localStorage.setItem("prevent",JSON.stringify(this.resultEvent))
     localStorage.setItem("id",JSON.stringify(this.resultEvent.id))
   }

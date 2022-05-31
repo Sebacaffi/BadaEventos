@@ -26,6 +26,7 @@ export class AcordeonComponent implements OnInit {
   displayValue="1";
 
   totalItems = 0;
+  cantidadPersonas = 20;
 
   event = {
     id: null,
