@@ -20,7 +20,7 @@
             </div>
             <div class="sub-item">
               <p>Cantidad invitados:</p>
-              <input class="form-control" #box (keyup)="getValue(box.value)" type="number" min="20"
+              <input class="form-control" #box (keyup)="getValue(box.value); actualizarValores()" type="number" min="20"
                 placeholder="Ingrese cantidad aquí...">
             </div>
             <div class="sub-item">
@@ -44,7 +44,7 @@
         <div class="accordion-body" *ngFor="let catering of cateringResult">
           <div class="form-check">
             <input class="form-check-input" type="radio" value="catering" (ngModel)="catering.value" name="catering"
-              value="i" [checked]="false" (change)="onItemChange(catering.value, 'catering', catering)">
+              value="i" [checked]="false" (change)="onItemChange(catering.value, 'catering', catering)" (change)="actualizarValores()">
             <label class="form-check-label" for="flexRadioDefault1">
               <div class="card mb-3" style="max-width: 540px;">
                 <div class="row g-0">
@@ -78,7 +78,7 @@
         <div class="accordion-body" *ngFor="let site of siteResult">
           <div class="form-check">
             <input class="form-check-input" type="radio" type="radio" value="site" (ngModel)="site.value" name="site"
-              value="i" [checked]="false" (change)="onItemChange(site.value, 'site', site)">
+              value="i" [checked]="false" (change)="onItemChange(site.value, 'site', site)" (change)="actualizarValores()">
             <label class="form-check-label" for="flexRadioDefault1">
               <div class="card mb-3" style="max-width: 540px;">
                 <div class="row g-0">
@@ -112,7 +112,7 @@
         <div class="accordion-body" *ngFor="let music of musicResult">
           <div class="form-check">
             <input class="form-check-input" type="radio" value="music" (ngModel)="music.value" name="site" value="i"
-              [checked]="false" (change)="onItemChange(music.value, 'music', music)">
+              [checked]="false" (change)="onItemChange(music.value, 'music', music)" (change)="actualizarValores()">
             <label class="form-check-label" for="radioMusic">
               <div class="card mb-3" style="max-width: 540px;">
                 <div class="row g-0">
@@ -147,7 +147,7 @@
           <div class="form-check">
             <input class="form-check-input" type="radio" value="entertainment" (ngModel)="entertainment.value"
               name="entertainment" value="i" [checked]="false"
-              (change)="onItemChange(entertainment.value, 'entertainment', entertainment)">
+              (change)="onItemChange(entertainment.value, 'entertainment', entertainment)" (change)="actualizarValores()">
             <label class="form-check-label" for="flexRadioDefault1">
               <div class="card mb-3" style="max-width: 540px;">
                 <div class="row g-0">
@@ -177,7 +177,7 @@
         </button>
       </h2>
       <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
-        data-bs-parent="#accordionExample">
+        data-bs-parent="#accordionExample" (click)="actualizarValores()">
         <div class="accordion-body" *ngFor="let drinks of drinksResult">
           <div class="form-check">
             <input class="form-check-input" type="radio" value="drinks" (ngModel)="drinks.value" name="drinks" value="i"

@@ -26,7 +26,6 @@ export class AcordeonComponent implements OnInit {
   displayValue="1";
 
   totalItems = 0;
-  cantidadPersonas = 20;
 
   event = {
     id: null,
@@ -85,6 +84,11 @@ export class AcordeonComponent implements OnInit {
     
   }
 
+  actualizarValores(){
+    this.totalItems = this.musicValue + this.siteValue+ this.entertaimentValue+ (this.drinksValue*parseInt(this.displayValue))+ (this.cateringValue*parseInt(this.displayValue));
+    console.log("Total Items is : ", this.totalItems);
+  }
+
   //obtiene la selección de radioButton y seteo de valores obtenidos
   onItemChange(value, type, object) {
     let totalValue = 0;
@@ -116,8 +120,8 @@ export class AcordeonComponent implements OnInit {
     localStorage.setItem("valueEvent", JSON.stringify(this.totalItems));
 
     //suma valores de radioButton
-    totalValue = this.musicValue + this.siteValue+ this.entertaimentValue+ (this.drinksValue*parseInt(this.displayValue))+ (this.cateringValue*parseInt(this.displayValue));
-    this.totalItems = totalValue;
+    this.totalItems = this.musicValue + this.siteValue+ this.entertaimentValue+ (this.drinksValue*parseInt(this.displayValue))+ (this.cateringValue*parseInt(this.displayValue));
+    
     console.log("Total Items is : ", this.totalItems);
  }
 
