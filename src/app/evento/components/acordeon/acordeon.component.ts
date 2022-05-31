@@ -23,10 +23,9 @@ export class AcordeonComponent implements OnInit {
   drinksValue = 0;
   cateringValue = 0;
 
-  displayValue="1";
+  displayValue: number =1;
 
   totalItems = 0;
-  cantidadPersonas = 20;
 
   event = {
     id: null,
@@ -111,22 +110,19 @@ export class AcordeonComponent implements OnInit {
         break;
       default: console.log(" Value is : ", value);
     }
-    
+  
     localStorage.setItem("prevent", JSON.stringify(this.event));
     localStorage.setItem("valueEvent", JSON.stringify(this.totalItems));
+    
+    this.calcularTotal(this.displayValue.toString())
+  }
 
-    //suma valores de radioButton
-    totalValue = this.musicValue + this.siteValue+ this.entertaimentValue+ (this.drinksValue*parseInt(this.displayValue))+ (this.cateringValue*parseInt(this.displayValue));
-    this.totalItems = totalValue;
-    console.log("Total Items is : ", this.totalItems);
- }
-
- getValue(val:string){
-  this.displayValue = val;
-  console.warn(val)
- }
- 
-//-----------------------------------------------------------------
+  //función que recibe la cantidad de invitados y calcula el total de los items seleccionados
+  calcularTotal(val:string){
+   this.displayValue = parseInt(val);
+   this.totalItems = this.musicValue + this.siteValue+ this.entertaimentValue+ (this.drinksValue*this.displayValue)+ (this.cateringValue*this.displayValue);
+  }
+//-------------------------ALERTAS RESERVA Y GUARDADO DE EVENTO----------------------------------------
  alertaReserva(){
   const swalWithBootstrapButtons = Swal.mixin({
     customClass: {
