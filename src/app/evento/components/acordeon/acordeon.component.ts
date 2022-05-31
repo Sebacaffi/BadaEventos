@@ -23,7 +23,7 @@ export class AcordeonComponent implements OnInit {
   drinksValue = 0;
   cateringValue = 0;
 
-  displayValue="1";
+  displayValue: number =1;
 
   totalItems = 0;
 
@@ -84,11 +84,6 @@ export class AcordeonComponent implements OnInit {
     
   }
 
-  actualizarValores(){
-    this.totalItems = this.musicValue + this.siteValue+ this.entertaimentValue+ (this.drinksValue*parseInt(this.displayValue))+ (this.cateringValue*parseInt(this.displayValue));
-    console.log("Total Items is : ", this.totalItems);
-  }
-
   //obtiene la selección de radioButton y seteo de valores obtenidos
   onItemChange(value, type, object) {
     let totalValue = 0;
@@ -115,22 +110,19 @@ export class AcordeonComponent implements OnInit {
         break;
       default: console.log(" Value is : ", value);
     }
-    
+  
     localStorage.setItem("prevent", JSON.stringify(this.event));
     localStorage.setItem("valueEvent", JSON.stringify(this.totalItems));
-
-    //suma valores de radioButton
-    this.totalItems = this.musicValue + this.siteValue+ this.entertaimentValue+ (this.drinksValue*parseInt(this.displayValue))+ (this.cateringValue*parseInt(this.displayValue));
     
-    console.log("Total Items is : ", this.totalItems);
- }
+    this.calcularTotal(this.displayValue.toString())
+  }
 
- getValue(val:string){
-  this.displayValue = val;
-  console.warn(val)
- }
- 
-//-----------------------------------------------------------------
+  //función que recibe la cantidad de invitados y calcula el total de los items seleccionados
+  calcularTotal(val:string){
+   this.displayValue = parseInt(val);
+   this.totalItems = this.musicValue + this.siteValue+ this.entertaimentValue+ (this.drinksValue*this.displayValue)+ (this.cateringValue*this.displayValue);
+  }
+//-------------------------ALERTAS RESERVA Y GUARDADO DE EVENTO----------------------------------------
  alertaReserva(){
   const swalWithBootstrapButtons = Swal.mixin({
     customClass: {
