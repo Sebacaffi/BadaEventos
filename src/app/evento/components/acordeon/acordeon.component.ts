@@ -127,9 +127,6 @@ export class AcordeonComponent implements OnInit {
     
     //se calcula el total de los items seleccionados llamando a la función de calculos
     this.calcularTotal(this.displayValue.toString())
-
-    //localSotorge sin uso BORRAR
-    //localStorage.setItem("valueEvent", JSON.stringify(this.totalItems));
   }
 
   //función que recibe la cantidad de invitados y calcula el total de los items seleccionados
