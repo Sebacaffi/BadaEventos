@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 import { TipoEventoComponent } from './components/tipo-evento/tipo-evento.component';
 
 
-@NgModule({
+@NgModule({ 
   declarations: [
     EventoComponentsComponent,
     AcordeonComponent,
