@@ -16,7 +16,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="message" class="form-label">Mensaje</label>                    
-                    <textarea ngModel required name="message" class="form-control rounded" id="message" rows="3" placeholder="Escriba su mensaje aqui..."></textarea>
+                    <textarea ngModel required name="message" class="form-control rounded-message" id="message" rows="3" placeholder="Escriba su mensaje aqui..."></textarea>
                   </div>
                 <button [disabled]="contact.invalid" type="submit" (click)="alertaEnvio()" class="nav-link rounded-pill p2 shadow btn btn-primary text-light mt-3">Enviar</button>
             </form>
