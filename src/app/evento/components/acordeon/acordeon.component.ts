@@ -11,6 +11,7 @@ import Swal from 'sweetalert2';
 })
 export class AcordeonComponent implements OnInit {
   
+  //variables usadas en los servicios para el llamado y guardado de los datos
   ageResult: Age[];
   cateringResult: Catering[];
   siteResult: Site[];
@@ -23,10 +24,14 @@ export class AcordeonComponent implements OnInit {
   drinksValue = 0;
   cateringValue = 0;
 
-  displayValue="1";
+  //variables usadas en el HTML para obtener el dato ingresado desde el input y calcular el totalItems
+  //se asigna 1 para no dar valores en 0 al no ingresar nada en el input
+  displayValue: number =1;
 
+  //variable donde se guarda la suma de los valores selecccionados en el acordeón
   totalItems = 0;
 
+  //se crea un objeto para almacenar los datos obtenidos del localStorage en getEvent
   event = {
     id: null,
     group: null,
@@ -41,7 +46,10 @@ export class AcordeonComponent implements OnInit {
     value: null
   }
 
+  //se guarda el ID del localStorage en una varible y así usarla para obtener los items de Catering, Drinks y Entertainment
   id = parseInt(localStorage.getItem("id"))
+
+  //se guarda el prevent en el localStorage para ser cargado en el frame de datos y así actualizarlo
   getEvent = JSON.parse(localStorage.getItem("prevent"))
 
   constructor(
@@ -51,9 +59,11 @@ export class AcordeonComponent implements OnInit {
 
   ngOnInit(): void {
 
+    //se llama a la función y se le pasa el parametro del localStorage guardado en getEvent previamente
     this.setEventObject(this.getEvent)
     console.log(this.event)
-      
+    
+    //se llama a los servicios para obtener los items de cada categoria
     this.eventService.getAge().subscribe((agesFromApi: Age[]) =>
       this.ageResult = agesFromApi
     ), error => console.error(error)
@@ -79,14 +89,16 @@ export class AcordeonComponent implements OnInit {
     ), error => console.error(error)
   }
 
+
+  //función que guarda el objeto de tipo Prevent y lo guardo en un arreglo
   setEventObject(obj: Prevent) {
     this.event = obj
   }
 
-  //obtiene la selección de radioButton y seteo de valores obtenidos
+  //función que obtiene la selección de radioButton y guarda en el localStorage
   onItemChange(value, type, object) {
-    let totalValue = 0;
-    switch(type) {
+      //se evalúa la opción seleccionada en el radioButton, guardado value y el object que se pasan desde el HTML
+      switch(type) {
       case 'music': console.log(" Value is : ", value);
         this.musicValue = value;
         this.event.music = object
@@ -110,21 +122,22 @@ export class AcordeonComponent implements OnInit {
       default: console.log(" Value is : ", value);
     }
     
+    //se modifica el localStorage para actualizar el vista de los datos en el frame según la selección
     localStorage.setItem("prevent", JSON.stringify(this.event));
-    localStorage.setItem("valueEvent", JSON.stringify(this.totalItems));
+    
+    //se calcula el total de los items seleccionados llamando a la función de calculos
+    this.calcularTotal(this.displayValue.toString())
 
-    //suma valores de radioButton
-    totalValue = this.musicValue + this.siteValue+ this.entertaimentValue+ (this.drinksValue*parseInt(this.displayValue))+ (this.cateringValue*parseInt(this.displayValue));
-    this.totalItems = totalValue;
-    console.log("Total Items is : ", this.totalItems);
- }
+    //localSotorge sin uso BORRAR
+    //localStorage.setItem("valueEvent", JSON.stringify(this.totalItems));
+  }
 
- getValue(val:string){
-  this.displayValue = val;
-  console.warn(val)
- }
- 
-//-----------------------------------------------------------------
+  //función que recibe la cantidad de invitados y calcula el total de los items seleccionados
+  calcularTotal(val:string){
+   this.displayValue = parseInt(val);
+   this.totalItems = this.musicValue + this.siteValue+ this.entertaimentValue+ (this.drinksValue*this.displayValue)+ (this.cateringValue*this.displayValue);
+  }
+//-------------------------ALERTAS RESERVA Y GUARDADO DE EVENTO----------------------------------------
  alertaReserva(){
   const swalWithBootstrapButtons = Swal.mixin({
     customClass: {
@@ -167,10 +180,12 @@ async alertaEmail(){
   }
 }
 
+//función de navegación HOME
 navegarHome(){
   this.router.navigateByUrl("/");
 }
 
+//función de navegación a RESERVA
 navegarPago(){
   this.router.navigateByUrl("/reserva");
 }

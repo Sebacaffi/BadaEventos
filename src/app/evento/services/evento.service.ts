@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Catering, Drinks, Entertainment, Music, Prevent, Site } from '../models/evento.model';
 import { Age } from '../models/evento.model';
@@ -14,7 +14,7 @@ export class EventoService {
   urlDetail = 'https://badaeventos.herokuapp.com/api/pevent/'
 
   constructor(private http: HttpClient) {  
-   }
+  }
 
   getEvents(): Observable<Prevent[]> {
     return this.http.get<Prevent[]>(this.urlPrevent);
@@ -50,9 +50,5 @@ export class EventoService {
     return this.http.get<Drinks[]>(this.urlDetail+id+endpoint);
   }
 
-  // getEventById(id: number): Observable<Prevent[]> {
-  //   var query = "?id="+id
-  //   return this.http.get<Prevent[]>(this.url+query);
-  // }
   
 }
