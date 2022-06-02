@@ -3,8 +3,6 @@ import { EventoService } from '../../services/evento.service';
 import { Router } from '@angular/router';
 import { Age, Catering, Drinks, Entertainment, Music, Prevent, Site } from '../../models/evento.model';
 import Swal from 'sweetalert2';
-import { NgSelectModule } from '@ng-select/ng-select';
-import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-acordeon',
@@ -25,8 +23,6 @@ export class AcordeonComponent implements OnInit {
   entertaimentValue = 0;
   drinksValue = 0;
   cateringValue = 0;
-
-  selectedItem: string = "";
 
   //variables usadas en el HTML para obtener el dato ingresado desde el input y calcular el totalItems
   //se asigna 1 para no dar valores en 0 al no ingresar nada en el input
@@ -59,7 +55,7 @@ export class AcordeonComponent implements OnInit {
   constructor(
     private eventService: EventoService,
     private router: Router
-  ) { }
+  ) {}
 
   ngOnInit(): void {
 
@@ -96,8 +92,6 @@ export class AcordeonComponent implements OnInit {
   setEventObject(obj: Prevent) {
     this.event = obj
   }
-
-  
 
   //función que obtiene la selección de radioButton y guarda en el localStorage
   onItemChange(value, type, object) {

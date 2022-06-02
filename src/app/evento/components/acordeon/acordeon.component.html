@@ -10,11 +10,7 @@
       <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
         data-bs-parent="#accordionExample">
         <div class="accordion-body">
-          <div>
-            <select class="form-select" aria-label="Default select example">
-              <option selected>Open this select menu</option>
-              <option *ngFor="let age of ageResult is id">{{age.ages}}</option>
-            </select>     
+          <div>          
             <div class="sub-item">
               <p>Cantidad invitados:</p>
               <input class="form-control" #box (keyup)="calcularTotal(box.value)" type="number" min="20"
@@ -22,8 +18,7 @@
             </div>
             <div class="sub-item">
               <p>Fecha del evento:</p>
-              <input class="form-control" type="date">
-              <!-- <button>Seleccionar fecha</button> -->
+              
             </div>
           </div>
         </div>
