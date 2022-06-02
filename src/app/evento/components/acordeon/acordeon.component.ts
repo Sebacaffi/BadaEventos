@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EventoService } from '../../services/evento.service';
 import { Router } from '@angular/router';
-import { Age, Catering, Drinks, Entertainment, Music, Prevent, Site } from '../../models/evento.model';
+import { Catering, Drinks, Entertainment, Music, Prevent, Site } from '../../models/evento.model';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -12,7 +12,6 @@ import Swal from 'sweetalert2';
 export class AcordeonComponent implements OnInit {
   
   //variables usadas en los servicios para el llamado y guardado de los datos
-  ageResult: Age[];
   cateringResult: Catering[];
   siteResult: Site[];
   musicResult: Music[];
@@ -34,7 +33,6 @@ export class AcordeonComponent implements OnInit {
   //se crea un objeto para almacenar los datos obtenidos del localStorage en getEvent
   event = {
     id: null,
-    group: null,
     site: null,
     music: null,
     event_catering: null,
@@ -63,11 +61,7 @@ export class AcordeonComponent implements OnInit {
     this.setEventObject(this.getEvent)
     
     //se llama a los servicios para obtener los items de cada categoria
-    this.eventService.getAge().subscribe((agesFromApi: Age[]) =>
-      this.ageResult = agesFromApi
-    ), error => console.error(error)
-
-    this.eventService.getCatering(this.id).subscribe((cateringFromApi: Catering[]) =>
+      this.eventService.getCatering(this.id).subscribe((cateringFromApi: Catering[]) =>
       this.cateringResult = cateringFromApi
     ), error => console.error(error)
 
