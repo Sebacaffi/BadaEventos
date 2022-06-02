@@ -23,6 +23,9 @@ export class AcordeonComponent implements OnInit {
   drinksValue = 0;
   cateringValue = 0;
 
+  //YYYY-MM-DD
+  TodayDate = "";
+
   //variables usadas en el HTML para obtener el dato ingresado desde el input y calcular el totalItems
   //se asigna 1 para no dar valores en 0 al no ingresar nada en el input
   displayValue: number =1;
@@ -85,6 +88,11 @@ export class AcordeonComponent implements OnInit {
   //función que guarda el objeto de tipo Prevent y lo guardo en un arreglo
   setEventObject(obj: Prevent) {
     this.event = obj
+  }
+
+  getDate(){
+    this.TodayDate = new Date().toISOString().slice(0,10);  
+    console.log(this.TodayDate)
   }
 
   //función que obtiene la selección de radioButton y guarda en el localStorage
