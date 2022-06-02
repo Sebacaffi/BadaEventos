@@ -90,9 +90,8 @@ export class AcordeonComponent implements OnInit {
     this.event = obj
   }
 
-  getDate(){
-    this.TodayDate = new Date().toISOString().slice(0,10);  
-    console.log(this.TodayDate)
+  getDate(date: string){
+    console.log(date)
   }
 
   //función que obtiene la selección de radioButton y guarda en el localStorage
