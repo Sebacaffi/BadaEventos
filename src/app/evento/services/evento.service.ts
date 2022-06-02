@@ -11,8 +11,14 @@ export class EventoService {
 
   urlPrevent = 'https://badaeventos.herokuapp.com/api/p-event/'
   urlDetail = 'https://badaeventos.herokuapp.com/api/pevent/'
+  url = 'https://badaeventos.herokuapp.com/market/event/'
 
   constructor(private http: HttpClient) {  
+  }
+
+  sendContactForm(data) {
+
+    return this.http.post(this.url, data)
   }
 
   getEvents(): Observable<Prevent[]> {

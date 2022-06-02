@@ -44,7 +44,10 @@ export class AcordeonComponent implements OnInit {
     type: null,
     description: null,
     urlBase: null,
-    value: null
+    value: null,
+    // date: null,
+    // state: null,
+    // idEvent: null
   }
 
   //se guarda el ID del localStorage en una varible y así usarla para obtener los items de Catering, Drinks y Entertainment
@@ -139,6 +142,10 @@ export class AcordeonComponent implements OnInit {
   }
 //-------------------------ALERTAS RESERVA Y GUARDADO DE EVENTO----------------------------------------
  alertaReserva(){
+
+  this.event.value = this.totalItems
+  console.log(JSON.stringify(this.event))
+
   const swalWithBootstrapButtons = Swal.mixin({
     customClass: {
       confirmButton: 'btn btn-primary',
