@@ -48,7 +48,5 @@ export class EventoService {
   getDrinks(id: number): Observable<Drinks[]> {
     let endpoint = "/drinks/"
     return this.http.get<Drinks[]>(this.urlDetail+id+endpoint);
-  }
-
-  
+  }  
 }
