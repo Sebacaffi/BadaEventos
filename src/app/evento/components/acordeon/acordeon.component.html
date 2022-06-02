@@ -1,5 +1,4 @@
 <div class='row'>
-
   <div class="accordion col-md-6 " id="accordionExample">
     <div class="accordion-item">
       <h2 class="accordion-header" id="headingOne">
@@ -12,13 +11,10 @@
         data-bs-parent="#accordionExample">
         <div class="accordion-body">
           <div>
-            <div class="sub-item">
-              <p>Tipo de público:</p>
-              <select class="form-select" aria-label="Default select example">
-                <option value="0">Seleccione una opción</option>
-                <option *ngFor="let age of ageResult, index as id">{{age.ages}}</option>
-              </select>
-            </div>
+            <select class="form-select" aria-label="Default select example">
+              <option selected>Open this select menu</option>
+              <option *ngFor="let age of ageResult is id">{{age.ages}}</option>
+            </select>     
             <div class="sub-item">
               <p>Cantidad invitados:</p>
               <input class="form-control" #box (keyup)="calcularTotal(box.value)" type="number" min="20"
