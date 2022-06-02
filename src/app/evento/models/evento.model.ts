@@ -1,6 +1,5 @@
 export class Prevent {
     id: number;
-    group: Age;
     site: Site;
     music: Music;
     event_catering: Catering[];
@@ -10,11 +9,6 @@ export class Prevent {
     description: string
     urlBase: string;
     value: number;
-}
-
-export class Age {
-    id: number;
-    ages: string;
 }
 
 export class Catering {
