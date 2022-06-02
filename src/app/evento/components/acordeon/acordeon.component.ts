@@ -23,8 +23,8 @@ export class AcordeonComponent implements OnInit {
   drinksValue = 0;
   cateringValue = 0;
 
-  //YYYY-MM-DD
-  TodayDate = "";
+  //variable que guarda la fecha formateada
+  selectDate = "";
 
   //variables usadas en el HTML para obtener el dato ingresado desde el input y calcular el totalItems
   //se asigna 1 para no dar valores en 0 al no ingresar nada en el input
@@ -90,8 +90,37 @@ export class AcordeonComponent implements OnInit {
     this.event = obj
   }
 
+  //función que recupera la fecha seleccionada en el calendario y la formatea
   getDate(date: string){
-    console.log(date)
+    let anno = date.substring(0,4);
+    let mes = date.substring(5,7);
+    let dia = date.substring(8,10);
+    if(mes == "01"){
+      mes = "Enero";
+    }else if(mes == "02"){
+      mes = "Febrero";
+    }else if(mes == "03"){
+      mes = "Marzo";
+    }else if(mes == "04"){
+      mes = "Abril";
+    }else if(mes == "05"){
+      mes = "Mayo";
+    }else if(mes == "06"){
+      mes = "Junio";
+    }else if(mes== "07"){
+      mes = "Julio";
+    }else if(mes == "08"){
+      mes = "Agosto";
+    }else if(mes == "09"){
+      mes = "Septiembre";
+    }else if(mes == "10"){
+      mes = "Octubre";
+    }else if(mes == "11"){
+      mes = "Noviembre";
+    }else if(mes == "12"){
+      mes = "Diciembre";
+    }
+    this.selectDate = dia + ' de ' + mes + ' del ' + anno;
   }
 
   //función que obtiene la selección de radioButton y guarda en el localStorage
