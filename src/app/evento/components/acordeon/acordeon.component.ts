@@ -3,6 +3,8 @@ import { EventoService } from '../../services/evento.service';
 import { Router } from '@angular/router';
 import { Age, Catering, Drinks, Entertainment, Music, Prevent, Site } from '../../models/evento.model';
 import Swal from 'sweetalert2';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-acordeon',
@@ -23,6 +25,8 @@ export class AcordeonComponent implements OnInit {
   entertaimentValue = 0;
   drinksValue = 0;
   cateringValue = 0;
+
+  selectedItem: string = "";
 
   //variables usadas en el HTML para obtener el dato ingresado desde el input y calcular el totalItems
   //se asigna 1 para no dar valores en 0 al no ingresar nada en el input
@@ -55,13 +59,12 @@ export class AcordeonComponent implements OnInit {
   constructor(
     private eventService: EventoService,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit(): void {
 
     //se llama a la función y se le pasa el parametro del localStorage guardado en getEvent previamente
     this.setEventObject(this.getEvent)
-    console.log(this.event)
     
     //se llama a los servicios para obtener los items de cada categoria
     this.eventService.getAge().subscribe((agesFromApi: Age[]) =>
@@ -89,37 +92,37 @@ export class AcordeonComponent implements OnInit {
     ), error => console.error(error)
   }
 
-
   //función que guarda el objeto de tipo Prevent y lo guardo en un arreglo
   setEventObject(obj: Prevent) {
     this.event = obj
   }
 
+  
+
   //función que obtiene la selección de radioButton y guarda en el localStorage
   onItemChange(value, type, object) {
       //se evalúa la opción seleccionada en el radioButton, guardado value y el object que se pasan desde el HTML
       switch(type) {
-      case 'music': console.log(" Value is : ", value);
+      case 'music':
         this.musicValue = value;
         this.event.music = object
         break;
-      case 'site': console.log(" Value is : ", value);
+      case 'site':
         this.siteValue = value;
         this.event.site = object
         break;
-      case 'entertainment': console.log(" Value is : ", value);
+      case 'entertainment':
         this.entertaimentValue = value;
         this.event.event_entertainment = object
         break;
-      case 'drinks': console.log(" Value is : ", value);
+      case 'drinks':
         this.drinksValue = value; 
         this.event.event_drinks = object
         break;
-      case 'catering': console.log(" Value is : ", value);
+      case 'catering':
         this.cateringValue = value;
         this.event.event_catering = object
         break;
-      default: console.log(" Value is : ", value);
     }
     
     //se modifica el localStorage para actualizar el vista de los datos en el frame según la selección
@@ -129,10 +132,15 @@ export class AcordeonComponent implements OnInit {
     this.calcularTotal(this.displayValue.toString())
   }
 
-  //función que recibe la cantidad de invitados y calcula el total de los items seleccionados
+  //función que recibe la cantidad de invitados y calcula el total de los items seleccionados. Valida que sea mayor a 0
   calcularTotal(val:string){
    this.displayValue = parseInt(val);
-   this.totalItems = this.musicValue + this.siteValue+ this.entertaimentValue+ (this.drinksValue*this.displayValue)+ (this.cateringValue*this.displayValue);
+   if (this.displayValue > 0){
+    this.totalItems = this.musicValue + this.siteValue+ this.entertaimentValue+ (this.drinksValue*this.displayValue)+ (this.cateringValue*this.displayValue);
+   }else{
+     this.displayValue = 0;
+   }
+   
   }
 //-------------------------ALERTAS RESERVA Y GUARDADO DE EVENTO----------------------------------------
  alertaReserva(){
