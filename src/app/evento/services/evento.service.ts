@@ -16,7 +16,7 @@ export class EventoService {
   constructor(private http: HttpClient) {  
   }
 
-  sendContactForm(data) {
+  sendEventReserved(data) {
 
     return this.http.post(this.url, data)
   }

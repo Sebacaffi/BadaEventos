@@ -173,7 +173,26 @@ export class AcordeonComponent implements OnInit {
  alertaReserva(){
 
   this.event.value = this.totalItems
-  console.log(JSON.stringify(this.event))
+
+  let finalEvent = {
+    site: this.event.site,
+    music: this.event.music,
+    catering: this.event.event_catering,
+    drinks: this.event.event_drinks,
+    entertainment: this.event.event_entertainment,
+    customer: null,
+    state: null,
+    booking_date: this.selectDate,
+    event_type: this.event.type,
+    description: this.event.description,
+    urlBase: this.event.urlBase,
+    people: this.displayValue,
+    value: this.event.value,
+  }
+
+  this.eventService.sendEventReserved(finalEvent).subscribe((result =>
+      console.log('post de evento reservado', result)
+    ))
 
   const swalWithBootstrapButtons = Swal.mixin({
     customClass: {
