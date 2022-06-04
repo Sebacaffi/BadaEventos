@@ -8,11 +8,11 @@
             <form id="contactForm" #contact="ngForm" (ngSubmit)="getContactInputs(contact.value);contact.reset()">
                 <div class="mb-3">
                   <label for="name" class="form-label">Nombre</label>
-                  <input ngModel required="" name="name" type="text" class="form-control rounded-pill" id="name" aria-describedby="emailHelp" placeholder="Ingresa tu nombre y apellido">
+                  <input ngModel required name="name" type="text" class="form-control rounded-pill" id="name" aria-describedby="emailHelp" placeholder="Ingresa tu nombre y apellido">
                 </div>
                 <div class="mb-3">
                   <label for="email" class="form-label">Correo</label>
-                  <input ngModel required name="email" type="email" class="form-control rounded-pill" id="email" placeholder="ejemplo@badaevento.com">
+                  <input ngModel email required name="email" type="email" class="form-control rounded-pill" id="email" placeholder="ejemplo@badaevento.com">
                 </div>
                 <div class="mb-3">
                     <label for="message" class="form-label">Mensaje</label>                    
