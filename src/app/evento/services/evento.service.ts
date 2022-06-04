@@ -1,7 +1,6 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Catering, Drinks, Entertainment, Music, Prevent, Site } from '../models/evento.model';
-import { Age } from '../models/evento.model';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -12,17 +11,18 @@ export class EventoService {
 
   urlPrevent = 'https://badaeventos.herokuapp.com/api/p-event/'
   urlDetail = 'https://badaeventos.herokuapp.com/api/pevent/'
+  url = 'https://badaeventos.herokuapp.com/market/event/'
 
   constructor(private http: HttpClient) {  
   }
 
-  getEvents(): Observable<Prevent[]> {
-    return this.http.get<Prevent[]>(this.urlPrevent);
+  sendEventReserved(data) {
+
+    return this.http.post(this.url, data)
   }
 
-  getAge(): Observable<Age[]> {
-    let endpoint = "public/"
-    return this.http.get<Age[]>(this.urlDetail+endpoint);
+  getEvents(): Observable<Prevent[]> {
+    return this.http.get<Prevent[]>(this.urlPrevent);
   }
 
   getCatering(id: number): Observable<Catering[]> {

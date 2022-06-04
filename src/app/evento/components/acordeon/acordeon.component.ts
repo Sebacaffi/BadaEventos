@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EventoService } from '../../services/evento.service';
 import { Router } from '@angular/router';
-import { Age, Catering, Drinks, Entertainment, Music, Prevent, Site } from '../../models/evento.model';
+import { Catering, Drinks, Entertainment, Music, Prevent, Site } from '../../models/evento.model';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -12,7 +12,6 @@ import Swal from 'sweetalert2';
 export class AcordeonComponent implements OnInit {
   
   //variables usadas en los servicios para el llamado y guardado de los datos
-  ageResult: Age[];
   cateringResult: Catering[];
   siteResult: Site[];
   musicResult: Music[];
@@ -24,6 +23,9 @@ export class AcordeonComponent implements OnInit {
   drinksValue = 0;
   cateringValue = 0;
 
+  //variable que guarda la fecha formateada
+  selectDate = "";
+
   //variables usadas en el HTML para obtener el dato ingresado desde el input y calcular el totalItems
   //se asigna 1 para no dar valores en 0 al no ingresar nada en el input
   displayValue: number =1;
@@ -34,7 +36,6 @@ export class AcordeonComponent implements OnInit {
   //se crea un objeto para almacenar los datos obtenidos del localStorage en getEvent
   event = {
     id: null,
-    group: null,
     site: null,
     music: null,
     event_catering: null,
@@ -43,7 +44,10 @@ export class AcordeonComponent implements OnInit {
     type: null,
     description: null,
     urlBase: null,
-    value: null
+    value: null,
+    // date: null,
+    // state: null,
+    // idEvent: null
   }
 
   //se guarda el ID del localStorage en una varible y así usarla para obtener los items de Catering, Drinks y Entertainment
@@ -63,11 +67,7 @@ export class AcordeonComponent implements OnInit {
     this.setEventObject(this.getEvent)
     
     //se llama a los servicios para obtener los items de cada categoria
-    this.eventService.getAge().subscribe((agesFromApi: Age[]) =>
-      this.ageResult = agesFromApi
-    ), error => console.error(error)
-
-    this.eventService.getCatering(this.id).subscribe((cateringFromApi: Catering[]) =>
+      this.eventService.getCatering(this.id).subscribe((cateringFromApi: Catering[]) =>
       this.cateringResult = cateringFromApi
     ), error => console.error(error)
 
@@ -91,6 +91,39 @@ export class AcordeonComponent implements OnInit {
   //función que guarda el objeto de tipo Prevent y lo guardo en un arreglo
   setEventObject(obj: Prevent) {
     this.event = obj
+  }
+
+  //función que recupera la fecha seleccionada en el calendario y la formatea
+  getDate(date: string){
+    let anno = date.substring(0,4);
+    let mes = date.substring(5,7);
+    let dia = date.substring(8,10);
+    if(mes == "01"){
+      mes = "Enero";
+    }else if(mes == "02"){
+      mes = "Febrero";
+    }else if(mes == "03"){
+      mes = "Marzo";
+    }else if(mes == "04"){
+      mes = "Abril";
+    }else if(mes == "05"){
+      mes = "Mayo";
+    }else if(mes == "06"){
+      mes = "Junio";
+    }else if(mes== "07"){
+      mes = "Julio";
+    }else if(mes == "08"){
+      mes = "Agosto";
+    }else if(mes == "09"){
+      mes = "Septiembre";
+    }else if(mes == "10"){
+      mes = "Octubre";
+    }else if(mes == "11"){
+      mes = "Noviembre";
+    }else if(mes == "12"){
+      mes = "Diciembre";
+    }
+    this.selectDate = dia + ' de ' + mes + ' del ' + anno;
   }
 
   //función que obtiene la selección de radioButton y guarda en el localStorage
@@ -138,6 +171,29 @@ export class AcordeonComponent implements OnInit {
   }
 //-------------------------ALERTAS RESERVA Y GUARDADO DE EVENTO----------------------------------------
  alertaReserva(){
+
+  this.event.value = this.totalItems
+
+  let finalEvent = {
+    site: this.event.site,
+    music: this.event.music,
+    catering: this.event.event_catering,
+    drinks: this.event.event_drinks,
+    entertainment: this.event.event_entertainment,
+    customer: null,
+    state: null,
+    booking_date: this.selectDate,
+    event_type: this.event.type,
+    description: this.event.description,
+    urlBase: this.event.urlBase,
+    people: this.displayValue,
+    value: this.event.value,
+  }
+
+  this.eventService.sendEventReserved(finalEvent).subscribe((result =>
+      console.log('post de evento reservado', result)
+    ))
+
   const swalWithBootstrapButtons = Swal.mixin({
     customClass: {
       confirmButton: 'btn btn-primary',
