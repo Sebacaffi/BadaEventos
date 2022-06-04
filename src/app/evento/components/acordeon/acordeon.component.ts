@@ -33,6 +33,9 @@ export class AcordeonComponent implements OnInit {
   //variable donde se guarda la suma de los valores selecccionados en el acordeón
   totalItems = 0;
 
+  //total formateado a moneda
+  Currency = "0";
+
   //se crea un objeto para almacenar los datos obtenidos del localStorage en getEvent
   event = {
     id: null,
@@ -161,9 +164,11 @@ export class AcordeonComponent implements OnInit {
 
   //función que recibe la cantidad de invitados y calcula el total de los items seleccionados. Valida que sea mayor a 0
   calcularTotal(val:string){
+
    this.displayValue = parseInt(val);
    if (this.displayValue > 0){
     this.totalItems = this.musicValue + this.siteValue+ this.entertaimentValue+ (this.drinksValue*this.displayValue)+ (this.cateringValue*this.displayValue);
+    this.Currency = this.totalItems.toLocaleString('es-MX', {style: 'currency', currency: 'MXN'}).replace('.00', '').replace(',', '.');
    }else{
      this.displayValue = 0;
    }
