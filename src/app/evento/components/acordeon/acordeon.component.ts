@@ -36,7 +36,7 @@ export class AcordeonComponent implements OnInit {
   //total formateado a moneda
   Currency = "0";
 
-  //se crea un objeto para almacenar los datos obtenidos del localStorage en getEvent
+  //se crea un objeto para almacenar los datos del evento predefinido y obtenidos del localStorage en getEvent
   event = {
     id: null,
     site: null,
@@ -174,17 +174,42 @@ export class AcordeonComponent implements OnInit {
    }
    
   }
+//seteo de finalEvent
+setEvent() {
+  //todo set event
+}
+
+//funcion para get de evento reservado y seteo de valores
+getItemName(item: string) {
+
+  this.musicResult.forEach(( i => {
+    if(i.items == item) {
+      this.musicValue = i.value
+      console.log('resultado de consulta item', this.musicValue)
+      console.log('input item correcto', item)
+      // console.log('valor', i)
+      // console.log('valor i.items', i.items)
+    }else if (i.items != item){
+      console.log("no se encontro el elemento")
+      console.log('input item incorrecto', item)
+    }
+  }
+  ));
+  
+}
 //-------------------------ALERTAS RESERVA Y GUARDADO DE EVENTO----------------------------------------
  alertaReserva(){
 
   this.event.value = this.totalItems
 
+  console.log(this.event)
+
   let finalEvent = {
-    site: this.event.site,
-    music: this.event.music,
-    catering: this.event.event_catering,
-    drinks: this.event.event_drinks,
-    entertainment: this.event.event_entertainment,
+    site: this.event.site.items,
+    music: this.event.music.items,
+    catering: this.event.event_catering.items,
+    drinks: this.event.event_drinks.items,
+    entertainment: this.event.event_entertainment.items,
     customer: null,
     state: null,
     booking_date: this.selectDate,
