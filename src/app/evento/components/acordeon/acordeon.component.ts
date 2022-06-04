@@ -180,45 +180,51 @@ setEvent() {
 }
 
 //funcion para get de evento reservado y seteo de valores
-getItemName(item: string) {
+getItemName(
+  itemMusic: string,
+  itemCatering: string,
+  itemEntertainment: string,
+  itemDrink: string,
+  itemSite: string
+  ) {
 
   this.musicResult.forEach(( i => {
-    if(i.items == item) {
+    if(i.items == itemMusic) {
       this.musicValue = i.value
       console.log('valor del resultado: ', this.musicValue)
-      console.log('input: ', item)
+      console.log('input: ', itemMusic)
     }
   }
   ));
   this.cateringResult.forEach(( i => {
-    if(i.items == item) {
+    if(i.items == itemCatering) {
       this.cateringValue = i.value
       console.log('valor del resultado: ', this.cateringValue)
-      console.log('input: ', item)
+      console.log('input: ', itemCatering)
     }
   }
   ));
   this.entertainmentResult.forEach(( i => {
-    if(i.items == item) {
+    if(i.items == itemEntertainment) {
       this.entertaimentValue = i.value
       console.log('valor del resultado: ', this.entertaimentValue)
-      console.log('input: ', item)
+      console.log('input: ', itemEntertainment)
     }
   }
   ));
   this.drinksResult.forEach(( i => {
-    if(i.items == item) {
+    if(i.items == itemDrink) {
       this.drinksValue = i.value
       console.log('valor del resultado: ', this.drinksValue)
-      console.log('input: ', item)
+      console.log('input: ', itemDrink)
     }
   }
   ));
   this.siteResult.forEach(( i => {
-    if(i.items == item) {
+    if(i.items == itemSite) {
       this.siteValue = i.value
       console.log('valor del resultado: ', this.siteValue)
-      console.log('input: ', item)
+      console.log('input: ', itemSite)
     }
   }
   ));   

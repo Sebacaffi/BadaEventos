@@ -277,7 +277,15 @@
         <h3>Valor total: {{Currency}}</h3>
       </div>
       <div class="col-md">
-        <button (click)="alertaReserva(); getItemName(event.music.items)" type="submit"
+        <button (click)="alertaReserva(); 
+        getItemName(
+          event.music.items,
+          event.event_catering.items,
+          event.event_entertainment.items,
+          event.event_drinks.items,
+          event.site.items
+        ) 
+        "type="submit"
           class="btn btn-primary rounded-pill px-4 shadow">Reservar</button>
       </div>
     </div>
