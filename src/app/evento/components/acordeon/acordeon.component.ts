@@ -187,20 +187,46 @@ getItemName(item: string) {
       this.musicValue = i.value
       console.log('valor del resultado: ', this.musicValue)
       console.log('input: ', item)
-    }else {
-      console.log("elemento incorrecto")
-      console.log('input:', i.items)
     }
   }
   ));
-  
+  this.cateringResult.forEach(( i => {
+    if(i.items == item) {
+      this.cateringValue = i.value
+      console.log('valor del resultado: ', this.cateringValue)
+      console.log('input: ', item)
+    }
+  }
+  ));
+  this.entertainmentResult.forEach(( i => {
+    if(i.items == item) {
+      this.entertaimentValue = i.value
+      console.log('valor del resultado: ', this.entertaimentValue)
+      console.log('input: ', item)
+    }
+  }
+  ));
+  this.drinksResult.forEach(( i => {
+    if(i.items == item) {
+      this.drinksValue = i.value
+      console.log('valor del resultado: ', this.drinksValue)
+      console.log('input: ', item)
+    }
+  }
+  ));
+  this.siteResult.forEach(( i => {
+    if(i.items == item) {
+      this.siteValue = i.value
+      console.log('valor del resultado: ', this.siteValue)
+      console.log('input: ', item)
+    }
+  }
+  ));   
 }
 //-------------------------ALERTAS RESERVA Y GUARDADO DE EVENTO----------------------------------------
  alertaReserva(){
 
   this.event.value = this.totalItems
-
-  console.log(this.event)
 
   let finalEvent = {
     site: this.event.site.items,
