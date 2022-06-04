@@ -17,7 +17,6 @@ export class EventoService {
   }
 
   sendEventReserved(data) {
-
     return this.http.post(this.url, data)
   }
 

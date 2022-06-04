@@ -277,7 +277,7 @@
         <h3>Valor total: ${{totalItems}}</h3>
       </div>
       <div class="col-md">
-        <button (click)="alertaReserva()" type="submit"
+        <button (click)="alertaReserva(); getItemName(event.music.items)" type="submit"
           class="btn btn-primary rounded-pill px-4 shadow">Reservar</button>
       </div>
     </div>
