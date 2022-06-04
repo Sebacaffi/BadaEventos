@@ -185,13 +185,11 @@ getItemName(item: string) {
   this.musicResult.forEach(( i => {
     if(i.items == item) {
       this.musicValue = i.value
-      console.log('resultado de consulta item', this.musicValue)
-      console.log('input item correcto', item)
-      // console.log('valor', i)
-      // console.log('valor i.items', i.items)
-    }else if (i.items != item){
-      console.log("no se encontro el elemento")
-      console.log('input item incorrecto', item)
+      console.log('valor del resultado: ', this.musicValue)
+      console.log('input: ', item)
+    }else {
+      console.log("elemento incorrecto")
+      console.log('input:', i.items)
     }
   }
   ));
