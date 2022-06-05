@@ -11,6 +11,8 @@ import Swal from 'sweetalert2';
 })
 export class AcordeonComponent implements OnInit {
   
+  //----------VARIABLES USADAS EN LAS FUNCIONES-------------//
+
   //variables usadas en los servicios para el llamado y guardado de los datos
   cateringResult: Catering[];
   siteResult: Site[];
@@ -36,6 +38,8 @@ export class AcordeonComponent implements OnInit {
   //total formateado a moneda
   Currency = "0";
 
+  //------------------OBJETOS-------------------------//
+
   //se crea un objeto para almacenar los datos del evento predefinido y obtenidos del localStorage en getEvent
   event = {
     id: null,
@@ -53,6 +57,8 @@ export class AcordeonComponent implements OnInit {
     // idEvent: null
   }
 
+  //--------LOCALSTORAGE------//
+
   //se guarda el ID del localStorage en una varible y así usarla para obtener los items de Catering, Drinks y Entertainment
   id = parseInt(localStorage.getItem("id"))
 
@@ -64,13 +70,18 @@ export class AcordeonComponent implements OnInit {
     private router: Router
   ) {}
 
+  //-----FUNCIONES QUE SE LLAMAN AL INICIAR LA PAGE------//
+
   ngOnInit(): void {
 
     //se llama a la función y se le pasa el parametro del localStorage guardado en getEvent previamente
     this.setEventObject(this.getEvent)
-    
+
+
+    //------lLAMADA SERVICIOS API------//
+
     //se llama a los servicios para obtener los items de cada categoria
-      this.eventService.getCatering(this.id).subscribe((cateringFromApi: Catering[]) =>
+    this.eventService.getCatering(this.id).subscribe((cateringFromApi: Catering[]) =>
       this.cateringResult = cateringFromApi
     ), error => console.error(error)
 
@@ -91,9 +102,88 @@ export class AcordeonComponent implements OnInit {
     ), error => console.error(error)
   }
 
+  //------FUNCIONES PARA OBTENER Y EVNIAR DATOS---------//
+
   //función que guarda el objeto de tipo Prevent y lo guardo en un arreglo
   setEventObject(obj: Prevent) {
     this.event = obj
+  }
+
+  //funcion para get de evento reservado y seteo de valores
+  getItemName(
+    itemMusic: string,
+    itemCatering: string,
+    itemEntertainment: string,
+    itemDrink: string,
+    itemSite: string
+    ) {
+
+    this.musicResult.forEach(( i => {
+      if(i.items == itemMusic) {
+        this.musicValue = i.value
+        console.log('valor del resultado: ', this.musicValue)
+        console.log('input: ', itemMusic)
+      }
+    }
+    ));
+    this.cateringResult.forEach(( i => {
+      if(i.items == itemCatering) {
+        this.cateringValue = i.value
+        console.log('valor del resultado: ', this.cateringValue)
+        console.log('input: ', itemCatering)
+      }
+    }
+    ));
+    this.entertainmentResult.forEach(( i => {
+      if(i.items == itemEntertainment) {
+        this.entertaimentValue = i.value
+        console.log('valor del resultado: ', this.entertaimentValue)
+        console.log('input: ', itemEntertainment)
+      }
+    }
+    ));
+    this.drinksResult.forEach(( i => {
+      if(i.items == itemDrink) {
+        this.drinksValue = i.value
+        console.log('valor del resultado: ', this.drinksValue)
+        console.log('input: ', itemDrink)
+      }
+    }
+    ));
+    this.siteResult.forEach(( i => {
+      if(i.items == itemSite) {
+        this.siteValue = i.value
+        console.log('valor del resultado: ', this.siteValue)
+        console.log('input: ', itemSite)
+      }
+    }
+    ));   
+  }
+
+  //función para envia POST de los datos del evento
+  postEvent() {
+
+    this.event.value = this.totalItems
+
+    let finalEvent = {
+      site: this.event.site.items,
+      music: this.event.music.items,
+      catering: this.event.event_catering.items,
+      drinks: this.event.event_drinks.items,
+      entertainment: this.event.event_entertainment.items,
+      customer: null,
+      state: null,
+      booking_date: this.selectDate,
+      event_type: this.event.type,
+      description: this.event.description,
+      urlBase: this.event.urlBase,
+      people: this.displayValue,
+      value: this.event.value,
+    }
+
+    this.eventService.sendEventReserved(finalEvent).subscribe((result =>
+      console.log('post de evento reservado', result)
+    ))
   }
 
   //función que recupera la fecha seleccionada en el calendario y la formatea
@@ -165,145 +255,71 @@ export class AcordeonComponent implements OnInit {
   //función que recibe la cantidad de invitados y calcula el total de los items seleccionados. Valida que sea mayor a 0
   calcularTotal(val:string){
 
-   this.displayValue = parseInt(val);
-   if (this.displayValue > 0){
+    this.displayValue = parseInt(val);
+    if (this.displayValue > 0){
     this.totalItems = this.musicValue + this.siteValue+ this.entertaimentValue+ (this.drinksValue*this.displayValue)+ (this.cateringValue*this.displayValue);
     this.Currency = this.totalItems.toLocaleString('es-MX', {style: 'currency', currency: 'MXN'}).replace('.00', '').replace(',', '.');
-   }else{
-     this.displayValue = 0;
-   }
-   
+    }else{
+      this.displayValue = 0;
+    }
+    
   }
 
-//funcion para get de evento reservado y seteo de valores
-getItemName(
-  itemMusic: string,
-  itemCatering: string,
-  itemEntertainment: string,
-  itemDrink: string,
-  itemSite: string
-  ) {
+  //-------ALERTAS RESERVA Y GUARDADO DE EVENTO----------//
 
-  this.musicResult.forEach(( i => {
-    if(i.items == itemMusic) {
-      this.musicValue = i.value
-      console.log('valor del resultado: ', this.musicValue)
-      console.log('input: ', itemMusic)
+  alertaReserva(){
+
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-primary',
+        cancelButton: 'btn btn-secondary'
+      },
+      buttonsStyling: false
+    })
+    
+    swalWithBootstrapButtons.fire({
+      title: '¿Desea pagar su evento ahora?',
+      text: "Presione el botón GUARDAR y pague mas tarde",
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonText: 'Pagar',
+      cancelButtonText: 'Guardar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.navegarPago()
+      } else if (
+        result.dismiss === Swal.DismissReason.cancel
+      ){
+        this.alertaEmail()
+      }
+    })
+  }
+
+  async alertaEmail(){
+    const { value: email } = await Swal.fire({
+      title: 'Ingrese su email, enviaremos el ID de su evento',
+      input: 'email',
+      inputLabel: 'Use este ID para modificar o pagar su evento más tarde',
+      inputPlaceholder: 'Ingrese su email aquí',
+      icon:'warning'
+    })
+    
+    if (email) {
+      Swal.fire(`ID enviado a: ${email}`, '', 'success')
+      this.navegarHome()
     }
   }
-  ));
-  this.cateringResult.forEach(( i => {
-    if(i.items == itemCatering) {
-      this.cateringValue = i.value
-      console.log('valor del resultado: ', this.cateringValue)
-      console.log('input: ', itemCatering)
-    }
-  }
-  ));
-  this.entertainmentResult.forEach(( i => {
-    if(i.items == itemEntertainment) {
-      this.entertaimentValue = i.value
-      console.log('valor del resultado: ', this.entertaimentValue)
-      console.log('input: ', itemEntertainment)
-    }
-  }
-  ));
-  this.drinksResult.forEach(( i => {
-    if(i.items == itemDrink) {
-      this.drinksValue = i.value
-      console.log('valor del resultado: ', this.drinksValue)
-      console.log('input: ', itemDrink)
-    }
-  }
-  ));
-  this.siteResult.forEach(( i => {
-    if(i.items == itemSite) {
-      this.siteValue = i.value
-      console.log('valor del resultado: ', this.siteValue)
-      console.log('input: ', itemSite)
-    }
-  }
-  ));   
-}
 
-//función para envia POST de los datos del evento
-postEvent() {
+  //-----FUNCIONES DE NAVEGACIÓN-----//
 
-  this.event.value = this.totalItems
-
-  let finalEvent = {
-    site: this.event.site.items,
-    music: this.event.music.items,
-    catering: this.event.event_catering.items,
-    drinks: this.event.event_drinks.items,
-    entertainment: this.event.event_entertainment.items,
-    customer: null,
-    state: null,
-    booking_date: this.selectDate,
-    event_type: this.event.type,
-    description: this.event.description,
-    urlBase: this.event.urlBase,
-    people: this.displayValue,
-    value: this.event.value,
+  //función de navegación HOME
+  navegarHome(){
+    this.router.navigateByUrl("/");
   }
 
-  this.eventService.sendEventReserved(finalEvent).subscribe((result =>
-    console.log('post de evento reservado', result)
-  ))
-}
-
-//-------------------------ALERTAS RESERVA Y GUARDADO DE EVENTO----------------------------------------
- alertaReserva(){
-
-  const swalWithBootstrapButtons = Swal.mixin({
-    customClass: {
-      confirmButton: 'btn btn-primary',
-      cancelButton: 'btn btn-secondary'
-    },
-    buttonsStyling: false
-  })
-  
-  swalWithBootstrapButtons.fire({
-    title: '¿Desea pagar su evento ahora?',
-    text: "Presione el botón GUARDAR y pague mas tarde",
-    icon: 'question',
-    showCancelButton: true,
-    confirmButtonText: 'Pagar',
-    cancelButtonText: 'Guardar'
-  }).then((result) => {
-    if (result.isConfirmed) {
-      this.navegarPago()
-    } else if (
-      result.dismiss === Swal.DismissReason.cancel
-    ){
-      this.alertaEmail()
-    }
-  })
-}
-
-async alertaEmail(){
-  const { value: email } = await Swal.fire({
-    title: 'Ingrese su email, enviaremos el ID de su evento',
-    input: 'email',
-    inputLabel: 'Use este ID para modificar o pagar su evento más tarde',
-    inputPlaceholder: 'Ingrese su email aquí',
-    icon:'warning'
-  })
-  
-  if (email) {
-    Swal.fire(`ID enviado a: ${email}`, '', 'success')
-    this.navegarHome()
+  //función de navegación a RESERVA
+  navegarPago(){
+    this.router.navigateByUrl("/reserva");
   }
-}
-
-//función de navegación HOME
-navegarHome(){
-  this.router.navigateByUrl("/");
-}
-
-//función de navegación a RESERVA
-navegarPago(){
-  this.router.navigateByUrl("/reserva");
-}
 
 }
