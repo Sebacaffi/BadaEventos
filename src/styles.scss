@@ -486,6 +486,12 @@ $font: 1px;
 //   border-color: $primary-hover;
 // } 
 
+.btn {
+  padding-right: 1.5rem !important;
+  padding-left: 1.5rem !important;
+  border-radius: 50rem !important;
+}
+
 #btn-back-to-top {
   position: fixed;
   bottom: 50px;
