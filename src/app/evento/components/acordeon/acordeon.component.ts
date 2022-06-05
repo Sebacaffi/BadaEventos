@@ -176,11 +176,12 @@ export class AcordeonComponent implements OnInit {
       urlBase: this.event.urlBase,
       people: this.displayValue,
       value: this.event.value,
+      created: "",
+      updated: "",
     }
 
     this.eventService.sendEventReserved(finalEvent).subscribe((result =>
       console.log('post de evento reservado', result)
-      
     ))
   }
 
