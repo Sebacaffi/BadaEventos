@@ -264,6 +264,7 @@ export class AcordeonComponent implements OnInit {
     if (this.displayValue > 0){
     this.totalItems = this.musicValue + this.siteValue+ this.entertaimentValue+ (this.drinksValue*this.displayValue)+ (this.cateringValue*this.displayValue);
     this.Currency = this.totalItems.toLocaleString('es-MX', {style: 'currency', currency: 'MXN'}).replace('.00', '').replace(',', '.');
+    this.Currency = this.Currency.replace(',', '.');
     }else{
       this.displayValue = 0;
     }
