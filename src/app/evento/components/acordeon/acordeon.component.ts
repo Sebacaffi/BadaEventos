@@ -171,10 +171,6 @@ export class AcordeonComponent implements OnInit {
    }
    
   }
-//seteo de finalEvent
-setEvent() {
-  //todo set event
-}
 
 //funcion para get de evento reservado y seteo de valores
 getItemName(
@@ -226,8 +222,9 @@ getItemName(
   }
   ));   
 }
-//-------------------------ALERTAS RESERVA Y GUARDADO DE EVENTO----------------------------------------
- alertaReserva(){
+
+//función para envia POST de los datos del evento
+postEvent() {
 
   this.event.value = this.totalItems
 
@@ -247,8 +244,12 @@ getItemName(
   }
 
   this.eventService.sendEventReserved(finalEvent).subscribe((result =>
-      console.log('post de evento reservado', result)
-    ))
+    console.log('post de evento reservado', result)
+  ))
+}
+
+//-------------------------ALERTAS RESERVA Y GUARDADO DE EVENTO----------------------------------------
+ alertaReserva(){
 
   const swalWithBootstrapButtons = Swal.mixin({
     customClass: {
