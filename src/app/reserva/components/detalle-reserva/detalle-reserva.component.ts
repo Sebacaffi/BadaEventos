@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetalleReservaComponent implements OnInit {
 
+  eventoPago: any;
+
   constructor() { }
 
   ngOnInit(): void {
+    this.eventoPago = JSON.parse(localStorage.getItem('evento almacenado'))
+    console.log('eventoPago', this.eventoPago)
   }
 
 }

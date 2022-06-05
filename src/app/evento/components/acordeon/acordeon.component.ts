@@ -186,7 +186,7 @@ export class AcordeonComponent implements OnInit {
       console.log('post de evento reservado', result)
       this.returnedEvent = result
       console.log('id almacenada',this.returnedEvent.search_id)
-      localStorage.setItem('evento almacenado', this.returnedEvent)
+      localStorage.setItem('evento almacenado', JSON.stringify(this.returnedEvent))
     }
     ))
   }
