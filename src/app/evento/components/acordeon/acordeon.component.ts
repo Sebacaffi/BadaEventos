@@ -163,13 +163,13 @@ export class AcordeonComponent implements OnInit {
     this.event.value = this.totalItems
 
     let finalEvent = {
+      search_id: "",
       site: this.event.site.items,
       music: this.event.music.items,
       catering: this.event.event_catering.items,
       drinks: this.event.event_drinks.items,
       entertainment: this.event.event_entertainment.items,
-      customer: null,
-      state: null,
+      state: 1,
       booking_date: this.selectDate,
       event_type: this.event.type,
       description: this.event.description,
@@ -180,6 +180,7 @@ export class AcordeonComponent implements OnInit {
 
     this.eventService.sendEventReserved(finalEvent).subscribe((result =>
       console.log('post de evento reservado', result)
+      
     ))
   }
 
@@ -265,6 +266,8 @@ export class AcordeonComponent implements OnInit {
   //-------ALERTAS RESERVA Y GUARDADO DE EVENTO----------//
 
   alertaReserva(){
+
+    this.postEvent()
 
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
