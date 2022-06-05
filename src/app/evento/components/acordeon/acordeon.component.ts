@@ -48,9 +48,6 @@ export class AcordeonComponent implements OnInit {
     description: null,
     urlBase: null,
     value: null,
-    // date: null,
-    // state: null,
-    // idEvent: null
   }
 
   //se guarda el ID del localStorage en una varible y así usarla para obtener los items de Catering, Drinks y Entertainment
@@ -235,18 +232,17 @@ getItemName(
   this.event.value = this.totalItems
 
   let finalEvent = {
-    site: this.event.site.items,
-    music: this.event.music.items,
-    catering: this.event.event_catering.items,
-    drinks: this.event.event_drinks.items,
-    entertainment: this.event.event_entertainment.items,
-    customer: null,
-    state: null,
+    state: 1,
     booking_date: this.selectDate,
     event_type: this.event.type,
     description: this.event.description,
     urlBase: this.event.urlBase,
     people: this.displayValue,
+    site: this.event.site.items,
+    music: this.event.music.items,
+    catering: this.event.event_catering.items,
+    drinks: this.event.event_drinks.items,
+    entertainment: this.event.event_entertainment.items,
     value: this.event.value,
   }
 
