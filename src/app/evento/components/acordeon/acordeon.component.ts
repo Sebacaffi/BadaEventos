@@ -13,6 +13,8 @@ export class AcordeonComponent implements OnInit {
   
   //----------VARIABLES USADAS EN LAS FUNCIONES-------------//
 
+  returnedEvent: any;
+
   //variables usadas en los servicios para el llamado y guardado de los datos
   cateringResult: Catering[];
   siteResult: Site[];
@@ -180,8 +182,12 @@ export class AcordeonComponent implements OnInit {
       updated: "",
     }
 
-    this.eventService.sendEventReserved(finalEvent).subscribe((result =>
+    this.eventService.sendEventReserved(finalEvent).subscribe((result => {
       console.log('post de evento reservado', result)
+      this.returnedEvent = result
+      console.log('id almacenada',this.returnedEvent.search_id)
+      localStorage.setItem('evento almacenado', this.returnedEvent)
+    }
     ))
   }
 
