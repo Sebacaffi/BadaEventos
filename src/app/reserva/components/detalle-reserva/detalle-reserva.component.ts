@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetalleReservaComponent implements OnInit {
 
+  eventoPago: any;
+  Currency = "0";
+
   constructor() { }
 
   ngOnInit(): void {
+    this.eventoPago = JSON.parse(localStorage.getItem('evento almacenado'))
+    console.log('eventoPago', this.eventoPago)
+    this.Currency = this.eventoPago.value.toLocaleString('es-MX', {style: 'currency', currency: 'MXN'}).replace('.00', '').replace(',', '.');
+    this.Currency = this.Currency.replace(',', '.');
   }
+
+  
+
 
 }

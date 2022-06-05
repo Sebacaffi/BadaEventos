@@ -13,6 +13,8 @@ export class AcordeonComponent implements OnInit {
   
   //----------VARIABLES USADAS EN LAS FUNCIONES-------------//
 
+  returnedEvent: any;
+
   //variables usadas en los servicios para el llamado y guardado de los datos
   cateringResult: Catering[];
   siteResult: Site[];
@@ -180,8 +182,12 @@ export class AcordeonComponent implements OnInit {
       updated: "",
     }
 
-    this.eventService.sendEventReserved(finalEvent).subscribe((result =>
+    this.eventService.sendEventReserved(finalEvent).subscribe((result => {
       console.log('post de evento reservado', result)
+      this.returnedEvent = result
+      console.log('id almacenada',this.returnedEvent.search_id)
+      localStorage.setItem('evento almacenado', JSON.stringify(this.returnedEvent))
+    }
     ))
   }
 
@@ -258,6 +264,7 @@ export class AcordeonComponent implements OnInit {
     if (this.displayValue > 0){
     this.totalItems = this.musicValue + this.siteValue+ this.entertaimentValue+ (this.drinksValue*this.displayValue)+ (this.cateringValue*this.displayValue);
     this.Currency = this.totalItems.toLocaleString('es-MX', {style: 'currency', currency: 'MXN'}).replace('.00', '').replace(',', '.');
+    this.Currency = this.Currency.replace(',', '.');
     }else{
       this.displayValue = 0;
     }
