@@ -8,7 +8,8 @@ import { Observable } from 'rxjs';
 })
 
 export class EventoService {
-
+  
+  //-----URLs EDPOINTS API-----//
   urlPrevent = 'https://badaeventos.herokuapp.com/api/p-event/'
   urlDetail = 'https://badaeventos.herokuapp.com/api/pevent/'
   url = 'https://badaeventos.herokuapp.com/market/event/'
@@ -16,9 +17,12 @@ export class EventoService {
   constructor(private http: HttpClient) {  
   }
 
+  //función para enviar el evento reservado en un POST de acordeón
   sendEventReserved(data) {
     return this.http.post(this.url, data)
   }
+
+  //-----METODOS OBTENER DATOS DE LA API-----//
 
   getEvents(): Observable<Prevent[]> {
     return this.http.get<Prevent[]>(this.urlPrevent);

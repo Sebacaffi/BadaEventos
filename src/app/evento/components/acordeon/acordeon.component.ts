@@ -52,9 +52,6 @@ export class AcordeonComponent implements OnInit {
     description: null,
     urlBase: null,
     value: null,
-    // date: null,
-    // state: null,
-    // idEvent: null
   }
 
   //--------LOCALSTORAGE------//
@@ -166,19 +163,21 @@ export class AcordeonComponent implements OnInit {
     this.event.value = this.totalItems
 
     let finalEvent = {
+      search_id: "",
       site: this.event.site.items,
       music: this.event.music.items,
       catering: this.event.event_catering.items,
       drinks: this.event.event_drinks.items,
       entertainment: this.event.event_entertainment.items,
-      customer: null,
-      state: null,
+      state: 1,
       booking_date: this.selectDate,
       event_type: this.event.type,
       description: this.event.description,
       urlBase: this.event.urlBase,
       people: this.displayValue,
       value: this.event.value,
+      created: "",
+      updated: "",
     }
 
     this.eventService.sendEventReserved(finalEvent).subscribe((result =>
@@ -268,6 +267,8 @@ export class AcordeonComponent implements OnInit {
   //-------ALERTAS RESERVA Y GUARDADO DE EVENTO----------//
 
   alertaReserva(){
+
+    this.postEvent()
 
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
