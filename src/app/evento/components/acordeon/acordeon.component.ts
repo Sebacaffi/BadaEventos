@@ -116,47 +116,53 @@ export class AcordeonComponent implements OnInit {
     itemDrink: string,
     itemSite: string
     ) {
+    
+    if(this.selectDate == "" || this.Currency == "0" || this.cateringValue == 0 || this.entertaimentValue == 0 || this.drinksValue == 0){
+      this.alertaCampos()
+    }else{
+      this.musicResult.forEach(( i => {
+        if(i.items == itemMusic) {
+          this.musicValue = i.value
+          console.log('valor del resultado: ', this.musicValue)
+          console.log('input: ', itemMusic)
+        }
+      }
+      ));
+      this.cateringResult.forEach(( i => {
+        if(i.items == itemCatering) {
+          this.cateringValue = i.value
+          console.log('valor del resultado: ', this.cateringValue)
+          console.log('input: ', itemCatering)
+        }
+      }
+      ));
+      this.entertainmentResult.forEach(( i => {
+        if(i.items == itemEntertainment) {
+          this.entertaimentValue = i.value
+          console.log('valor del resultado: ', this.entertaimentValue)
+          console.log('input: ', itemEntertainment)
+        }
+      }
+      ));
+      this.drinksResult.forEach(( i => {
+        if(i.items == itemDrink) {
+          this.drinksValue = i.value
+          console.log('valor del resultado: ', this.drinksValue)
+          console.log('input: ', itemDrink)
+        }
+      }
+      ));
+      this.siteResult.forEach(( i => {
+        if(i.items == itemSite) {
+          this.siteValue = i.value
+          console.log('valor del resultado: ', this.siteValue)
+          console.log('input: ', itemSite)
+        }
+      }
+      ));
 
-    this.musicResult.forEach(( i => {
-      if(i.items == itemMusic) {
-        this.musicValue = i.value
-        console.log('valor del resultado: ', this.musicValue)
-        console.log('input: ', itemMusic)
-      }
+      this.alertaReserva()
     }
-    ));
-    this.cateringResult.forEach(( i => {
-      if(i.items == itemCatering) {
-        this.cateringValue = i.value
-        console.log('valor del resultado: ', this.cateringValue)
-        console.log('input: ', itemCatering)
-      }
-    }
-    ));
-    this.entertainmentResult.forEach(( i => {
-      if(i.items == itemEntertainment) {
-        this.entertaimentValue = i.value
-        console.log('valor del resultado: ', this.entertaimentValue)
-        console.log('input: ', itemEntertainment)
-      }
-    }
-    ));
-    this.drinksResult.forEach(( i => {
-      if(i.items == itemDrink) {
-        this.drinksValue = i.value
-        console.log('valor del resultado: ', this.drinksValue)
-        console.log('input: ', itemDrink)
-      }
-    }
-    ));
-    this.siteResult.forEach(( i => {
-      if(i.items == itemSite) {
-        this.siteValue = i.value
-        console.log('valor del resultado: ', this.siteValue)
-        console.log('input: ', itemSite)
-      }
-    }
-    ));   
   }
 
   //función para envia POST de los datos del evento
@@ -273,6 +279,14 @@ export class AcordeonComponent implements OnInit {
 
   //-------ALERTAS RESERVA Y GUARDADO DE EVENTO----------//
 
+  alertaCampos(){
+    Swal.fire({
+      title: 'Debe seleccionar Items!',
+      text: "Para continuar debe seleccionar al menos un item en cada opción",
+      icon: 'warning',
+    })
+  }
+
   alertaReserva(){
 
     this.postEvent()
@@ -317,6 +331,8 @@ export class AcordeonComponent implements OnInit {
       this.navegarHome()
     }
   }
+
+
 
   //-----FUNCIONES DE NAVEGACIÓN-----//
 
