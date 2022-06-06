@@ -3,8 +3,8 @@
     style="height: 230px; object-fit: cover">
   <div class="card-img-overlay card-caption ">
     <div class="caption-bg card-img-overlay">
-      <h5 class="card-title p2">{{getEvent.type}}</h5>
-      <p class="card-text">{{getEvent.description}}</p>
+      <h2 class="card-title">{{getEvent.type}}</h2>
+      <h3 class="card-text">{{getEvent.description}}</h3>
     </div>
   </div>
 </div>
@@ -227,13 +227,12 @@
   <!-- INICIO FRAME EVENTO -->
   <div id="frameEvento" class="col-md bg-frame shadow p-3">
     <h3 class="frame-title text-center">
-      Personaliza tu evento
+      Detalles de tu Evento
     </h3>
     <div>
       <table class="table table-borderless">
         <tbody>
           <tr class="table-row">
-            <!-- revisar fechas API -->
             <td>
               <p class="medium">Fecha:</p>
             </td>
@@ -242,7 +241,6 @@
             </td>
           </tr>
           <tr class="table-row">
-            <!-- revisar cantidad API -->
             <td>
               <p class="medium">Cantidad de personas:</p>
             </td>
@@ -299,14 +297,14 @@
         <p class="p3">Valor total: {{Currency}}</p>
       </div>
       <div class="">
-        <button (click)="alertaReserva(); 
-        getItemName(
-          event.music.items,
-          event.event_catering.items,
-          event.event_entertainment.items,
-          event.event_drinks.items,
-          event.site.items
-        ) 
+        <button (click)="
+          getItemName(
+            event.music.items,
+            event.event_catering.items,
+            event.event_entertainment.items,
+            event.event_drinks.items,
+            event.site.items
+          ) 
         " type="submit" class="btn btn-primary rounded-pill px-4 shadow">Reservar</button>
       </div>
     </div>

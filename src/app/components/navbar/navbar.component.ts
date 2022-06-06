@@ -30,8 +30,8 @@ export class NavbarComponent implements OnInit {
   alertaSeguimiento(){
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
-        confirmButton: 'btn btn-primary',
-        cancelButton: 'btn btn-secondary'
+        confirmButton: 'btn btn-primary mx-2 shadow',
+        cancelButton: 'btn btn-secondary mx-2 shadow'
       },
       buttonsStyling: false
     })

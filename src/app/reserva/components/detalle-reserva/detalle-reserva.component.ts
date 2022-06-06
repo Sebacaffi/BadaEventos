@@ -90,7 +90,7 @@ export class DetalleReservaComponent implements OnInit {
       icon: 'success',
       title: 'Mensaje enviado!',
       text: 'Lo contactaremos en breve!',
-      confirmButtonColor:'btn-primary',
+      confirmButtonColor:'btn-primary mx-2 shadow',
     }
     )
     this.navegarHome()
