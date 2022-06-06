@@ -293,8 +293,8 @@ export class AcordeonComponent implements OnInit {
 
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
-        confirmButton: 'btn btn-primary',
-        cancelButton: 'btn btn-secondary'
+        confirmButton: 'btn btn-primary mx-2 shadow',
+        cancelButton: 'btn btn-secondary mx-2 shadow'
       },
       buttonsStyling: false
     })
@@ -304,8 +304,8 @@ export class AcordeonComponent implements OnInit {
       text: "Presione el botón GUARDAR y pague mas tarde",
       icon: 'question',
       showCancelButton: true,
-      confirmButtonText: 'Pagar',
-      cancelButtonText: 'Guardar'
+      confirmButtonText: 'PAGAR',
+      cancelButtonText: 'GUARDAR'
     }).then((result) => {
       if (result.isConfirmed) {
         this.navegarPago()
