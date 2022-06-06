@@ -14,6 +14,7 @@ export class AcordeonComponent implements OnInit {
   //----------VARIABLES USADAS EN LAS FUNCIONES-------------//
 
   returnedEvent: any;
+  emailEvent: string
 
   //variables usadas en los servicios para el llamado y guardado de los datos
   cateringResult: Catering[];
@@ -197,6 +198,22 @@ export class AcordeonComponent implements OnInit {
     ))
   }
 
+  postEmail() {
+    let email = {
+      search_id: "",
+      email: "",
+    }
+    let event = JSON.parse(localStorage.getItem('evento almacenado'))
+    email.search_id = event.search_id
+
+    email.email = this.emailEvent
+
+    this.eventService.sendEmail(email).subscribe((result => {
+      console.log('post de evento reservado', result)
+    }
+    ))
+  }
+
   //función que recupera la fecha seleccionada en el calendario y la formatea
   getDate(date: string){
     let anno = date.substring(0,4);
@@ -327,6 +344,9 @@ export class AcordeonComponent implements OnInit {
     })
     
     if (email) {
+      this.emailEvent = email
+      console.log(this.emailEvent)
+      this.postEmail()
       Swal.fire(`ID enviado a: ${email}`, '', 'success')
       this.navegarHome()
     }

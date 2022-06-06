@@ -12,6 +12,7 @@ export class EventoService {
   //-----URLs EDPOINTS API-----//
   urlPrevent = 'https://badaeventos.herokuapp.com/api/p-event/'
   urlDetail = 'https://badaeventos.herokuapp.com/api/pevent/'
+  urlEmail = 'https://badaeventos.herokuapp.com/market/email/'
   url = 'https://badaeventos.herokuapp.com/market/event/'
 
   constructor(private http: HttpClient) {  
@@ -20,6 +21,10 @@ export class EventoService {
   //función para enviar el evento reservado en un POST de acordeón
   sendEventReserved(data) {
     return this.http.post(this.url, data)
+  }
+  //funcion para enviar correo vinculado al id del evento reservado
+  sendEmail(data) {
+    return this.http.post(this.urlEmail, data)
   }
 
   //-----METODOS OBTENER DATOS DE LA API-----//

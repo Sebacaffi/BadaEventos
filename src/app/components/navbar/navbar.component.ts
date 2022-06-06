@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AppServiceService } from 'src/app/app-service.service';
 
 import Swal from 'sweetalert2'
 
@@ -10,9 +11,20 @@ import Swal from 'sweetalert2'
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  eventID: string;
+  //enviar event_type para validar y retornar el numero de id
+
+  constructor(private router: Router, private service: AppServiceService) { }
 
   ngOnInit(): void {
+  }
+
+  getEvent(search_id: string) {
+    this.service.getEvent(search_id).subscribe((result => {
+      console.log('resultado codigo ingresado',result)
+        localStorage.setItem('evento almacenado', JSON.stringify(result))
+    }
+    ));
   }
 
   alertaSeguimiento(){
@@ -30,14 +42,20 @@ export class NavbarComponent implements OnInit {
       icon: 'question',
       showCancelButton: true,
       confirmButtonText: 'Pagar',
-      cancelButtonText: 'Modificar',
+      //cancelButtonText: 'Modificar',
     }).then((result) => {
       if (result.isConfirmed) {
+        //verificar que los datos que llegan son los correctos del localStorage
+        //cargar en el detalle
         this.navegarPago()
       } else if (
         result.dismiss === Swal.DismissReason.cancel
       ){
-        this.navegarEvento()
+        //verificar que los datos que llegan son los correctos del localStorage
+        //cargar en el detalle
+        //cargar el acordeon con el id, get desde el tipo de evento y que retorne el id
+        //PUT del evento por el id
+        //this.navegarEvento()
       }
     })
   }
@@ -55,6 +73,10 @@ export class NavbarComponent implements OnInit {
     if(!idEvento){
       Swal.fire('Debe ingresar un ID!', '', 'error')
     }else if(idEvento){
+      //get del evento por el id
+      //almacenarlo en el localStorage
+      //
+      this.getEvent(idEvento)
       this.alertaSeguimiento()
     }
   }
