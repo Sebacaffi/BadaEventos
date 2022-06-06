@@ -11,6 +11,10 @@ import Swal from 'sweetalert2'
 })
 export class NavbarComponent implements OnInit {
 
+  //variable par manejar error BAD REQUEST
+  errorMessage = '';
+  idEvento: string;
+
   eventID: string;
   //enviar event_type para validar y retornar el numero de id
 
@@ -20,11 +24,28 @@ export class NavbarComponent implements OnInit {
   }
 
   getEvent(search_id: string) {
-    this.service.getEvent(search_id).subscribe((result => {
-      console.log('resultado codigo ingresado',result)
-        localStorage.setItem('evento almacenado', JSON.stringify(result))
-    }
-    ));
+    this.service.getEvent(search_id).subscribe(result => {
+      // Entra aquí con respuesta del servicio correcta código http 200
+      localStorage.setItem('evento almacenado', JSON.stringify(result))
+      this.errorMessage = '';
+      this.alertaSeguimiento()
+    }, err => {
+      // Entra aquí si el servicio entrega un código http de error EJ: 404,
+      this.errorMessage = err.ok.toString();
+      this.alertaIDInvalido()
+    })
+  }
+
+  //------------ALERTAS----------------//
+
+  alertaIDInvalido(){
+    Swal.fire({
+      title: 'ID Inválido',
+      text: 'El ID ingresado no es válido',
+      icon: 'error',
+      confirmButtonText: 'OK',
+      allowOutsideClick: false
+    })
   }
 
   alertaSeguimiento(){
@@ -37,10 +58,12 @@ export class NavbarComponent implements OnInit {
     })
     
     swalWithBootstrapButtons.fire({
-      title: 'Se encontró el ID!',
-      text: this.eventID,
+      title: 'Encontramos su Evento!',
+      text: 'Presione PAGAR para finalizar el proceso',
       icon: 'success',
       confirmButtonText: 'Pagar',
+      allowOutsideClick: false,
+      showCloseButton: true
       //cancelButtonText: 'Modificar',
     }).then((result) => {
       if (result.isConfirmed) {
@@ -67,18 +90,18 @@ export class NavbarComponent implements OnInit {
       inputPlaceholder: 'Ingrese el ID de su evento aquí ...',
       icon:'info',
       confirmButtonText: 'OK',
+      allowOutsideClick: false
     })
     
     if(!idEvento){
       Swal.fire('Debe ingresar un ID!', '', 'error')
-    }else if(idEvento){
-      //get del evento por el id
-      //almacenarlo en el localStorage
-      this.eventID = idEvento
-      this.getEvent(idEvento)
-      this.alertaSeguimiento()
+    }if(idEvento){
+      this.idEvento = idEvento
+      this.getEvent(this.idEvento)
     }
   }
+
+  //------------NAVEGACIÓN----------------//
 
   navegar404(){
     this.router.navigateByUrl('/notFound')

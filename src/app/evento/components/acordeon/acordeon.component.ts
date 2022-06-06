@@ -301,6 +301,7 @@ export class AcordeonComponent implements OnInit {
       title: 'Seleccionar Items!',
       text: "Para continuar debe seleccionar al menos un item en cada opción",
       icon: 'warning',
+      allowOutsideClick: false
     })
   }
 
@@ -321,6 +322,7 @@ export class AcordeonComponent implements OnInit {
       text: "Presione el botón GUARDAR y pague mas tarde",
       icon: 'question',
       showCancelButton: true,
+      allowOutsideClick: false,
       confirmButtonText: 'PAGAR',
       cancelButtonText: 'GUARDAR'
     }).then((result) => {
@@ -340,7 +342,8 @@ export class AcordeonComponent implements OnInit {
       input: 'email',
       inputLabel: 'Use este ID para modificar o pagar su evento más tarde',
       inputPlaceholder: 'Ingrese su email aquí',
-      icon:'warning'
+      icon:'warning',
+      allowOutsideClick: false
     })
     
     if (email) {

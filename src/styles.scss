@@ -24,21 +24,6 @@ $breakpoint: 640px;
   /*------------------------------------------------------*/
   $font: 0.8vmin;
 
-  @for $i from 1 through 20 {
-    .font-#{$i} {
-      @if $i < 6 {
-        font-size: $font*$i * 1.15;
-        line-height: $font*$i * 1.5;
-      }
-
-      @else {
-        // font-size: $font*$i - $i/10;
-        font-size: 16.0;
-        line-height: $font*$i * 2 / 2;
-      }
-    }
-  }
-
   /*------------------------------------------------------*/
   /*---------------------- GENERALES ---------------------*/
   /*------------------------------------------------------*/
@@ -70,13 +55,6 @@ $breakpoint: 640px;
     float: left;
   }
 }
-
-//Se termina el media
-
-
-$breakpoint: 1100px;
-
-@media (max-width: $breakpoint) {}
 
 //Se termina el media
 
@@ -211,12 +189,6 @@ textarea {
 
 .clearfix {
   @include clearFix();
-}
-
-@for $i from 1 through 100 {
-  .col-#{$i} {
-    width: $i * 1%;
-  }
 }
 
 /*----------------------- COLORES TEXTO----------------------*/
@@ -468,23 +440,6 @@ h6 {
 
 .over-ellipsis {
   text-overflow: ellipsis;
-}
-
-/*-------------- TAMAÑOS DE LA TIPOGRAFÍA --------------*/
-$font: 1px;
-
-@for $i from 1 through 100 {
-  .font-#{$i} {
-    font-size: $font*$i;
-
-    @if $i < 21 {
-      line-height: 140%;
-    }
-
-    @else {
-      line-height: 120%;
-    }
-  }
 }
 
 // BOTONES
