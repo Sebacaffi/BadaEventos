@@ -32,7 +32,7 @@ export class AcordeonComponent implements OnInit {
 
   //variables usadas en el HTML para obtener el dato ingresado desde el input y calcular el totalItems
   //se asigna 1 para no dar valores en 0 al no ingresar nada en el input
-  displayValue: number =1;
+  displayValue: number = 1;
 
   //variable donde se guarda la suma de los valores selecccionados en el acordeón
   totalItems = 0;
