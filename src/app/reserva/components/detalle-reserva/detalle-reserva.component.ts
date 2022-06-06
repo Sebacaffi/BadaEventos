@@ -67,7 +67,7 @@ export class DetalleReservaComponent implements OnInit {
     this.formulario.email = email
   }
 
-  getRut(rut:string){
+  getRun(rut:string){
     this.formulario.rut = rut
   }
 
@@ -86,10 +86,12 @@ export class DetalleReservaComponent implements OnInit {
   //------ALERTAS DE CONFIRMACION DE PAGO---------//
 
   alertaPago(){
-    Swal.fire(
-      'Evento Pagado!',
-      'Su evento se pagó con éxito',
-      'success'
+    Swal.fire({
+      icon: 'success',
+      title: 'Mensaje enviado!',
+      text: 'Lo contactaremos en breve!',
+      confirmButtonColor:'btn-primary',
+    }
     )
     this.navegarHome()
   }
