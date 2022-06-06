@@ -88,7 +88,7 @@ export class DetalleReservaComponent implements OnInit {
   alertaPago(){
     Swal.fire({
       icon: 'success',
-      title: 'Pago realizad!',
+      title: 'Pago realizado!',
       text: 'Su evento fue pagado con éxito',
       confirmButtonColor:'btn-primary mx-2 shadow',
     }
