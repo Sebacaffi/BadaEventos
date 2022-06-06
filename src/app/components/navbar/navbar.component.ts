@@ -84,7 +84,7 @@ export class NavbarComponent implements OnInit {
 
   async alertaID(){
     const { value: idEvento } = await Swal.fire({
-      title: 'Ingrese el ID de su evento',
+      title: 'Busque su Evento',
       input: 'text',
       inputLabel: 'Ingrese el ID de su evento',
       inputPlaceholder: 'Ingrese el ID de su evento aquí ...',
