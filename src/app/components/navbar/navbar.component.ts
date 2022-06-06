@@ -37,10 +37,9 @@ export class NavbarComponent implements OnInit {
     })
     
     swalWithBootstrapButtons.fire({
-      title: '¿Qué desea hacer con su evento?',
-      text: "Seleccione si desea PAGAR o MODIFICAR su evento",
-      icon: 'question',
-      showCancelButton: true,
+      title: 'Se encontró el ID!',
+      text: this.eventID,
+      icon: 'success',
       confirmButtonText: 'Pagar',
       //cancelButtonText: 'Modificar',
     }).then((result) => {
@@ -75,7 +74,7 @@ export class NavbarComponent implements OnInit {
     }else if(idEvento){
       //get del evento por el id
       //almacenarlo en el localStorage
-      //
+      this.eventID = idEvento
       this.getEvent(idEvento)
       this.alertaSeguimiento()
     }
