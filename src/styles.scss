@@ -32,7 +32,8 @@ $breakpoint: 640px;
       }
 
       @else {
-        font-size: $font*$i - $i/10;
+        // font-size: $font*$i - $i/10;
+        font-size: 16.0;
         line-height: $font*$i * 2 / 2;
       }
     }
