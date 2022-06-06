@@ -18,6 +18,8 @@ export class EventoService {
   constructor(private http: HttpClient) {  
   }
 
+  //-----METODOS ENVIAR DATOS A LA API-----//
+
   //función para enviar el evento reservado en un POST de acordeón
   sendEventReserved(data) {
     return this.http.post(this.url, data)
