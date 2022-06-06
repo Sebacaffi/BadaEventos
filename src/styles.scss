@@ -307,6 +307,11 @@ textarea {
   background-color: #af3434;
 }
 
+.bg-frame {
+  background-color:lavenderblush;
+  border-radius: 0.025rem;
+}
+
 form {
   input, textarea {
     border-radius: 20px !important;
@@ -324,6 +329,9 @@ input, textarea {
   height: fit-content;
 }
 
+.accordion-button-lh-norm {
+  line-height: normal
+}
 
 /* Párrafos */
 

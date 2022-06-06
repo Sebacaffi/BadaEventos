@@ -1,13 +1,26 @@
+<div class="card bg-dark shadow text-white mb-3">
+  <img src="{{getEvent.urlBase}}" class="card-img" alt="fotografía representativa de un evento"
+    style="height: 230px; object-fit: cover">
+  <div class="card-img-overlay card-caption ">
+    <div class="caption-bg card-img-overlay">
+      <h5 class="card-title p2">{{getEvent.type}}</h5>
+      <p class="card-text">{{getEvent.description}}</p>
+    </div>
+  </div>
+</div>
+
 <div class='row'>
-  <h2 class="event-title pb-5 text-center">Personaliza tu evento</h2>
-  <div class="accordion col-md-6 " id="accordionExample">
+  <!-- Acordeon -->
+  <div class="accordion col-md-7 mb-3" id="accordionExample">
     <div class="accordion-item">
       <h2 class="accordion-header" id="headingOne">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
-          aria-expanded="true" aria-controls="collapseOne">
+        <button class="accordion-button accordion-button-lh-norm" type="button" data-bs-toggle="collapse"
+          data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
           <p>Evento</p>
         </button>
       </h2>
+
+      <!-- Pestaña Evento -->
       <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
         data-bs-parent="#accordionExample">
         <div class="accordion-body">
@@ -19,19 +32,21 @@
             </div>
             <div class="sub-item">
               <p class="p-2 p2">Fecha del evento:</p>
-              <div class="d-flex flex-wrap justify-content-between">
+              <div class="p-1  d-flex flex-wrap justify-content-between">
                 <input type="date" class="p-2 rounded-pill" #date>
-                <button class="ml-2 btn btn-primary ml-100 p-1" (click)="getDate(date.value)">Seleccionar Fecha</button>
+                <button class="btn btn-primary p-1" (click)="getDate(date.value)">Seleccionar Fecha</button>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- Pestaña Banquetería -->
     <div class="accordion-item">
       <h2 class="accordion-header" id="headingTwo">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
-          aria-expanded="false" aria-controls="collapseTwo">
+        <button class="accordion-button accordion-button-lh-norm collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
           Banquetería
         </button>
       </h2>
@@ -42,14 +57,14 @@
             <input class="form-check-input" type="radio" value="catering" (ngModel)="catering.value" name="catering"
               value="i" [checked]="false" (change)="onItemChange(catering.value, 'catering', catering)">
             <label class="form-check-label" for="flexRadioDefault1">
-              <div class="card mb-3" style="max-width: 540px;">
+              <div class="card">
                 <div class="row g-0">
-                  <div class="col-md-4">
+                  <div class="col-sm-5">
                     <img src="{{catering.urlBase}}" class="img-fluid rounded-start" alt="...">
                   </div>
-                  <div class="col-md-8">
+                  <div class="col-md-7">
                     <div class="card-body">
-                      <h5 class="card-title">{{catering.items}}</h5>
+                      <h5 class="card-title p2">{{catering.items}}</h5>
                       <p class="card-text"><small>{{catering.description}}</small></p>
                       <p class="card-text"><small>{{catering.description2}}</small></p>
                       <p class="card-text"><small>- Valor: ${{catering.value}}</small></p>
@@ -62,9 +77,11 @@
         </div>
       </div>
     </div>
+
+    <!-- Pestaña Recinto -->
     <div class="accordion-item">
       <h2 class="accordion-header" id="headingThree">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+        <button class="accordion-button accordion-button-lh-norm collapsed" type="button" data-bs-toggle="collapse"
           data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
           Recinto
         </button>
@@ -76,14 +93,14 @@
             <input class="form-check-input" type="radio" type="radio" value="site" (ngModel)="site.value" name="site"
               value="i" [checked]="false" (change)="onItemChange(site.value, 'site', site)">
             <label class="form-check-label" for="flexRadioDefault1">
-              <div class="card mb-3" style="max-width: 540px;">
+              <div class="card">
                 <div class="row g-0">
-                  <div class="col-md-4">
+                  <div class="col-sm-5">
                     <img src="{{site.urlBase}}" class="img-fluid rounded-start" alt="...">
                   </div>
-                  <div class="col-md-8">
+                  <div class="col-md-7">
                     <div class="card-body">
-                      <h5 class="card-title">{{site.items}}</h5>
+                      <h5 class="card-title p2">{{site.items}}</h5>
                       <p class="card-text"><small>{{site.address}}</small></p>
                       <p class="card-text"><small>{{site.capacity}}</small></p>
                       <p class="card-text"><small>- Valor: ${{site.value}}</small></p>
@@ -96,9 +113,11 @@
         </div>
       </div>
     </div>
+
+    <!-- Pestaña Música -->
     <div class="accordion-item">
       <h2 class="accordion-header" id="headingFour">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+        <button class="accordion-button accordion-button-lh-norm collapsed" type="button" data-bs-toggle="collapse"
           data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
           Música
         </button>
@@ -110,14 +129,14 @@
             <input class="form-check-input" type="radio" value="music" (ngModel)="music.value" name="site" value="i"
               [checked]="false" (change)="onItemChange(music.value, 'music', music)">
             <label class="form-check-label" for="radioMusic">
-              <div class="card mb-3" style="max-width: 540px;">
+              <div class="card">
                 <div class="row g-0">
-                  <div class="col-md-4">
+                  <div class="col-sm-5">
                     <img src="{{music.urlBase}}" class="img-fluid rounded-start" alt="...">
                   </div>
-                  <div class="col-md-8">
+                  <div class="col-md-7">
                     <div class="card-body">
-                      <h5 class="card-title">{{music.items}}</h5>
+                      <h5 class="card-title p2">{{music.items}}</h5>
                       <p class="card-text"><small>{{music.description}}</small></p>
                       <p class="card-text"><small>{{music.description2}}</small></p>
                       <p class="card-text"><small>- Valor: ${{music.value}}</small></p>
@@ -130,9 +149,11 @@
         </div>
       </div>
     </div>
+
+    <!-- Pestaña Entretenimiento -->
     <div class="accordion-item">
       <h2 class="accordion-header" id="headingFive">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+        <button class="accordion-button accordion-button-lh-norm collapsed" type="button" data-bs-toggle="collapse"
           data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
           Entretenimiento
         </button>
@@ -145,14 +166,14 @@
               name="entertainment" value="i" [checked]="false"
               (change)="onItemChange(entertainment.value, 'entertainment', entertainment)">
             <label class="form-check-label" for="flexRadioDefault1">
-              <div class="card mb-3" style="max-width: 540px;">
+              <div class="card">
                 <div class="row g-0">
-                  <div class="col-md-4">
+                  <div class="col-sm-5">
                     <img src="{{entertainment.urlBase}}" class="img-fluid rounded-start" alt="...">
                   </div>
-                  <div class="col-md-8">
+                  <div class="col-md-7">
                     <div class="card-body">
-                      <h5 class="card-title">{{entertainment.items}}</h5>
+                      <h5 class="card-title p2">{{entertainment.items}}</h5>
                       <p class="card-text"><small>{{entertainment.description}}</small></p>
                       <p class="card-text"><small>{{entertainment.description2}}</small></p>
                       <p class="card-text"><small>- Valor: ${{entertainment.value}}</small></p>
@@ -165,10 +186,12 @@
         </div>
       </div>
     </div>
+
+    <!-- Pestaña Bebestibles -->
     <div class="accordion-item">
       <h2 class="accordion-header" id="headingSix">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix"
-          aria-expanded="false" aria-controls="collapseSix">
+        <button class="accordion-button accordion-button-lh-norm collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
           Bebestibles
         </button>
       </h2>
@@ -179,14 +202,14 @@
             <input class="form-check-input" type="radio" value="drinks" (ngModel)="drinks.value" name="drinks" value="i"
               [checked]="false" (change)="onItemChange(drinks.value, 'drinks', drinks)">
             <label class="form-check-label" for="flexRadioDefault1">
-              <div class="card mb-3" style="max-width: 540px;">
+              <div class="card">
                 <div class="row g-0">
-                  <div class="col-md-4">
+                  <div class="col-sm-5">
                     <img src="{{drinks.urlBase}}" class="img-fluid rounded-start" alt="...">
                   </div>
-                  <div class="col-md-8">
+                  <div class="col-md-7">
                     <div class="card-body">
-                      <h5 class="card-title">{{drinks.items}}</h5>
+                      <h5 class="card-title p2">{{drinks.items}}</h5>
                       <p class="card-text"><small>{{drinks.description}}</small></p>
                       <p class="card-text"><small>{{drinks.description2}}</small></p>
                       <p class="card-text"><small>- Valor: ${{drinks.value}}</small></p>
@@ -202,25 +225,17 @@
   </div>
 
   <!-- INICIO FRAME EVENTO -->
-  <div id="frameEvento" class="col-md bg-cream">
-    <div class="card bg-dark text-white">
-      <img src="{{getEvent.urlBase}}" class="card-img" alt="fotografía representativa de un evento"
-        style="height: 230px; object-fit: cover">
-      <div class="card-img-overlay card-caption ">
-        <div class="caption-bg card-img-overlay">
-          <h5 class="card-title">{{getEvent.type}}</h5>
-          <p class="card-text">{{getEvent.description}}</p>
-        </div>
-      </div>
-    </div>
-
+  <div id="frameEvento" class="col-md bg-frame shadow p-3">
+    <h3 class="frame-title text-center">
+      Personaliza tu evento
+    </h3>
     <div>
       <table class="table table-borderless">
         <tbody>
           <tr class="table-row">
             <!-- revisar fechas API -->
             <td>
-              <p>Fecha:</p>
+              <p class="medium">Fecha:</p>
             </td>
             <td>
               <p class="description">{{selectDate}}</p>
@@ -229,7 +244,7 @@
           <tr class="table-row">
             <!-- revisar cantidad API -->
             <td>
-              <p>Cantidad de personas:</p>
+              <p class="medium">Cantidad de personas:</p>
             </td>
             <td>
               <p class="description">{{displayValue}} personas</p>
@@ -237,7 +252,7 @@
           </tr>
           <tr class="table-row">
             <td>
-              <p>Banqueteria:</p>
+              <p class="medium">Banqueteria:</p>
             </td>
             <td>
               <p class="description">{{getEvent.event_catering.items}}</p>
@@ -245,7 +260,7 @@
           </tr>
           <tr class="table-row">
             <td>
-              <p>Música:</p>
+              <p class="medium">Música:</p>
             </td>
             <td>
               <p class="description">{{getEvent.music.items}}</p>
@@ -253,7 +268,7 @@
           </tr>
           <tr class="table-row">
             <td>
-              <p>Entretenimiento:</p>
+              <p class="medium">Entretenimiento:</p>
             </td>
             <td>
               <p class="description">{{getEvent.event_entertainment.items}}</p>
@@ -261,7 +276,7 @@
           </tr>
           <tr class="table-row">
             <td>
-              <p>Recinto:</p>
+              <p class="medium">Recinto:</p>
             </td>
             <td>
               <p class="description">{{getEvent.site.items}}</p>
@@ -269,7 +284,7 @@
           </tr>
           <tr class="table-row">
             <td>
-              <p>Bebestibles:</p>
+              <p class="medium">Bebestibles:</p>
             </td>
             <td>
               <p class="description">{{getEvent.event_drinks.items}}</p>
@@ -279,11 +294,11 @@
       </table>
     </div>
 
-    <div class="row  justify-content-center">
-      <div class="col-md-9">
-        <h3>Valor total: {{Currency}}</h3>
+    <div class="d-flex flex-wrap justify-content-between align-items-center">
+      <div class="">
+        <p class="p3">Valor total: {{Currency}}</p>
       </div>
-      <div class="col-md">
+      <div class="">
         <button (click)="alertaReserva(); 
         getItemName(
           event.music.items,
