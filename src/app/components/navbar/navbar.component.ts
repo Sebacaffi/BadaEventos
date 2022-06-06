@@ -41,6 +41,7 @@ export class NavbarComponent implements OnInit {
       text: this.eventID,
       icon: 'success',
       confirmButtonText: 'Pagar',
+      allowOutsideClick: false
       //cancelButtonText: 'Modificar',
     }).then((result) => {
       if (result.isConfirmed) {
@@ -67,6 +68,7 @@ export class NavbarComponent implements OnInit {
       inputPlaceholder: 'Ingrese el ID de su evento aquí ...',
       icon:'info',
       confirmButtonText: 'OK',
+      allowOutsideClick: false
     })
     
     if(!idEvento){
