@@ -281,7 +281,7 @@ export class AcordeonComponent implements OnInit {
 
   alertaCampos(){
     Swal.fire({
-      title: 'Debe seleccionar Items!',
+      title: 'Seleccionar Items!',
       text: "Para continuar debe seleccionar al menos un item en cada opción",
       icon: 'warning',
     })
@@ -345,5 +345,4 @@ export class AcordeonComponent implements OnInit {
   navegarPago(){
     this.router.navigateByUrl("/reserva");
   }
-
 }
