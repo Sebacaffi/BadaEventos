@@ -1,50 +1,51 @@
-<div class="container-relative pt-5 p-4">
-  <div class="col-30">
+<div class="container-lg">
+  <div class="row">
+  <div class="col-lg-5">
     <h2>Finalizar Reserva</h2>
     <h3>Detalles Facturación</h3>
     <div class="pt-4">
 
-        <!-- NOMBRES -->
-        <label for="basic-url" class="form-label">Ingrese su/sus nombres:</label>
-        <div class="input-group mb-3">
-            <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
-        </div>
+      <!-- NOMBRES -->
+      <label for="basic-url" class="form-label">Ingrese su/sus nombres:</label>
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+      </div>
 
-        <!-- APELLIDOS -->
-        <label for="basic-url" class="form-label">Ingrese su apellidos:</label>
-        <div class="input-group mb-3">
-            <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
-        </div>
+      <!-- APELLIDOS -->
+      <label for="basic-url" class="form-label">Ingrese su apellidos:</label>
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+      </div>
 
       <!-- CORREO ELECTRÓNICO -->
       <label for="basic-url" class="form-label">Ingrese su correo Electrónico:</label>
       <div class="input-group mb-3">
-          <span class="input-group-text" id="basic-addon3">@</span>
-          <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+        <span class="input-group-text" id="basic-addon3">@</span>
+        <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
       </div>
 
       <!-- RUN o PASAPORTE -->
       <label for="basic-url" class="form-label">Ingrese su RUN o pasaporte:</label>
       <div class="input-group mb-3">
-          <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+        <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
       </div>
 
       <!-- NÚMERO DE TELÉFONO -->
       <label for="basic-url" class="form-label">Ingrese su número de contacto:</label>
       <div class="input-group mb-3">
-          <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+        <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
       </div>
 
       <!-- COMUNA -->
       <label for="basic-url" class="form-label">Ingrese su comuna:</label>
       <div class="input-group mb-3">
-          <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+        <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
       </div>
 
       <!-- DIRECCIÓN -->
       <label for="basic-url" class="form-label">Ingrese su dirección:</label>
       <div class="input-group mb-3">
-          <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+        <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
       </div>
 
     </div>
@@ -52,73 +53,78 @@
 </div>
 
 <div>
-    <div>
-      <table class="table table-borderless">
-          <h3>ID Evento: {{eventoPago.search_id}}</h3>
-        <tbody>
-          <tr class="table-row">
-            <td>
-              <p>Fecha:</p>
-            </td>
-            <td>
-              <p class="description">{{eventoPago.booking_date}}</p>
-            </td>
-          </tr>
-          <tr class="table-row">
-            <td><p>Cantidad de personas:</p></td>
-            <td><p class="description">{{eventoPago.people}} personas</p></td>
-          </tr>
-          <tr class="table-row">
-            <td>
-              <p>Banqueteria:</p>
-            </td>
-            <td>
-              <p class="description">{{eventoPago.catering}}</p>
-            </td>
-          </tr>
-          <tr class="table-row">
-            <td>
-              <p>Música:</p>
-            </td>
-            <td>
-              <p class="description">{{eventoPago.music}}</p>
-            </td>
-          </tr>
-          <tr class="table-row">
-            <td>
-              <p>Entretenimiento:</p>
-            </td>
-            <td>
-              <p class="description">{{eventoPago.entertainment}}</p>
-            </td>
-          </tr>
-          <tr class="table-row">
-            <td>
-              <p>Recinto:</p>
-            </td>
-            <td>
-              <p class="description">{{eventoPago.site}}</p>
-            </td>
-          </tr>
-          <tr class="table-row">
-            <td>
-              <p>Bebestibles:</p>
-            </td>
-            <td>
-              <p class="description">{{eventoPago.drinks}}</p>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+  <div>
+    <table class="table table-borderless">
+      <h3>ID Evento: {{eventoPago.search_id}}</h3>
+      <tbody>
+        <tr class="table-row">
+          <td>
+            <p>Fecha:</p>
+          </td>
+          <td>
+            <p class="description">{{eventoPago.booking_date}}</p>
+          </td>
+        </tr>
+        <tr class="table-row">
+          <td>
+            <p>Cantidad de personas:</p>
+          </td>
+          <td>
+            <p class="description">{{eventoPago.people}} personas</p>
+          </td>
+        </tr>
+        <tr class="table-row">
+          <td>
+            <p>Banqueteria:</p>
+          </td>
+          <td>
+            <p class="description">{{eventoPago.catering}}</p>
+          </td>
+        </tr>
+        <tr class="table-row">
+          <td>
+            <p>Música:</p>
+          </td>
+          <td>
+            <p class="description">{{eventoPago.music}}</p>
+          </td>
+        </tr>
+        <tr class="table-row">
+          <td>
+            <p>Entretenimiento:</p>
+          </td>
+          <td>
+            <p class="description">{{eventoPago.entertainment}}</p>
+          </td>
+        </tr>
+        <tr class="table-row">
+          <td>
+            <p>Recinto:</p>
+          </td>
+          <td>
+            <p class="description">{{eventoPago.site}}</p>
+          </td>
+        </tr>
+        <tr class="table-row">
+          <td>
+            <p>Bebestibles:</p>
+          </td>
+          <td>
+            <p class="description">{{eventoPago.drinks}}</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 
-    <div class="row  justify-content-center">
-      <div class="col-md-9">
-        <h3>Valor total: {{Currency}}</h3>
+  <div class="row  justify-content-center">
+    <div class="col-md-9">
+      <h3>Valor total: {{Currency}}</h3>
     </div>
   </div>
 
   <div>
-      <button (click)="sendForm()">Pagar</button>
+    <button (click)="sendForm()">Pagar</button>
   </div>
 </div>
