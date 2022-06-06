@@ -18,8 +18,6 @@ export class FormularioContactoComponent implements OnInit {
 
   getContactInputs(data: any) {
 
-    console.log("post enviado", data)
-
     this.service.sendContactForm(data).subscribe((result) =>
       console.log('resultado', result)
     )
@@ -31,7 +29,7 @@ export class FormularioContactoComponent implements OnInit {
       icon: 'success',
       title: 'Mensaje enviado!',
       text: 'Lo contactaremos en breve!',
-      confirmButtonColor:'#B94F37',
+      confirmButtonColor:'btn-primary',
     })
   }
 }
