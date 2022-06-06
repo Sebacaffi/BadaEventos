@@ -1,121 +1,136 @@
-<div class="container-relative pt-5 p-4">
-  <div class="col-30">
-    <h2>Finalizar Reserva</h2>
-    <h3>Detalles Facturación</h3>
-    <form id="pagoForm" #pago="ngForm" (ngSubmit)="sendForm()">
+<div class="container-lg">
+  <h2>Finalizar Reserva</h2>
+  <h3>Detalles Facturación</h3>
+  <div class="row d-flex align-items-center">
+    <div class="col-lg-7">
+      <div class="pt-4">
+        <form id="pagoForm" #pago="ngForm" (ngSubmit)="sendForm()">
 
-      <!-- NOMBRES -->
-      <div class="mb-3">
-        <label class="form-label">Ingrese su/sus nombres:</label>
-        <input ngModel required name="name" type="text" class="form-control" #nombres (keyup)="getNombre(nombres.value)" aria-describedby="basic-addon3">
-      </div>
-      
-      <!-- APELLIDOS -->
-      <div class="mb-3">
-        <label class="form-label">Ingrese su/sus apellidos:</label>
-        <input ngModel required name="last-name" type="text" class="form-control" #apellidos (keyup)="getApellidos(apellidos.value)" aria-describedby="basic-addon3">
-      </div>
+          <!-- NOMBRES -->
+          <div class="mb-3">
+            <label class="form-label">Ingrese su/sus nombres:</label>
+            <input ngModel required name="name" type="text" class="form-control" #nombres
+              (keyup)="getNombre(nombres.value)" aria-describedby="basic-addon3">
+          </div>
 
-      <!-- CORREO ELECTRÓNICO -->
-      <div class="mb-3">
-        <label class="form-label">Ingrese su correo electrónico:</label>
-        <input ngModel email required name="email" type="text" class="form-control" #email (keyup)="getEmail(email.value)" aria-describedby="basic-addon3">
-      </div>
+          <!-- APELLIDOS -->
+          <div class="mb-3">
+            <label class="form-label">Ingrese su/sus apellidos:</label>
+            <input ngModel required name="last-name" type="text" class="form-control" #apellidos
+              (keyup)="getApellidos(apellidos.value)" aria-describedby="basic-addon3">
+          </div>
 
-      <!-- RUN o PASAPORTE -->
-      <div class="mb-3">
-        <label class="form-label">Ingrese su RUN o Pasaporte:</label>
-        <input ngModel required name="dni" type="text" class="form-control" #run (keyup)="getRun(run.value)" aria-describedby="basic-addon3">
-      </div>
+          <!-- CORREO ELECTRÓNICO -->
+          <div class="mb-3">
+            <label class="form-label">Ingrese su correo electrónico:</label>
+            <input ngModel email required name="email" type="text" class="form-control" #email
+              (keyup)="getEmail(email.value)" aria-describedby="basic-addon3">
+          </div>
 
-      <!-- NÚMERO DE TELÉFONO -->
-      <div class="mb-3">
-        <label class="form-label">Ingrese su teléfono de contacto:</label>
-        <input ngModel required name="phone" type="text" class="form-control" #telefono (keyup)="getTelefono(telefono.value)" aria-describedby="basic-addon3">
-      </div>
+          <!-- RUN o PASAPORTE -->
+          <div class="mb-3">
+            <label class="form-label">Ingrese su RUN:</label>
+            <input ngModel required name="dni" type="text" class="form-control" #run (keyup)="getRun(run.value)"
+              aria-describedby="basic-addon3">
+          </div>
 
-      <!-- COMUNA -->
-      <div class="mb-3">
-        <label class="form-label">Ingrese su comuna:</label>
-        <input ngModel required  name="comuna" type="text" class="form-control" #comuna (keyup)="getComuna(comuna.value)" aria-describedby="basic-addon3">
-      </div>
+          <!-- NÚMERO DE TELÉFONO -->
+          <div class="mb-3">
+            <label class="form-label">Ingrese su teléfono de contacto:</label>
+            <input ngModel required name="phone" type="text" class="form-control" #telefono
+              (keyup)="getTelefono(telefono.value)" aria-describedby="basic-addon3">
+          </div>
 
-      <!-- DIRECCIÓN -->
-      <div class="mb-3">
-        <label class="form-label">Ingrese su dirección:</label>
-        <input ngModel required name="adress" type="text" class="form-control" #direccion (keyup)="getDireccion(direccion.value)" aria-describedby="basic-addon3">
-      </div>
-      <div>
-        <button [disabled]="pago.invalid" class="btn btn-primary rounded-pill px-4 shadow">Pagar Evento</button>
-      </div>
-    </form>
-  </div>
-</div>
+          <!-- COMUNA -->
+          <div class="mb-3">
+            <label class="form-label">Ingrese su comuna:</label>
+            <input ngModel required name="comuna" type="text" class="form-control" #comuna
+              (keyup)="getComuna(comuna.value)" aria-describedby="basic-addon3">
+          </div>
 
-<div>
-  <div>
-    <table class="table table-borderless">
-      
-      <h3>ID Evento: {{eventoPago.search_id}}</h3>
-      <tbody>
-        <tr class="table-row">
-          <td>
-            <p>Fecha:</p>
-          </td>
-          <td>
-            <p class="description">{{eventoPago.booking_date}}</p>
-          </td>
-        </tr>
-        <tr class="table-row">
-          <td><p>Cantidad de personas:</p></td>
-          <td><p class="description">{{eventoPago.people}} personas</p></td>
-        </tr>
-        <tr class="table-row">
-          <td>
-            <p>Banqueteria:</p>
-          </td>
-          <td>
-            <p class="description">{{eventoPago.catering}}</p>
-          </td>
-        </tr>
-        <tr class="table-row">
-          <td>
-            <p>Música:</p>
-          </td>
-          <td>
-            <p class="description">{{eventoPago.music}}</p>
-          </td>
-        </tr>
-        <tr class="table-row">
-          <td>
-            <p>Entretenimiento:</p>
-          </td>
-          <td>
-            <p class="description">{{eventoPago.entertainment}}</p>
-          </td>
-        </tr>
-        <tr class="table-row">
-          <td>
-            <p>Recinto:</p>
-          </td>
-          <td>
-            <p class="description">{{eventoPago.site}}</p>
-          </td>
-        </tr>
-        <tr class="table-row">
-          <td>
-            <p>Bebestibles:</p>
-          </td>
-          <td>
-            <p class="description">{{eventoPago.drinks}}</p>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="row  justify-content-center">
-    <div class="col-md-9">
+          <!-- DIRECCIÓN -->
+          <div class="mb-3">
+            <label class="form-label">Ingrese su dirección:</label>
+            <input ngModel required name="adress" type="text" class="form-control" #direccion
+              (keyup)="getDireccion(direccion.value)" aria-describedby="basic-addon3">
+          </div>
+          <div>
+            <button [disabled]="pago.invalid" class="btn btn-primary rounded-pill px-4 shadow">Pagar Evento</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+
+  <!-- Frame evento -->
+  <div class="col-lg-5">
+    <div >
+      <table class="table table-borderless h-auto">
+        <h3 class="py-2">Resumen de tu evento</h3>
+        <h5>ID Evento: {{eventoPago.search_id}}</h5>
+        <tbody>
+          <tr class="table-row">
+            <td>
+              <p class="medium">Fecha:</p>
+            </td>
+            <td>
+              <p class="description">{{eventoPago.booking_date}}</p>
+            </td>
+          </tr>
+          <tr class="table-row">
+            <td>
+              <p class="medium">Cantidad de personas:</p>
+            </td>
+            <td>
+              <p class="description">{{eventoPago.people}} personas</p>
+            </td>
+          </tr>
+          <tr class="table-row">
+            <td>
+              <p class="medium">Banqueteria:</p>
+            </td>
+            <td>
+              <p class="description">{{eventoPago.catering}}</p>
+            </td>
+          </tr>
+          <tr class="table-row">
+            <td>
+              <p class="medium">Música:</p>
+            </td>
+            <td>
+              <p class="description">{{eventoPago.music}}</p>
+            </td>
+          </tr>
+          <tr class="table-row">
+            <td>
+              <p class="medium">Entretenimiento:</p>
+            </td>
+            <td>
+              <p class="description">{{eventoPago.entertainment}}</p>
+            </td>
+          </tr>
+          <tr class="table-row">
+            <td>
+              <p class="medium">Recinto:</p>
+            </td>
+            <td>
+              <p class="description">{{eventoPago.site}}</p>
+            </td>
+          </tr>
+          <tr class="table-row">
+            <td>
+              <p class="medium">Bebestibles:</p>
+            </td>
+            <td>
+              <p class="description">{{eventoPago.drinks}}</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="justify-content-center">
       <h3>Valor total: {{Currency}}</h3>
     </div>
   </div>
+</div>
 </div>
