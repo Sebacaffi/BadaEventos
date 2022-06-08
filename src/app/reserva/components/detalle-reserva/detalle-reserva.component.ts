@@ -12,6 +12,7 @@ export class DetalleReservaComponent implements OnInit {
 
   //----------VARIABLES USADAS EN LAS FUNCIONES-------------//
 
+  errorMessage = '';
   eventoPago: any;
   Currency = "0";
 
@@ -48,10 +49,14 @@ export class DetalleReservaComponent implements OnInit {
 
   //------FUNCIONES PARA OBTENER Y EVNIAR DATOS---------//
   sendForm() {
-    this.service.sendEventCustomer(this.formulario).subscribe((result => {
+    this.service.sendEventCustomer(this.formulario).subscribe(result => {
+      this.errorMessage = '';
       this.alertaPago()
-    }
-    ))
+    }, err => {
+      // Entra aquí si el servicio entrega un código http de error EJ: 404,
+      this.errorMessage = err.ok.toString();
+      this.alertaErrorPost()
+    })
   }
 
   //se recuperan los datos de los INPUT del HTML
@@ -94,6 +99,16 @@ export class DetalleReservaComponent implements OnInit {
     }
     )
     this.navegarHome()
+  }
+
+  alertaErrorPost(){
+    Swal.fire({
+      title: 'Error al enviar formulario',
+      text: 'Por favor, reporte el error al administrador',
+      icon: 'error',
+      confirmButtonText: 'OK',
+      allowOutsideClick: false
+    })
   }
 
   //------FUNCIONES DE NAVEGACIÓN---------//
