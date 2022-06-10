@@ -40,8 +40,7 @@ export class DetalleReservaComponent implements OnInit {
 
   ngOnInit(): void {
     this.eventoPago = JSON.parse(localStorage.getItem('evento almacenado'))
-    this.Currency = this.eventoPago.value.toLocaleString('es-MX', {style: 'currency', currency: 'MXN'}).replace('.00', '');
-    this.Currency = this.Currency.replace(',', '.');
+    this.Currency = this.eventoPago.value.toLocaleString('es-MX', {style: 'currency', currency: 'MXN'}).replace('.00', '').replace(',', '.').replace(',', '.');
     
     //se guarda ID de evento creado en persistencia
     this.formulario.event_booking = this.eventoPago.search_id
@@ -56,6 +55,7 @@ export class DetalleReservaComponent implements OnInit {
       // Entra aquí si el servicio entrega un código http de error EJ: 404,
       this.errorMessage = err.ok.toString();
       this.alertaErrorPost()
+      this.navegarHome()
     })
   }
 
@@ -103,8 +103,8 @@ export class DetalleReservaComponent implements OnInit {
 
   alertaErrorPost(){
     Swal.fire({
-      title: 'Error al enviar formulario',
-      text: 'Por favor, reporte el error al administrador',
+      title: 'Este evento ya fue pagado!',
+      text: 'Por favor revise el ID enviado a su correo electrónico e intente nuevamente',
       icon: 'error',
       confirmButtonText: 'OK',
       allowOutsideClick: false
