@@ -15,6 +15,7 @@ export class DetalleReservaComponent implements OnInit {
   errorMessage = '';
   eventoPago: any;
   Currency = "0";
+  totalUSD = "0";
 
   //------------------OBJETOS-------------------------//
 
@@ -41,7 +42,8 @@ export class DetalleReservaComponent implements OnInit {
   ngOnInit(): void {
     this.eventoPago = JSON.parse(localStorage.getItem('evento almacenado'))
     this.Currency = this.eventoPago.value.toLocaleString('es-MX', {style: 'currency', currency: 'MXN'}).replace('.00', '').replace(',', '.').replace(',', '.');
-    
+    this.totalUSD = this.eventoPago.value.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
+
     //se guarda ID de evento creado en persistencia
     this.formulario.event_booking = this.eventoPago.search_id
   }
