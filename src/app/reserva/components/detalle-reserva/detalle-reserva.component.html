@@ -55,82 +55,86 @@
               (keyup)="getDireccion(direccion.value)" aria-describedby="basic-addon3">
           </div>
           <div>
-            <button [disabled]="pago.invalid" class="btn btn-primary rounded-pill px-4 shadow">Pagar Evento</button>
+            <!-- <button [disabled]="pago.invalid" class="btn btn-primary rounded-pill px-4 shadow">Pagar Evento</button> -->
+            
+
           </div>
         </form>
       </div>
     </div>
 
 
-  <!-- Frame evento -->
-  <div class="col-lg-5">
-    <div >
-      <table class="table table-borderless h-auto">
-        <h3 class="py-2">Resumen de tu evento</h3>
-        <h5>ID Evento: {{eventoPago.search_id}}</h5>
-        <tbody>
-          <tr class="table-row">
-            <td>
-              <p class="medium">Fecha:</p>
-            </td>
-            <td>
-              <p class="description">{{eventoPago.booking_date}}</p>
-            </td>
-          </tr>
-          <tr class="table-row">
-            <td>
-              <p class="medium">Cantidad de personas:</p>
-            </td>
-            <td>
-              <p class="description">{{eventoPago.people}} personas</p>
-            </td>
-          </tr>
-          <tr class="table-row">
-            <td>
-              <p class="medium">Banqueteria:</p>
-            </td>
-            <td>
-              <p class="description">{{eventoPago.catering}}</p>
-            </td>
-          </tr>
-          <tr class="table-row">
-            <td>
-              <p class="medium">Música:</p>
-            </td>
-            <td>
-              <p class="description">{{eventoPago.music}}</p>
-            </td>
-          </tr>
-          <tr class="table-row">
-            <td>
-              <p class="medium">Entretenimiento:</p>
-            </td>
-            <td>
-              <p class="description">{{eventoPago.entertainment}}</p>
-            </td>
-          </tr>
-          <tr class="table-row">
-            <td>
-              <p class="medium">Recinto:</p>
-            </td>
-            <td>
-              <p class="description">{{eventoPago.site}}</p>
-            </td>
-          </tr>
-          <tr class="table-row">
-            <td>
-              <p class="medium">Bebestibles:</p>
-            </td>
-            <td>
-              <p class="description">{{eventoPago.drinks}}</p>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="justify-content-center">
-      <h3>Valor total: {{Currency}}</h3>
+    <!-- Frame evento -->
+    <div class="col-lg-5">
+      <div>
+        <table class="table table-borderless h-auto">
+          <h3 class="py-2">Resumen de tu evento</h3>
+          <h5>ID Evento: {{eventoPago.search_id}}</h5>
+          <tbody>
+            <tr class="table-row">
+              <td>
+                <p class="medium">Fecha:</p>
+              </td>
+              <td>
+                <p class="description">{{eventoPago.booking_date}}</p>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td>
+                <p class="medium">Cantidad de personas:</p>
+              </td>
+              <td>
+                <p class="description">{{eventoPago.people}} personas</p>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td>
+                <p class="medium">Banqueteria:</p>
+              </td>
+              <td>
+                <p class="description">{{eventoPago.catering}}</p>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td>
+                <p class="medium">Música:</p>
+              </td>
+              <td>
+                <p class="description">{{eventoPago.music}}</p>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td>
+                <p class="medium">Entretenimiento:</p>
+              </td>
+              <td>
+                <p class="description">{{eventoPago.entertainment}}</p>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td>
+                <p class="medium">Recinto:</p>
+              </td>
+              <td>
+                <p class="description">{{eventoPago.site}}</p>
+              </td>
+            </tr>
+            <tr class="table-row">
+              <td>
+                <p class="medium">Bebestibles:</p>
+              </td>
+              <td>
+                <p class="description">{{eventoPago.drinks}}</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>  
+      </div>
+      <div class="justify-content-center">
+        <h3>Valor total: {{Currency}}</h3>
+        
+      </div>
+      <div id="paypal-button-container" class="m-3"></div>
     </div>
   </div>
-</div>
 </div>
