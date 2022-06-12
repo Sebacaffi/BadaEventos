@@ -53,7 +53,8 @@
             return actions.order.create({
                 purchase_units: [{
                     amount: {
-                        value: '1000'
+                        value: '1000',
+                        currency_code: 'USD'
                     }
                 }]
             });
