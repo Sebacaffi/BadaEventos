@@ -37,6 +37,7 @@ export class AcordeonComponent implements OnInit {
 
   //variable donde se guarda la suma de los valores selecccionados en el acordeón
   totalItems = 0;
+  totalUSD = 0;
 
   //total formateado a moneda
   Currency = "0";
@@ -286,7 +287,9 @@ export class AcordeonComponent implements OnInit {
     this.displayValue = parseInt(val);
     if (this.displayValue > 0){
     this.totalItems = this.musicValue + this.siteValue+ this.entertaimentValue+ (this.drinksValue*this.displayValue)+ (this.cateringValue*this.displayValue);
-    this.Currency = this.totalItems.toLocaleString('es-MX', {style: 'currency', currency: 'MXN'}).replace('.00', '').replace(',', '.').replace(',', '.');
+    this.Currency = this.totalItems.toLocaleString('es-CL', {style: 'currency', currency: 'CLP'});
+    this.totalUSD = (Math.trunc(this.totalItems / 840))
+    localStorage.setItem("totalUSD", this.totalUSD.toString());
     }else{
       this.displayValue = 0;
     }
