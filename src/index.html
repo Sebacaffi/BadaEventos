@@ -31,54 +31,6 @@
 
 <body>
   <app-root class="d-flex flex-column min-vh-100" style="padding-top: 70px"></app-root>
-
-  <!--Importante sustituir CLIENT_ID generando en su cuenta de paypal sandbox-->
-  <!-- Include the PayPal JavaScript SDK -->
-  <script src="https://www.paypal.com/sdk/js?client-id=AYJa07vkaSFoowo6ZlPYlQD6TuQDy6Vb0lxXAG2esDoPUPb17XVpQ9gyOOX0rh2wY2r1tMFvajDVgSIA&currency=USD"></script>
-
-  <script>
-    // Render the PayPal button into #paypal-button-container
-    paypal.Buttons({
-
-        //ESTILOS
-        style: {
-          color:  'blue',
-          shape:  'pill',
-          label:  'pay',
-          height: 40
-        },
-
-        // ACA DEBEN COLOCAR EL VALOR DEL EVENTO
-        createOrder: function(data, actions) {
-            return actions.order.create({
-                purchase_units: [{
-                    amount: {
-                        value: localStorage.getItem('totalUSD'),
-                        currency_code: 'USD'
-                    }
-                }]
-            });
-        },
-
-        // si la transaccion finaliza me mandan el post al CUSTOMERS
-        onApprove: function(data, actions) {
-            return actions.order.capture().then(function(orderData) {
-                // Successful capture! For demo purposes:
-                console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
-                var transaction = orderData.purchase_units[0].payments.captures[0];
-                alert('Transaction '+ transaction.status + ': ' + transaction.id + '\n\nSee console for all available details');
-
-                // Replace the above to show a success message within this page, e.g.
-                // const element = document.getElementById('paypal-button-container');
-                // element.innerHTML = '';
-                // element.innerHTML = '<h3>Thank you for your payment!</h3>';
-                // Or go to another URL:  actions.redirect('thank_you.html');
-            });
-        }
-
-
-    }).render('#paypal-button-container');
-</script>
 </body>
 
 </html>
