@@ -62,7 +62,7 @@ export class DetalleReservaComponent implements OnInit{
         height: 40
       },
 
-      // Se setea el valor del evento para ser pagado en paypal
+      // Se pasa el valor del evento , guardado en localStorage para ser pagado en paypal
       createOrder: function (data, actions) {
           return actions.order.create({
               purchase_units: [{
@@ -77,8 +77,9 @@ export class DetalleReservaComponent implements OnInit{
       // si la transaccion finaliza me mandan el post al CUSTOMERS
       onApprove: function (data, actions) {
           return actions.order.capture().then(function (orderData) { 
-              // Successful capture! For demo purposes:
+              //se capturan los datos de la transacción
               var transaction = orderData.purchase_units[0].payments.captures[0];
+              //se evalúa el estado de la transacción y se manda una alerta según el caso
               if(transaction.status == "COMPLETED"){
                 Swal.fire({
                   icon: 'success',
