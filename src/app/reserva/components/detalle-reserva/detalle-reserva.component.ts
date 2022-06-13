@@ -79,8 +79,21 @@ export class DetalleReservaComponent implements OnInit{
           return actions.order.capture().then(function (orderData) { 
               // Successful capture! For demo purposes:
               var transaction = orderData.purchase_units[0].payments.captures[0];
-              alert('Transaction ' + transaction.status + ': ' + transaction.id + '\n\nSee console for all available details');
-              localStorage.setItem('transaction', JSON.stringify(transaction.status));
+              if(transaction.status == "COMPLETED"){
+                Swal.fire({
+                  icon: 'success',
+                  title: 'Pago realizado!',
+                  text: 'Su evento fue pagado con éxito',
+                  confirmButtonColor:'btn-primary mx-2 shadow',
+                })
+              }else{
+                Swal.fire({
+                  icon: 'error',
+                  title: 'No pudimos realizar su pago!',
+                  text: 'Favor de intentar nuevamente',
+                  confirmButtonColor:'btn-primary mx-2 shadow',
+                })
+              }
           });
       }
 
