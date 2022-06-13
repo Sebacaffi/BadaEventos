@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   templateUrl: './detalle-reserva.component.html',
   styleUrls: ['./detalle-reserva.component.scss']
 })
-export class DetalleReservaComponent implements OnInit {
+export class DetalleReservaComponent implements OnInit{
 
   //----------VARIABLES USADAS EN LAS FUNCIONES-------------//
 
@@ -17,6 +17,7 @@ export class DetalleReservaComponent implements OnInit {
   Currency = "0";
   totalUSD = 0;
   CurrencyUSD = "0";
+  ResultPago: string;
 
   //------------------OBJETOS-------------------------//
 
@@ -45,12 +46,18 @@ export class DetalleReservaComponent implements OnInit {
     this.Currency = this.eventoPago.value.toLocaleString('es-CL', {style: 'currency', currency: 'CLP'});
     this.totalUSD = (Math.trunc(this.eventoPago.value / 840));
     this.CurrencyUSD = this.totalUSD.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
+    localStorage.setItem("totalUSD", this.totalUSD.toString());
     
     //se guarda ID de evento creado en persistencia
     this.formulario.event_booking = this.eventoPago.search_id
+
+    this.ResultPago = JSON.parse(localStorage.getItem('ResultPago'))
+    console.log(this.ResultPago)
+
   }
 
   //------FUNCIONES PARA OBTENER Y EVNIAR DATOS---------//
+
   sendForm() {
     this.service.sendEventCustomer(this.formulario).subscribe(result => {
       this.errorMessage = '';
