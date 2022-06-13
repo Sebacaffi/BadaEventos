@@ -4,7 +4,7 @@
   <div class="row d-flex align-items-center">
     <div class="col-lg-7">
       <div class="pt-4">
-        <form id="pagoForm" #pago="ngForm" (ngSubmit)="sendForm()">
+        <form id="pagoForm" #pago="ngForm" (ngSubmit)="recargarPage()"><!--FALTA AGREGAR EL METODO PARA MANDAR EL POST sendForm()-->
 
           <!-- NOMBRES -->
           <div class="mb-3">
@@ -55,9 +55,7 @@
               (keyup)="getDireccion(direccion.value)" aria-describedby="basic-addon3">
           </div>
           <div>
-            <!-- <button [disabled]="pago.invalid" class="btn btn-primary rounded-pill px-4 shadow">Pagar Evento</button> -->
-            
-
+            <button [disabled]="pago.invalid" class="btn btn-primary rounded-pill px-4 shadow">Guardar Cliente</button>
           </div>
         </form>
       </div>
