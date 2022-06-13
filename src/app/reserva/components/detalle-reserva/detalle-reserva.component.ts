@@ -121,4 +121,9 @@ export class DetalleReservaComponent implements OnInit {
   navegarHome(){
     this.router.navigateByUrl("/");
   }
+
+  recargarPage(){
+    window.location.reload();
+  }
+
 }
