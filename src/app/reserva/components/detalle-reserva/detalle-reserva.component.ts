@@ -76,26 +76,32 @@ export class DetalleReservaComponent implements OnInit{
 
       // si la transaccion finaliza me mandan el post al CUSTOMERS
       onApprove: function (data, actions) {
-          return actions.order.capture().then(function (orderData) { 
-              //se capturan los datos de la transacción
-              var transaction = orderData.purchase_units[0].payments.captures[0];
-              //se evalúa el estado de la transacción y se manda una alerta según el caso
-              if(transaction.status == "COMPLETED"){
-                Swal.fire({
-                  icon: 'success',
-                  title: 'Pago realizado!',
-                  text: 'Su evento fue pagado con éxito',
-                  confirmButtonColor:'btn-primary mx-2 shadow',
-                })
-              }else{
-                Swal.fire({
-                  icon: 'error',
-                  title: 'No pudimos realizar su pago!',
-                  text: 'Favor de intentar nuevamente',
-                  confirmButtonColor:'btn-primary mx-2 shadow',
-                })
-              }
-          });
+        return actions.order.capture().then(function (orderData) { 
+          //se capturan los datos de la transacción
+          var transaction = orderData.purchase_units[0].payments.captures[0];
+          //se evalúa el estado de la transacción y se manda una alerta según el caso
+          if(transaction.status == "COMPLETED"){
+            Swal.fire({
+              icon: 'success',
+              title: 'Pago realizado!',
+              text: 'Su evento fue pagado con éxito',
+              confirmButtonColor:'btn-primary mx-2 shadow',
+            }).then((result) => {
+              if (result.isConfirmed) {
+                this.navegarHome()
+              } else if (
+                result.dismiss === Swal.DismissReason.cancel
+              ){}
+            })
+          }else{
+            Swal.fire({
+              icon: 'error',
+              title: 'No pudimos realizar su pago!',
+              text: 'Favor de intentar nuevamente',
+              confirmButtonColor:'btn-primary mx-2 shadow',
+            })
+          }
+        });
       }
 
     }).render('#paypal-button-container');
@@ -173,10 +179,6 @@ export class DetalleReservaComponent implements OnInit{
   //función de navegación HOME
   navegarHome(){
     this.router.navigateByUrl("/");
-  }
-
-  recargarPage(){
-    window.location.reload();
   }
 
 }

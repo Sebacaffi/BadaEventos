@@ -55,7 +55,11 @@
               (keyup)="getDireccion(direccion.value)" aria-describedby="basic-addon3">
           </div>
           <div>
-            <!-- <button [disabled]="pago.invalid" class="btn btn-primary rounded-pill px-4 shadow">Guardar Cliente</button> -->
+            <div class="">
+              <button [disabled]="pago.invalid" class="btn col-lg-12">
+                <div id="paypal-button-container"></div>
+              </button>
+            </div>
           </div>
         </form>
       </div>
@@ -132,8 +136,6 @@
         <h3>Valor total: {{Currency}}</h3>
         <small> Total Dolares: {{CurrencyUSD}} USD</small>
       </div>
-      <!-- llamado botones PAYPAL -->
-      <div id="paypal-button-container" class="m-3"></div>
     </div>
   </div>
 </div>
