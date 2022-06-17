@@ -18,6 +18,8 @@ export class DetalleReservaComponent implements OnInit{
   Currency = "0";
   totalUSD = 0;
   CurrencyUSD = "0";
+  paypalStatus: string = "";
+  paypalID: string = "";
 
   //------------------OBJETOS-------------------------//
 
@@ -83,28 +85,11 @@ export class DetalleReservaComponent implements OnInit{
           var transaction = orderData.purchase_units[0].payments.captures[0];
           //se evalúa el estado de la transacción y se manda una alerta según el caso
           if(transaction.status == "COMPLETED"){
-            Swal.fire({
-              icon: 'success',
-              title: 'Pago realizado!',
-              text: 'Su evento fue pagado con éxito',
-              confirmButtonColor:'btn-primary mx-2 shadow',
-            }).then((result) => {
-              if (result.isConfirmed) {
-                this.formulario.purchase_order = transaction.id
-                this.formulario.status = transaction.status
-                this.sendForm()
-                this.navegarHome()
-              } else if (
-                result.dismiss === Swal.DismissReason.cancel
-              ){}
-            })
+            this.paypalStatus = transaction.status
+            this.paypalID = transaction.id
+            this.alertaPago()
           }else{
-            Swal.fire({
-              icon: 'error',
-              title: 'No pudimos realizar su pago!',
-              text: 'Favor de intentar nuevamente',
-              confirmButtonColor:'btn-primary mx-2 shadow',
-            })
+            this.alertaErrorPost()
           }
         });
       }
@@ -163,18 +148,25 @@ export class DetalleReservaComponent implements OnInit{
       title: 'Pago realizado!',
       text: 'Su evento fue pagado con éxito',
       confirmButtonColor:'btn-primary mx-2 shadow',
-    }
-    )
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.formulario.purchase_order = this.paypalID
+        this.formulario.status = this.paypalStatus
+        this.sendForm()
+        this.navegarHome()
+      } else if (
+        result.dismiss === Swal.DismissReason.cancel
+      ){}
+    })
     this.navegarHome()
   }
 
   alertaErrorPost(){
     Swal.fire({
-      title: 'Este evento ya fue pagado!',
-      text: 'Por favor revise el ID enviado a su correo electrónico e intente nuevamente',
       icon: 'error',
-      confirmButtonText: 'OK',
-      allowOutsideClick: false
+      title: 'No pudimos realizar su pago!',
+      text: 'Favor de intentar nuevamente',
+      confirmButtonColor:'btn-primary mx-2 shadow',
     })
   }
 
