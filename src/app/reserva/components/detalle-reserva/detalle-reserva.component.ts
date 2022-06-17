@@ -1,7 +1,11 @@
 import { Component, OnInit} from '@angular/core';
 import { ReservaService } from '../../services/reserva.service';
-import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+
+import Swal from 'sweetalert2';
+import pdfMake from "pdfmake/build/pdfmake";
+import pdfFonts from "pdfmake/build/vfs_fonts";
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 declare var paypal;
 
@@ -99,6 +103,24 @@ export class DetalleReservaComponent implements OnInit{
   }
 
   //------FUNCIONES PARA OBTENER Y EVNIAR DATOS---------//
+
+  crearPDF(){
+    var docDefinition: any = {
+      content: [
+        { text: 'Detalles de tu Evento', style: 'header' },
+          'Fecha: ' + this.eventoPago.booking_date,
+          'Cantidad de personas: ' + this.eventoPago.people,
+          'Banqueteria: ' + this.eventoPago.catering,
+          'Música: ' + this.eventoPago.music,
+          'Entretenimiento: ' + this.eventoPago.entertainment,
+          'Recinto: ' + this.eventoPago.site,
+          'Bebestibles: ' + this.eventoPago.drinks,
+          'Valor: ' + this.Currency,
+          'Valor en USD: ' + this.CurrencyUSD,
+      ]
+    }
+    pdfMake.createPdf(docDefinition).open();
+  }
 
   sendForm() {
     this.service.sendEventCustomer(this.formulario).subscribe(result => {
