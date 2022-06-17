@@ -32,6 +32,8 @@ export class DetalleReservaComponent implements OnInit{
     city: "",
     created: "",
     event_booking: "",
+    purchase_order: "",
+    status: ""
   }
 
   constructor(
@@ -75,8 +77,8 @@ export class DetalleReservaComponent implements OnInit{
       },
 
       // si la transaccion finaliza me mandan el post al CUSTOMERS
-      onApprove: function (data, actions) {
-        return actions.order.capture().then(function (orderData) { 
+      onApprove: (data, actions) =>{
+        return actions.order.capture().then((orderData) =>{ 
           //se capturan los datos de la transacción
           var transaction = orderData.purchase_units[0].payments.captures[0];
           //se evalúa el estado de la transacción y se manda una alerta según el caso
@@ -88,6 +90,9 @@ export class DetalleReservaComponent implements OnInit{
               confirmButtonColor:'btn-primary mx-2 shadow',
             }).then((result) => {
               if (result.isConfirmed) {
+                this.formulario.purchase_order = transaction.id
+                this.formulario.status = transaction.status
+                this.sendForm()
                 this.navegarHome()
               } else if (
                 result.dismiss === Swal.DismissReason.cancel
@@ -113,7 +118,6 @@ export class DetalleReservaComponent implements OnInit{
   sendForm() {
     this.service.sendEventCustomer(this.formulario).subscribe(result => {
       this.errorMessage = '';
-      this.alertaPago()
     }, err => {
       // Entra aquí si el servicio entrega un código http de error EJ: 404,
       this.errorMessage = err.ok.toString();

@@ -6,12 +6,12 @@
     </div>
     <form>
       <div class="py-2">
-        <input type="text" class="form-control" id="username" placeholder="Usuario">
+        <input type="text" class="form-control" id="username" placeholder="Usuario" #user (keyup)="getUser(user.value)">
       </div>
       <div class="py-2">
-        <input type="password" class="form-control" id="password" placeholder="Contraseña">
+        <input type="password" class="form-control" id="password" placeholder="Contraseña" #pass (keyup)="getPass(pass.value)">
       </div>
-      <button type="submit" class="btn btn-primary rounded-pill px-5 bold my-4" routerLink="/dashboard" routerLinkActive="active">Iniciar</button>
+      <button (click)="postUser();loginRouter()" type="submit" class="btn btn-primary rounded-pill px-5 bold my-4">Iniciar</button>
     </form>
   </div>
 </div>

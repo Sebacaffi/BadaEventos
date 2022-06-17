@@ -84,9 +84,9 @@ export class AcordeonComponent implements OnInit {
     //------lLAMADA SERVICIOS API------//
 
     //se llama a los servicios para obtener los items de cada categoria
-    this.eventService.getCatering(this.id).subscribe((cateringFromApi: Catering[]) =>
-      this.cateringResult = cateringFromApi
-    ), error => console.error(error)
+   
+    
+    
 
     this.eventService.getSite().subscribe((siteFromApi: Site[]) =>
       this.siteResult = siteFromApi
