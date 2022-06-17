@@ -85,8 +85,9 @@ export class AcordeonComponent implements OnInit {
 
     //se llama a los servicios para obtener los items de cada categoria
    
-    
-    
+    this.eventService.getCatering(this.id).subscribe((cateringFromApi: Catering[]) =>
+      this.cateringResult = cateringFromApi
+    ), error => console.error(error)
 
     this.eventService.getSite().subscribe((siteFromApi: Site[]) =>
       this.siteResult = siteFromApi
@@ -366,8 +367,6 @@ export class AcordeonComponent implements OnInit {
       allowOutsideClick: false
     })
   }
-
-
 
   //-----FUNCIONES DE NAVEGACIÓN-----//
 
