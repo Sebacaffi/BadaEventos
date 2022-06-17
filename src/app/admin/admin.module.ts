@@ -5,6 +5,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { RouterModule } from '@angular/router';
 import { AdminNavbarComponent } from './components/admin-navbar/admin-navbar.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -17,7 +18,8 @@ import { MenuComponent } from './components/menu/menu.component';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    FormsModule
   ],
   exports: [
     LoginComponent,

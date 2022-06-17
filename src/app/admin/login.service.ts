@@ -14,4 +14,8 @@ export class LoginService {
   sendLogin(data) {
     return this.http.post(this.url, data)
   }
+
+  login(data): Observable<any> {
+    return this.http.post<any>(this.url, data);
+  }
 }
