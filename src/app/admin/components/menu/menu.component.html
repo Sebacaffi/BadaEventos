@@ -1,4 +1,4 @@
-<div>
+<div class="container-lg rounded">
   <div>
     <div class="list-group" id="list-tab" role="tablist">
       <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" role="tab" aria-controls="home">Información de cuenta</a>
@@ -7,6 +7,55 @@
       <!-- multimedia modificara solo el slider -->
       <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" role="tab" aria-controls="settings">Multimedia</a>
       <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" role="tab" aria-controls="settings">Valores de items</a>
+    </div>
+  </div>
+
+  
+<div class='container'>
+  <!-- Acordeon -->
+  <div class="accordion m-3" id="accordionExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button accordion-button-lh-norm" type="button" data-bs-toggle="collapse"
+          data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          <p>Evento</p>
+        </button>
+      </h2>
+
+    <!-- Pestaña Banquetería -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingTwo">
+        <button class="accordion-button accordion-button-lh-norm collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Banquetería
+        </button>
+      </h2>
+      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+        data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" value="catering"name="catering"
+              [checked]="false">
+            <label class="form-check-label" for="flexRadioDefault1">
+              <div class="card">
+                <div class="row g-0">
+                  <div class="col-sm-5">
+                    <img src="" class="img-fluid rounded-start" alt="...">
+                  </div>
+                  <div class="col-md-7">
+                    <div class="card-body">
+                      <h5 class="card-title p2">dafsdfasdf</h5>
+                      <p class="card-text"><small>fasdf</small></p>
+                      <p class="card-text"><small>asdf</small></p>
+                      <p class="card-text"><small>- Valor: asdf</small></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
