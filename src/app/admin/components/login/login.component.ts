@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { LoginService } from '../../login.service';
 
 @Component({
@@ -22,11 +23,23 @@ export class LoginComponent implements OnInit {
   }
 
   postUser() {
-    this.serviceLogin.sendLogin(this.user).subscribe((result => {
+    this.serviceLogin.login(this.user).subscribe(result => {
       console.log('post de usuario', result)
       this.tokenResponse = JSON.stringify(result)
+      if(this.tokenResponse != "") {
+        this.router.navigateByUrl("/dashboard");
+      }
+    }, err => {
+      console.log('error', err)
+      
+      Swal.fire({
+        icon: 'error',
+        title: 'Credenciales no valida!',
+        text: 'Favor de intentar nuevamente',
+        confirmButtonColor:'btn-primary mx-2 shadow',
+      })
     }
-    ))
+    )
   }
 
   getUser(name: string){
@@ -35,12 +48,6 @@ export class LoginComponent implements OnInit {
 
   getPass(pass: string) {
     this.user.password = pass
-  }
-
-  loginRouter(){
-    if(this.tokenResponse!="") {
-      this.router.navigateByUrl("/dashboard");
-    }
   }
 
 }
