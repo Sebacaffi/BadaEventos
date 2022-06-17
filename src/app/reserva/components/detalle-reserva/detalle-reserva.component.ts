@@ -1,20 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { ReservaService } from '../../services/reserva.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+
+declare var paypal;
 
 @Component({
   selector: 'app-detalle-reserva',
   templateUrl: './detalle-reserva.component.html',
   styleUrls: ['./detalle-reserva.component.scss']
 })
-export class DetalleReservaComponent implements OnInit {
-
+export class DetalleReservaComponent implements OnInit{
   //----------VARIABLES USADAS EN LAS FUNCIONES-------------//
 
   errorMessage = '';
   eventoPago: any;
   Currency = "0";
+  totalUSD = 0;
+  CurrencyUSD = "0";
 
   //------------------OBJETOS-------------------------//
 
@@ -40,14 +43,73 @@ export class DetalleReservaComponent implements OnInit {
 
   ngOnInit(): void {
     this.eventoPago = JSON.parse(localStorage.getItem('evento almacenado'))
-    this.Currency = this.eventoPago.value.toLocaleString('es-MX', {style: 'currency', currency: 'MXN'}).replace('.00', '');
-    this.Currency = this.Currency.replace(',', '.');
+    this.Currency = this.eventoPago.value.toLocaleString('es-CL', {style: 'currency', currency: 'CLP'});
+    this.totalUSD = (Math.trunc(this.eventoPago.value / 840));
+    this.CurrencyUSD = this.totalUSD.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
+    localStorage.setItem("totalUSD", this.totalUSD.toString());
     
     //se guarda ID de evento creado en persistencia
     this.formulario.event_booking = this.eventoPago.search_id
+
+    // Render the PayPal button into #paypal-button-container
+    paypal.Buttons({
+
+      //ESTILOS
+      style: {
+        color: 'blue',
+        shape: 'pill',
+        label: 'pay',
+        height: 40
+      },
+
+      // Se pasa el valor del evento , guardado en localStorage para ser pagado en paypal
+      createOrder: function (data, actions) {
+          return actions.order.create({
+              purchase_units: [{
+                  amount: {
+                      value: localStorage.getItem('totalUSD'),
+                      currency_code: 'USD'
+                  }
+              }]
+          });
+      },
+
+      // si la transaccion finaliza me mandan el post al CUSTOMERS
+      onApprove: function (data, actions) {
+        return actions.order.capture().then(function (orderData) { 
+          //se capturan los datos de la transacción
+          var transaction = orderData.purchase_units[0].payments.captures[0];
+          //se evalúa el estado de la transacción y se manda una alerta según el caso
+          if(transaction.status == "COMPLETED"){
+            Swal.fire({
+              icon: 'success',
+              title: 'Pago realizado!',
+              text: 'Su evento fue pagado con éxito',
+              confirmButtonColor:'btn-primary mx-2 shadow',
+            }).then((result) => {
+              if (result.isConfirmed) {
+                this.navegarHome()
+              } else if (
+                result.dismiss === Swal.DismissReason.cancel
+              ){}
+            })
+          }else{
+            Swal.fire({
+              icon: 'error',
+              title: 'No pudimos realizar su pago!',
+              text: 'Favor de intentar nuevamente',
+              confirmButtonColor:'btn-primary mx-2 shadow',
+            })
+          }
+        });
+      }
+
+    }).render('#paypal-button-container');
+
   }
 
   //------FUNCIONES PARA OBTENER Y EVNIAR DATOS---------//
+
   sendForm() {
     this.service.sendEventCustomer(this.formulario).subscribe(result => {
       this.errorMessage = '';
@@ -56,6 +118,7 @@ export class DetalleReservaComponent implements OnInit {
       // Entra aquí si el servicio entrega un código http de error EJ: 404,
       this.errorMessage = err.ok.toString();
       this.alertaErrorPost()
+      this.navegarHome()
     })
   }
 
@@ -103,8 +166,8 @@ export class DetalleReservaComponent implements OnInit {
 
   alertaErrorPost(){
     Swal.fire({
-      title: 'Error al enviar formulario',
-      text: 'Por favor, reporte el error al administrador',
+      title: 'Este evento ya fue pagado!',
+      text: 'Por favor revise el ID enviado a su correo electrónico e intente nuevamente',
       icon: 'error',
       confirmButtonText: 'OK',
       allowOutsideClick: false
@@ -117,4 +180,5 @@ export class DetalleReservaComponent implements OnInit {
   navegarHome(){
     this.router.navigateByUrl("/");
   }
+
 }

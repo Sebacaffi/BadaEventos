@@ -41,6 +41,9 @@ export class AcordeonComponent implements OnInit {
   //total formateado a moneda
   Currency = "0";
 
+  //variebles de error
+  errorMessage: string;
+
   //------------------OBJETOS-------------------------//
 
   //se crea un objeto para almacenar los datos del evento predefinido y obtenidos del localStorage en getEvent
@@ -161,13 +164,12 @@ export class AcordeonComponent implements OnInit {
         }
       }
       ));
-
-      this.alertaReserva()
+      this.postEvent()
     }
   }
 
   //función para envia POST de los datos del evento
-  postEvent() {
+  postEvent(){
 
     this.event.value = this.totalItems
 
@@ -178,7 +180,6 @@ export class AcordeonComponent implements OnInit {
       catering: this.event.event_catering.items,
       drinks: this.event.event_drinks.items,
       entertainment: this.event.event_entertainment.items,
-      state: 1,
       booking_date: this.selectDate,
       event_type: this.event.type,
       description: this.event.description,
@@ -189,13 +190,17 @@ export class AcordeonComponent implements OnInit {
       updated: "",
     }
 
-    this.eventService.sendEventReserved(finalEvent).subscribe((result => {
+    this.eventService.sendEventReserved(finalEvent).subscribe(result => {
       console.log('post de evento reservado', result)
       this.returnedEvent = result
       console.log('id almacenada',this.returnedEvent.search_id)
       localStorage.setItem('evento almacenado', JSON.stringify(this.returnedEvent))
-    }
-    ))
+      this.alertaReserva()
+    },err => {
+      // Entra aquí si el servicio entrega un código http de error EJ: 404,
+      this.errorMessage = err.ok.toString();
+      this.alertaErrorPost()
+    })
   }
 
   postEmail() {
@@ -286,7 +291,7 @@ export class AcordeonComponent implements OnInit {
     this.displayValue = parseInt(val);
     if (this.displayValue > 0){
     this.totalItems = this.musicValue + this.siteValue+ this.entertaimentValue+ (this.drinksValue*this.displayValue)+ (this.cateringValue*this.displayValue);
-    this.Currency = this.totalItems.toLocaleString('es-MX', {style: 'currency', currency: 'MXN'}).replace('.00', '').replace(',', '.').replace(',', '.');
+    this.Currency = this.totalItems.toLocaleString('es-CL', {style: 'currency', currency: 'CLP'});
     }else{
       this.displayValue = 0;
     }
@@ -305,8 +310,6 @@ export class AcordeonComponent implements OnInit {
   }
 
   alertaReserva(){
-
-    this.postEvent()
 
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
@@ -352,6 +355,16 @@ export class AcordeonComponent implements OnInit {
       Swal.fire(`ID enviado a: ${email}`, '', 'success')
       this.navegarHome()
     }
+  }
+
+  alertaErrorPost(){
+    Swal.fire({
+      title: 'Error en reserva!',
+      text: 'No pudimos reservar el evento, intente nuevamente',
+      icon: 'error',
+      confirmButtonText: 'OK',
+      allowOutsideClick: false
+    })
   }
 
 
