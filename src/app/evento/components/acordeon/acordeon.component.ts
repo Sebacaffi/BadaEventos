@@ -8,7 +8,7 @@ import Swal from 'sweetalert2';
   selector: 'app-acordeon',
   templateUrl: './acordeon.component.html',
   styleUrls: ['./acordeon.component.scss']
-})
+}) 
 export class AcordeonComponent implements OnInit {
   
   //----------VARIABLES USADAS EN LAS FUNCIONES-------------//
