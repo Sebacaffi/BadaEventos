@@ -4,14 +4,19 @@
       <h3 class="title py-1">Iniciar Sesión</h3>
       <h5 class="title py-1">BADA EVENTOS</h5>
     </div>
-    <form>
-      <div class="py-2">
-        <input type="text" class="form-control" id="username" placeholder="Usuario" #user (keyup)="getUser(user.value)">
-      </div>
-      <div class="py-2">
-        <input type="password" class="form-control" id="password" placeholder="Contraseña" #pass (keyup)="getPass(pass.value)">
-      </div>
-      <button (click)="postUser();loginRouter()" type="submit" class="btn btn-primary rounded-pill px-5 bold my-4">Iniciar</button>
-    </form>
+    <div id="loginAlert" class="alert alert-danger" role="alert" style="display: none;">
+      Credenciales no validas!
+    </div>
+    <div>
+      <form id="login" #login="ngForm" (ngSubmit)="postUser()">
+        <div class="py-2">
+          <input type="text" class="form-control" id="username" placeholder="Usuario" #user (keyup)="getUser(user.value)">
+        </div>
+        <div class="py-2">
+          <input type="password" class="form-control" id="password" placeholder="Contraseña" #pass (keyup)="getPass(pass.value)">
+        </div>
+        <button [disabled]="login.invalid" type="submit" class="btn btn-primary rounded-pill px-5 bold my-4">Iniciar</button>
+      </form>
+    </div>
   </div>
 </div>
