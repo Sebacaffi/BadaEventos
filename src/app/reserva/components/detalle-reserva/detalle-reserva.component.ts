@@ -18,8 +18,6 @@ export class DetalleReservaComponent implements OnInit{
   Currency = "0";
   totalUSD = 0;
   CurrencyUSD = "0";
-  paypalStatus: string = "";
-  paypalID: string = "";
 
   //------------------OBJETOS-------------------------//
 
@@ -85,9 +83,9 @@ export class DetalleReservaComponent implements OnInit{
           var transaction = orderData.purchase_units[0].payments.captures[0];
           //se evalúa el estado de la transacción y se manda una alerta según el caso
           if(transaction.status == "COMPLETED"){
-            this.paypalStatus = transaction.status
-            this.paypalID = transaction.id
-            this.alertaPago()
+            this.formulario.purchase_order = transaction.id
+            this.formulario.status = transaction.status
+            this.sendForm()
           }else{
             this.alertaErrorPost()
           }
@@ -103,10 +101,11 @@ export class DetalleReservaComponent implements OnInit{
   sendForm() {
     this.service.sendEventCustomer(this.formulario).subscribe(result => {
       this.errorMessage = '';
+      this.alertaPago();
     }, err => {
       // Entra aquí si el servicio entrega un código http de error EJ: 404,
       this.errorMessage = err.ok.toString();
-      this.alertaErrorPost()
+      this.alertaEventoPagado()
       this.navegarHome()
     })
   }
@@ -150,9 +149,6 @@ export class DetalleReservaComponent implements OnInit{
       confirmButtonColor:'btn-primary mx-2 shadow',
     }).then((result) => {
       if (result.isConfirmed) {
-        this.formulario.purchase_order = this.paypalID
-        this.formulario.status = this.paypalStatus
-        this.sendForm()
         this.navegarHome()
       } else if (
         result.dismiss === Swal.DismissReason.cancel
@@ -166,6 +162,15 @@ export class DetalleReservaComponent implements OnInit{
       icon: 'error',
       title: 'No pudimos realizar su pago!',
       text: 'Favor de intentar nuevamente',
+      confirmButtonColor:'btn-primary mx-2 shadow',
+    })
+  }
+
+  alertaEventoPagado(){
+    Swal.fire({
+      icon: 'error',
+      title: 'Sue evento ya está pagado!',
+      text: 'Revise el ID enviado a su correo',
       confirmButtonColor:'btn-primary mx-2 shadow',
     })
   }
