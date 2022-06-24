@@ -1,6 +1,6 @@
 <section id="tipo-evento" class="container py-5 mt-5">
     <h2 class="section-title text-center py-5">¿Qué vas a celebrar?</h2>
-    <!--  -->
+    <!-- LOOP TIPO EVENTO -->
     <div class="row row-cols-lg-5 row-cols-md-2 justify-content-center" *ngIf="resultList">
         <div *ngFor="let result of resultList">
             <div class="card tipo-evento-card text-white shadow pointer my-2 zoom-on-hover" routerLink="/evento" routerLinkActive="active" (click)="getEventById(result.id)">
