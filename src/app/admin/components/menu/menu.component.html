@@ -1,49 +1,613 @@
 <div class="container-lg rounded">
-
   <div class='container'>
-    <!-- Acordeon -->
-    <div class="accordion m-3" id="accordionExample">
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingOne">
-          <button class="accordion-button accordion-button-lh-norm" type="button" data-bs-toggle="collapse"
-            data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-            <p>Evento</p>
-          </button>
-        </h2>
-
-        <!-- Pestaña Banquetería -->
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingTwo">
-            <button class="accordion-button accordion-button-lh-norm collapsed" type="button" data-bs-toggle="collapse"
-              data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-              Banquetería
-            </button>
-          </h2>
-          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-            data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" value="catering" name="catering" [checked]="false">
-                <label class="form-check-label" for="flexRadioDefault1">
-                  <div class="card">
-                    <div class="row g-0">
-                      <div class="col-sm-5">
-                        <img src="" class="img-fluid rounded-start" alt="...">
-                      </div>
-                      <div class="col-md-7">
-                        <div class="card-body">
-                          <h5 class="card-title p2">dafsdfasdf</h5>
-                          <p class="card-text"><small>fasdf</small></p>
-                          <p class="card-text"><small>asdf</small></p>
-                          <p class="card-text"><small>- Valor: asdf</small></p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </label>
-              </div>
+    <!-- INICIO DE FOR CREACIÓN DE TARJETAS -->
+    <div class="row row-cols-lg-5 row-cols-md-2 justify-content-left">
+      
+        <!-- INICIO TARJETA -->
+        <div class="card shadow pointer my-2 zoom-on-hover">
+          <div>
+            <div class="bg-white p-3">
+              <h4 class="frame-title">Nombre del Evento</h4>
+              <h6>ID Evento: IDASDFASDFASDF</h6>
+              <table class="mt-2 table table-borderless h-auto">
+                <tbody>
+                  <tr class="table-row">
+                    <td>
+                      <p class="medium">Fecha:</p>
+                    </td>
+                    <td>
+                      <p class="description">22 de noviembre de 2025
+                        <!-- {{eventoPago.booking_date}} -->
+                      </p>
+                    </td>
+                  </tr>
+                  <tr class="table-row">
+                    <td>
+                      <p class="medium">Cantidad de personas:</p>
+                    </td>
+                    <td>
+                      <p class="description">1000
+                        <!-- {{eventoPago.people}} personas -->
+                      </p>
+                    </td>
+                  </tr>
+                  <tr class="table-row">
+                    <td>
+                      <p class="medium">Banqueteria:</p>
+                    </td>
+                    <td>
+                      <p class="description">Menú completo
+                        <!-- {{eventoPago.catering}}-->
+                      </p>
+                    </td>
+                  </tr>
+                  <tr class="table-row">
+                    <td>
+                      <p class="medium">Música:</p>
+                    </td>
+                    <td>
+                      <p class="description">Música envasada
+                        <!-- {{eventoPago.music}} -->
+                      </p>
+                    </td>
+                  </tr>
+                  <tr class="table-row">
+                    <td>
+                      <p class="medium">Entret.:</p>
+                    </td>
+                    <td>
+                      <p class="description">Mariachis
+                        <!-- {{eventoPago.entertainment}}-->
+                      </p>
+                    </td>
+                  </tr>
+                  <tr class="table-row">
+                    <td>
+                      <p class="medium">Recinto:</p>
+                    </td>
+                    <td>
+                      <p class="description">Salón Marlon Pro
+                        <!-- {{eventoPago.site}}-->
+                      </p>
+                    </td>
+                  </tr>
+                  <tr class="table-row">
+                    <td>
+                      <p class="medium">Bebestibles:</p>
+                    </td>
+                    <td>
+                      <p class="description">Barra abierta
+                        <!-- {{eventoPago.drinks}}-->
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5>Valor total: 999.999</h5>
+              <small> Total Dolares: 666 USD</small>
             </div>
           </div>
-        </div>
-      </div>
+        </div> <!-- FIN TARJETA  -->
+
+        <!-- INICIO TARJETA -->
+        <div class="card shadow pointer my-2 zoom-on-hover">
+          <div>
+            <div class="bg-white shadow p-3">
+              <h4 class="frame-title">Nombre del Evento</h4>
+              <h6>ID Evento: IDASDFASDFASDF</h6>
+              <table class="mt-2 table table-borderless h-auto">
+                <tbody>
+                  <tr class="table-row">
+                    <td>
+                      <p class="medium">Fecha:</p>
+                    </td>
+                    <td>
+                      <p class="description">22 de noviembre de 2025
+                        <!-- {{eventoPago.booking_date}} -->
+                      </p>
+                    </td>
+                  </tr>
+                  <tr class="table-row">
+                    <td>
+                      <p class="medium">Cantidad de personas:</p>
+                    </td>
+                    <td>
+                      <p class="description">1000
+                        <!-- {{eventoPago.people}} personas -->
+                      </p>
+                    </td>
+                  </tr>
+                  <tr class="table-row">
+                    <td>
+                      <p class="medium">Banqueteria:</p>
+                    </td>
+                    <td>
+                      <p class="description">Menú completo
+                        <!-- {{eventoPago.catering}}-->
+                      </p>
+                    </td>
+                  </tr>
+                  <tr class="table-row">
+                    <td>
+                      <p class="medium">Música:</p>
+                    </td>
+                    <td>
+                      <p class="description">Música envasada
+                        <!-- {{eventoPago.music}} -->
+                      </p>
+                    </td>
+                  </tr>
+                  <tr class="table-row">
+                    <td>
+                      <p class="medium">Entret.:</p>
+                    </td>
+                    <td>
+                      <p class="description">Mariachis
+                        <!-- {{eventoPago.entertainment}}-->
+                      </p>
+                    </td>
+                  </tr>
+                  <tr class="table-row">
+                    <td>
+                      <p class="medium">Recinto:</p>
+                    </td>
+                    <td>
+                      <p class="description">Salón Marlon Pro
+                        <!-- {{eventoPago.site}}-->
+                      </p>
+                    </td>
+                  </tr>
+                  <tr class="table-row">
+                    <td>
+                      <p class="medium">Bebestibles:</p>
+                    </td>
+                    <td>
+                      <p class="description">Barra abierta
+                        <!-- {{eventoPago.drinks}}-->
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5>Valor total: 999.999</h5>
+              <small> Total Dolares: 666 USD</small>
+            </div>
+          </div>
+        </div> <!-- FIN TARJETA  -->
+
+
+        <!-- INICIO TARJETA -->
+        <div class="card shadow pointer my-2 zoom-on-hover">
+          <div>
+            <div class="bg-white shadow p-3">
+              <h4 class="frame-title">Nombre del Evento</h4>
+              <h6>ID Evento: IDASDFASDFASDF</h6>
+              <table class="mt-2 table table-borderless h-auto">
+                <tbody>
+                  <tr class="table-row">
+                    <td>
+                      <p class="medium">Fecha:</p>
+                    </td>
+                    <td>
+                      <p class="description">22 de noviembre de 2025
+                        <!-- {{eventoPago.booking_date}} -->
+                      </p>
+                    </td>
+                  </tr>
+                  <tr class="table-row">
+                    <td>
+                      <p class="medium">Cantidad de personas:</p>
+                    </td>
+                    <td>
+                      <p class="description">1000
+                        <!-- {{eventoPago.people}} personas -->
+                      </p>
+                    </td>
+                  </tr>
+                  <tr class="table-row">
+                    <td>
+                      <p class="medium">Banqueteria:</p>
+                    </td>
+                    <td>
+                      <p class="description">Menú completo
+                        <!-- {{eventoPago.catering}}-->
+                      </p>
+                    </td>
+                  </tr>
+                  <tr class="table-row">
+                    <td>
+                      <p class="medium">Música:</p>
+                    </td>
+                    <td>
+                      <p class="description">Música envasada
+                        <!-- {{eventoPago.music}} -->
+                      </p>
+                    </td>
+                  </tr>
+                  <tr class="table-row">
+                    <td>
+                      <p class="medium">Entret.:</p>
+                    </td>
+                    <td>
+                      <p class="description">Mariachis
+                        <!-- {{eventoPago.entertainment}}-->
+                      </p>
+                    </td>
+                  </tr>
+                  <tr class="table-row">
+                    <td>
+                      <p class="medium">Recinto:</p>
+                    </td>
+                    <td>
+                      <p class="description">Salón Marlon Pro
+                        <!-- {{eventoPago.site}}-->
+                      </p>
+                    </td>
+                  </tr>
+                  <tr class="table-row">
+                    <td>
+                      <p class="medium">Bebestibles:</p>
+                    </td>
+                    <td>
+                      <p class="description">Barra abierta
+                        <!-- {{eventoPago.drinks}}-->
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5>Valor total: 999.999</h5>
+              <small> Total Dolares: 666 USD</small>
+            </div>
+          </div>
+        </div> <!-- FIN TARJETA  -->
+
+
+        <!-- INICIO TARJETA -->
+        <div class="card shadow pointer my-2 zoom-on-hover">
+          <div>
+            <div class="bg-white shadow p-3">
+              <h4 class="frame-title">Nombre del Evento</h4>
+              <h6>ID Evento: IDASDFASDFASDF</h6>
+              <table class="mt-2 table table-borderless h-auto">
+                <tbody>
+                  <tr class="table-row">
+                    <td>
+                      <p class="medium">Fecha:</p>
+                    </td>
+                    <td>
+                      <p class="description">22 de noviembre de 2025
+                        <!-- {{eventoPago.booking_date}} -->
+                      </p>
+                    </td>
+                  </tr>
+                  <tr class="table-row">
+                    <td>
+                      <p class="medium">Cantidad de personas:</p>
+                    </td>
+                    <td>
+                      <p class="description">1000
+                        <!-- {{eventoPago.people}} personas -->
+                      </p>
+                    </td>
+                  </tr>
+                  <tr class="table-row">
+                    <td>
+                      <p class="medium">Banqueteria:</p>
+                    </td>
+                    <td>
+                      <p class="description">Menú completo
+                        <!-- {{eventoPago.catering}}-->
+                      </p>
+                    </td>
+                  </tr>
+                  <tr class="table-row">
+                    <td>
+                      <p class="medium">Música:</p>
+                    </td>
+                    <td>
+                      <p class="description">Música envasada
+                        <!-- {{eventoPago.music}} -->
+                      </p>
+                    </td>
+                  </tr>
+                  <tr class="table-row">
+                    <td>
+                      <p class="medium">Entret.:</p>
+                    </td>
+                    <td>
+                      <p class="description">Mariachis
+                        <!-- {{eventoPago.entertainment}}-->
+                      </p>
+                    </td>
+                  </tr>
+                  <tr class="table-row">
+                    <td>
+                      <p class="medium">Recinto:</p>
+                    </td>
+                    <td>
+                      <p class="description">Salón Marlon Pro
+                        <!-- {{eventoPago.site}}-->
+                      </p>
+                    </td>
+                  </tr>
+                  <tr class="table-row">
+                    <td>
+                      <p class="medium">Bebestibles:</p>
+                    </td>
+                    <td>
+                      <p class="description">Barra abierta
+                        <!-- {{eventoPago.drinks}}-->
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5>Valor total: 999.999</h5>
+              <small> Total Dolares: 666 USD</small>
+            </div>
+          </div>
+        </div> <!-- FIN TARJETA  -->
+
+
+        <!-- INICIO TARJETA -->
+        <div class="card shadow pointer my-2 zoom-on-hover">
+          <div>
+            <div class="bg-white shadow p-3">
+              <h4 class="frame-title">Nombre del Evento</h4>
+              <h6>ID Evento: IDASDFASDFASDF</h6>
+              <table class="mt-2 table table-borderless h-auto">
+                <tbody>
+                  <tr class="table-row">
+                    <td>
+                      <p class="medium">Fecha:</p>
+                    </td>
+                    <td>
+                      <p class="description">22 de noviembre de 2025
+                        <!-- {{eventoPago.booking_date}} -->
+                      </p>
+                    </td>
+                  </tr>
+                  <tr class="table-row">
+                    <td>
+                      <p class="medium">Cantidad de personas:</p>
+                    </td>
+                    <td>
+                      <p class="description">1000
+                        <!-- {{eventoPago.people}} personas -->
+                      </p>
+                    </td>
+                  </tr>
+                  <tr class="table-row">
+                    <td>
+                      <p class="medium">Banqueteria:</p>
+                    </td>
+                    <td>
+                      <p class="description">Menú completo
+                        <!-- {{eventoPago.catering}}-->
+                      </p>
+                    </td>
+                  </tr>
+                  <tr class="table-row">
+                    <td>
+                      <p class="medium">Música:</p>
+                    </td>
+                    <td>
+                      <p class="description">Música envasada
+                        <!-- {{eventoPago.music}} -->
+                      </p>
+                    </td>
+                  </tr>
+                  <tr class="table-row">
+                    <td>
+                      <p class="medium">Entret.:</p>
+                    </td>
+                    <td>
+                      <p class="description">Mariachis
+                        <!-- {{eventoPago.entertainment}}-->
+                      </p>
+                    </td>
+                  </tr>
+                  <tr class="table-row">
+                    <td>
+                      <p class="medium">Recinto:</p>
+                    </td>
+                    <td>
+                      <p class="description">Salón Marlon Pro
+                        <!-- {{eventoPago.site}}-->
+                      </p>
+                    </td>
+                  </tr>
+                  <tr class="table-row">
+                    <td>
+                      <p class="medium">Bebestibles:</p>
+                    </td>
+                    <td>
+                      <p class="description">Barra abierta
+                        <!-- {{eventoPago.drinks}}-->
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5>Valor total: 999.999</h5>
+              <small> Total Dolares: 666 USD</small>
+            </div>
+          </div>
+        </div> <!-- FIN TARJETA  -->
+
+                <!-- INICIO TARJETA -->
+                <div class="card shadow pointer my-2 zoom-on-hover">
+                  <div>
+                    <div class="bg-white shadow p-3">
+                      <h4 class="frame-title">Nombre del Evento</h4>
+                      <h6>ID Evento: IDASDFASDFASDF</h6>
+                      <table class="mt-2 table table-borderless h-auto">
+                        <tbody>
+                          <tr class="table-row">
+                            <td>
+                              <p class="medium">Fecha:</p>
+                            </td>
+                            <td>
+                              <p class="description">22 de noviembre de 2025
+                                <!-- {{eventoPago.booking_date}} -->
+                              </p>
+                            </td>
+                          </tr>
+                          <tr class="table-row">
+                            <td>
+                              <p class="medium">Cantidad de personas:</p>
+                            </td>
+                            <td>
+                              <p class="description">1000
+                                <!-- {{eventoPago.people}} personas -->
+                              </p>
+                            </td>
+                          </tr>
+                          <tr class="table-row">
+                            <td>
+                              <p class="medium">Banqueteria:</p>
+                            </td>
+                            <td>
+                              <p class="description">Menú completo
+                                <!-- {{eventoPago.catering}}-->
+                              </p>
+                            </td>
+                          </tr>
+                          <tr class="table-row">
+                            <td>
+                              <p class="medium">Música:</p>
+                            </td>
+                            <td>
+                              <p class="description">Música envasada
+                                <!-- {{eventoPago.music}} -->
+                              </p>
+                            </td>
+                          </tr>
+                          <tr class="table-row">
+                            <td>
+                              <p class="medium">Entret.:</p>
+                            </td>
+                            <td>
+                              <p class="description">Mariachis
+                                <!-- {{eventoPago.entertainment}}-->
+                              </p>
+                            </td>
+                          </tr>
+                          <tr class="table-row">
+                            <td>
+                              <p class="medium">Recinto:</p>
+                            </td>
+                            <td>
+                              <p class="description">Salón Marlon Pro
+                                <!-- {{eventoPago.site}}-->
+                              </p>
+                            </td>
+                          </tr>
+                          <tr class="table-row">
+                            <td>
+                              <p class="medium">Bebestibles:</p>
+                            </td>
+                            <td>
+                              <p class="description">Barra abierta
+                                <!-- {{eventoPago.drinks}}-->
+                              </p>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <h5>Valor total: 999.999</h5>
+                      <small> Total Dolares: 666 USD</small>
+                    </div> 
+                  </div>
+                </div> <!-- FIN TARJETA  -->
+
+                        <!-- INICIO TARJETA -->
+        <div class="card shadow pointer my-2 zoom-on-hover">
+          <div>
+            <div class="bg-white shadow p-3">
+              <h4 class="frame-title">Nombre del Evento</h4>
+              <h6>ID Evento: IDASDFASDFASDF</h6>
+              <table class="mt-2 table table-borderless h-auto">
+                <tbody>
+                  <tr class="table-row">
+                    <td>
+                      <p class="medium">Fecha:</p>
+                    </td>
+                    <td>
+                      <p class="description">22 de noviembre de 2025
+                        <!-- {{eventoPago.booking_date}} -->
+                      </p>
+                    </td>
+                  </tr>
+                  <tr class="table-row">
+                    <td>
+                      <p class="medium">Cantidad de personas:</p>
+                    </td>
+                    <td>
+                      <p class="description">1000
+                        <!-- {{eventoPago.people}} personas -->
+                      </p>
+                    </td>
+                  </tr>
+                  <tr class="table-row">
+                    <td>
+                      <p class="medium">Banqueteria:</p>
+                    </td>
+                    <td>
+                      <p class="description">Menú completo
+                        <!-- {{eventoPago.catering}}-->
+                      </p>
+                    </td>
+                  </tr>
+                  <tr class="table-row">
+                    <td>
+                      <p class="medium">Música:</p>
+                    </td>
+                    <td>
+                      <p class="description">Música envasada
+                        <!-- {{eventoPago.music}} -->
+                      </p>
+                    </td>
+                  </tr>
+                  <tr class="table-row">
+                    <td>
+                      <p class="medium">Entret.:</p>
+                    </td>
+                    <td>
+                      <p class="description">Mariachis
+                        <!-- {{eventoPago.entertainment}}-->
+                      </p>
+                    </td>
+                  </tr>
+                  <tr class="table-row">
+                    <td>
+                      <p class="medium">Recinto:</p>
+                    </td>
+                    <td>
+                      <p class="description">Salón Marlon Pro
+                        <!-- {{eventoPago.site}}-->
+                      </p>
+                    </td>
+                  </tr>
+                  <tr class="table-row">
+                    <td>
+                      <p class="medium">Bebestibles:</p>
+                    </td>
+                    <td>
+                      <p class="description">Barra abierta
+                        <!-- {{eventoPago.drinks}}-->
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5>Valor total: 999.999</h5>
+              <small> Total Dolares: 666 USD</small>
+            </div> 
+          </div>
+        </div> <!-- FIN TARJETA  -->
+
+
     </div>
+  </div>
