@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 export class LoginService {
 
   url = "https://badaeventos.herokuapp.com/account/token/"
+  urlDetail = "https://badaeventos.herokuapp.com/market/event/"
 
   constructor(private http: HttpClient) { }
 
@@ -17,5 +18,13 @@ export class LoginService {
 
   login(data): Observable<any> {
     return this.http.post<any>(this.url, data);
+  }
+
+  getListEvents(): Observable<any> {
+    return this.http.get<any>(this.urlDetail);
+  }
+
+  getEvent(id: string): Observable<any> {
+    return this.http.get<any>(this.urlDetail+id);
   }
 }
