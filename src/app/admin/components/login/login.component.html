@@ -8,14 +8,16 @@
       Credenciales no validas!
     </div>
     <div>
-      <form id="login" #login="ngForm" (ngSubmit)="postUser();login.reset()">
+      <form id="loginForm" #login="ngForm" (ngSubmit)="postUser();login.reset()">
         <div class="py-2">
-          <input type="text" class="form-control" id="username" placeholder="Usuario" #user (keyup)="getUser(user.value)">
+          <input ngModel required type="text" name="user" class="form-control m-3" placeholder=" Ingrese su usuario..." #user (keyup)="getUser(user.value)">
         </div>
         <div class="py-2">
-          <input type="password" class="form-control" id="password" placeholder="Contraseña" #pass (keyup)="getPass(pass.value)">
+          <input ngModel required name="password" type="password" class="form-control m-3" placeholder=" Ingrese su contraseña..." #password (keyup)="getPass(password.value)">
         </div>
-        <button [disabled]="login.invalid" type="submit" class="btn btn-primary rounded-pill px-5 bold my-4">Iniciar</button>
+        <div>
+          <button [disabled]="login.invalid" type="submit" class="btn btn-primary m-3 medium shadow">Buscar</button>
+        </div>
       </form>
     </div>
   </div>
