@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { RouterModule } from '@angular/router';
-import { AdminNavbarComponent } from './components/admin-navbar/admin-navbar.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { FormsModule } from '@angular/forms';
 
@@ -13,7 +12,6 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     LoginComponent,
     DashboardComponent,
-    AdminNavbarComponent,
     MenuComponent,
   ],
   imports: [
