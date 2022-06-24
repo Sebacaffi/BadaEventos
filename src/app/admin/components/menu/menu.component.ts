@@ -9,6 +9,8 @@ import { LoginService } from '../../login.service';
 export class MenuComponent implements OnInit {
 
   eventList = []
+  eventID = ""
+  event = []
 
   constructor(private service: LoginService) { }
 
@@ -18,6 +20,25 @@ export class MenuComponent implements OnInit {
       this.eventList = eventsFromApi
     ), error => console.error(error)
 
+  }
+
+  showEvent(id: string) {
+    this.emptyList()
+    this.service.getEvent(id).subscribe((eventFromApi) =>
+      this.event.push(eventFromApi)
+    ), error => console.error(error)
+  }
+
+  listEvents() {
+    this.emptyList()
+    this.service.getListEvents().subscribe((eventsFromApi) =>
+      this.eventList = eventsFromApi
+    ), error => console.error(error)
+  }
+
+  emptyList() {
+    this.eventList = []
+    this.event = []
   }
 
 }

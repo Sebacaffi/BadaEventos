@@ -25,6 +25,6 @@ export class LoginService {
   }
 
   getEvent(id: string): Observable<any> {
-    return this.http.get<any>(this.urlDetail+id);
+    return this.http.get<any>(this.urlDetail+id+"/");
   }
 }
