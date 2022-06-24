@@ -8,7 +8,7 @@
       Credenciales no validas!
     </div>
     <div>
-      <form id="login" #login="ngForm" (ngSubmit)="postUser()">
+      <form id="login" #login="ngForm" (ngSubmit)="postUser();login.reset()">
         <div class="py-2">
           <input type="text" class="form-control" id="username" placeholder="Usuario" #user (keyup)="getUser(user.value)">
         </div>

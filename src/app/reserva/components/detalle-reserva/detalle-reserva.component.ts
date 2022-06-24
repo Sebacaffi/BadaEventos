@@ -169,7 +169,7 @@ export class DetalleReservaComponent implements OnInit{
   alertaEventoPagado(){
     Swal.fire({
       icon: 'error',
-      title: 'Sue evento ya está pagado!',
+      title: 'Su evento ya está pagado!',
       text: 'Revise el ID enviado a su correo',
       confirmButtonColor:'btn-primary mx-2 shadow',
     })

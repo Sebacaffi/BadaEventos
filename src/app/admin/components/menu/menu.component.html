@@ -25,7 +25,7 @@
           <div>
             <div class="bg-white p-3">
               <h4 class="frame-title">{{event.event_type}}</h4>
-              <h6>ID Evento: IDASDFASDFASDF</h6>
+              <h6 >ID Evento: {{event.search_id}}</h6>
               <table class="mt-2 table table-borderless h-auto">
                 <tbody>
                   <tr class="table-row">
@@ -33,8 +33,8 @@
                       <p class="medium">Fecha:</p>
                     </td>
                     <td>
-                      <p class="description">22 de noviembre de 2025
-                        <!-- {{eventoPago.booking_date}} -->
+                      <p class="description">
+                        {{event.booking_date}}
                       </p>
                     </td>
                   </tr>
@@ -43,8 +43,8 @@
                       <p class="medium">Cantidad de personas:</p>
                     </td>
                     <td>
-                      <p class="description">1000
-                        <!-- {{eventoPago.people}} personas -->
+                      <p class="description">
+                        {{event.people}} personas
                       </p>
                     </td>
                   </tr>
@@ -53,8 +53,8 @@
                       <p class="medium">Banqueteria:</p>
                     </td>
                     <td>
-                      <p class="description">Menú completo
-                        <!-- {{eventoPago.catering}}-->
+                      <p class="description">
+                        {{event.catering}}
                       </p>
                     </td>
                   </tr>
@@ -63,8 +63,8 @@
                       <p class="medium">Música:</p>
                     </td>
                     <td>
-                      <p class="description">Música envasada
-                        <!-- {{eventoPago.music}} -->
+                      <p class="description">
+                        {{event.music}}
                       </p>
                     </td>
                   </tr>
@@ -73,8 +73,8 @@
                       <p class="medium">Entret.:</p>
                     </td>
                     <td>
-                      <p class="description">Mariachis
-                        <!-- {{eventoPago.entertainment}}-->
+                      <p class="description">
+                        {{event.entertainment}}
                       </p>
                     </td>
                   </tr>
@@ -83,8 +83,8 @@
                       <p class="medium">Recinto:</p>
                     </td>
                     <td>
-                      <p class="description">Salón Marlon Pro
-                        <!-- {{eventoPago.site}}-->
+                      <p class="description">
+                        {{event.site}}
                       </p>
                     </td>
                   </tr>
@@ -93,19 +93,17 @@
                       <p class="medium">Bebestibles:</p>
                     </td>
                     <td>
-                      <p class="description">Barra abierta
-                        <!-- {{eventoPago.drinks}}-->
+                      <p class="description">
+                        {{event.drinks}}
                       </p>
                     </td>
                   </tr>
                 </tbody>
               </table>
-              <h5>Valor total: 999.999</h5>
-              <small> Total Dolares: 666 USD</small>
+              <h5>${{event.value}}</h5>
             </div>
           </div>
         </div> <!-- FIN TARJETA  -->
-
     </div>
 
     <!-- INICIO DE FOR CREACIÓN DE TARJETAS -->
@@ -116,7 +114,7 @@
         <div>
           <div class="bg-white p-3">
             <h4 class="frame-title">{{event.event_type}}</h4>
-            <h6>ID Evento: IDASDFASDFASDF</h6>
+            <h6>ID Evento: {{event.search_id}}</h6>
             <table class="mt-2 table table-borderless h-auto">
               <tbody>
                 <tr class="table-row">
@@ -124,8 +122,8 @@
                     <p class="medium">Fecha:</p>
                   </td>
                   <td>
-                    <p class="description">22 de noviembre de 2025
-                      <!-- {{eventoPago.booking_date}} -->
+                    <p class="description">
+                      {{event.booking_date}}
                     </p>
                   </td>
                 </tr>
@@ -134,8 +132,8 @@
                     <p class="medium">Cantidad de personas:</p>
                   </td>
                   <td>
-                    <p class="description">1000
-                      <!-- {{eventoPago.people}} personas -->
+                    <p class="description">
+                      {{event.people}} personas
                     </p>
                   </td>
                 </tr>
@@ -144,8 +142,8 @@
                     <p class="medium">Banqueteria:</p>
                   </td>
                   <td>
-                    <p class="description">Menú completo
-                      <!-- {{eventoPago.catering}}-->
+                    <p class="description">
+                      {{event.catering}}
                     </p>
                   </td>
                 </tr>
@@ -154,8 +152,8 @@
                     <p class="medium">Música:</p>
                   </td>
                   <td>
-                    <p class="description">Música envasada
-                      <!-- {{eventoPago.music}} -->
+                    <p class="description">
+                      {{event.music}}
                     </p>
                   </td>
                 </tr>
@@ -164,8 +162,8 @@
                     <p class="medium">Entret.:</p>
                   </td>
                   <td>
-                    <p class="description">Mariachis
-                      <!-- {{eventoPago.entertainment}}-->
+                    <p class="description">
+                      {{event.entertainment}}
                     </p>
                   </td>
                 </tr>
@@ -174,8 +172,8 @@
                     <p class="medium">Recinto:</p>
                   </td>
                   <td>
-                    <p class="description">Salón Marlon Pro
-                      <!-- {{eventoPago.site}}-->
+                    <p class="description">
+                      {{event.site}}
                     </p>
                   </td>
                 </tr>
@@ -184,18 +182,16 @@
                     <p class="medium">Bebestibles:</p>
                   </td>
                   <td>
-                    <p class="description">Barra abierta
-                      <!-- {{eventoPago.drinks}}-->
+                    <p class="description">
+                      {{event.drinks}}
                     </p>
                   </td>
                 </tr>
               </tbody>
             </table>
-            <h5>Valor total: 999.999</h5>
-            <small> Total Dolares: 666 USD</small>
+            <h5>${{event.value}}</h5>
           </div>
         </div>
       </div> <!-- FIN TARJETA  -->
-
     </div>
   </div>

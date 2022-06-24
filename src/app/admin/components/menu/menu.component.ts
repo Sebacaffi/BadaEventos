@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../../login.service';
 
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -11,6 +13,7 @@ export class MenuComponent implements OnInit {
   eventList = []
   eventID = ""
   event = []
+  errorMessage = "";
 
   constructor(private service: LoginService) { }
 
@@ -24,9 +27,14 @@ export class MenuComponent implements OnInit {
 
   showEvent(id: string) {
     this.emptyList()
-    this.service.getEvent(id).subscribe((eventFromApi) =>
-      this.event.push(eventFromApi)
-    ), error => console.error(error)
+    this.service.getEvent(id).subscribe(eventFromApi => {
+      this.event.push(eventFromApi);
+    }, err => {
+      // Entra aquí si el servicio entrega un código http de error EJ: 404,
+      this.errorMessage = err.ok.toString();
+      this.alertaValidacion()
+      this.listEvents()
+    })
   }
 
   listEvents() {
@@ -39,6 +47,15 @@ export class MenuComponent implements OnInit {
   emptyList() {
     this.eventList = []
     this.event = []
+  }
+
+  alertaValidacion() {
+    Swal.fire({
+      icon: 'error',
+      title: 'Debe ingresar un ID válido!',
+      text: 'Ingrese el ID nuevamente',
+      confirmButtonColor:'btn-primary mx-2 shadow',
+    })
   }
 
 }
