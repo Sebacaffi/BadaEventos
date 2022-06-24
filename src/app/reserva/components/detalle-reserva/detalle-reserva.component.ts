@@ -3,10 +3,6 @@ import { ReservaService } from '../../services/reserva.service';
 import { Router } from '@angular/router';
 
 import Swal from 'sweetalert2';
-import pdfMake from "pdfmake/build/pdfmake";
-import pdfFonts from "pdfmake/build/vfs_fonts";
-pdfMake.vfs = pdfFonts.pdfMake.vfs;
-
 declare var paypal;
 
 @Component({
@@ -22,8 +18,6 @@ export class DetalleReservaComponent implements OnInit{
   Currency = "0";
   totalUSD = 0;
   CurrencyUSD = "0";
-  paypalStatus: string = "";
-  paypalID: string = "";
 
   //------------------OBJETOS-------------------------//
 
@@ -89,9 +83,9 @@ export class DetalleReservaComponent implements OnInit{
           var transaction = orderData.purchase_units[0].payments.captures[0];
           //se evalúa el estado de la transacción y se manda una alerta según el caso
           if(transaction.status == "COMPLETED"){
-            this.paypalStatus = transaction.status
-            this.paypalID = transaction.id
-            this.alertaPago()
+            this.formulario.purchase_order = transaction.id
+            this.formulario.status = transaction.status
+            this.sendForm()
           }else{
             this.alertaErrorPost()
           }
@@ -104,31 +98,14 @@ export class DetalleReservaComponent implements OnInit{
 
   //------FUNCIONES PARA OBTENER Y EVNIAR DATOS---------//
 
-  crearPDF(){
-    var docDefinition: any = {
-      content: [
-        { text: 'Detalles de tu Evento', style: 'header' },
-          'Fecha: ' + this.eventoPago.booking_date,
-          'Cantidad de personas: ' + this.eventoPago.people,
-          'Banqueteria: ' + this.eventoPago.catering,
-          'Música: ' + this.eventoPago.music,
-          'Entretenimiento: ' + this.eventoPago.entertainment,
-          'Recinto: ' + this.eventoPago.site,
-          'Bebestibles: ' + this.eventoPago.drinks,
-          'Valor: ' + this.Currency,
-          'Valor en USD: ' + this.CurrencyUSD,
-      ]
-    }
-    pdfMake.createPdf(docDefinition).open();
-  }
-
   sendForm() {
     this.service.sendEventCustomer(this.formulario).subscribe(result => {
       this.errorMessage = '';
+      this.alertaPago();
     }, err => {
       // Entra aquí si el servicio entrega un código http de error EJ: 404,
       this.errorMessage = err.ok.toString();
-      this.alertaErrorPost()
+      this.alertaEventoPagado()
       this.navegarHome()
     })
   }
@@ -172,9 +149,6 @@ export class DetalleReservaComponent implements OnInit{
       confirmButtonColor:'btn-primary mx-2 shadow',
     }).then((result) => {
       if (result.isConfirmed) {
-        this.formulario.purchase_order = this.paypalID
-        this.formulario.status = this.paypalStatus
-        this.sendForm()
         this.navegarHome()
       } else if (
         result.dismiss === Swal.DismissReason.cancel
@@ -188,6 +162,15 @@ export class DetalleReservaComponent implements OnInit{
       icon: 'error',
       title: 'No pudimos realizar su pago!',
       text: 'Favor de intentar nuevamente',
+      confirmButtonColor:'btn-primary mx-2 shadow',
+    })
+  }
+
+  alertaEventoPagado(){
+    Swal.fire({
+      icon: 'error',
+      title: 'Sue evento ya está pagado!',
+      text: 'Revise el ID enviado a su correo',
       confirmButtonColor:'btn-primary mx-2 shadow',
     })
   }
