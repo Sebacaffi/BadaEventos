@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit {
       this.tokenResponse = JSON.stringify(result)
       if(this.tokenResponse != "") {
         this.router.navigateByUrl("/dashboard");
+        this.alertaLogin();
       }
     }, err => {
       console.log('error', err)
@@ -49,5 +50,15 @@ export class LoginComponent implements OnInit {
   getPass(pass: string) {
     this.user.password = pass
   }
-
+  
+  alertaLogin() {
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Bienvenido Administrador',
+      showConfirmButton: false,
+      timer: 1500,
+      toast: true
+    })
+  }
 }
