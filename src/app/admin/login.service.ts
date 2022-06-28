@@ -9,6 +9,7 @@ export class LoginService {
 
   url = "https://badaeventos.herokuapp.com/account/token/"
   urlDetail = "https://badaeventos.herokuapp.com/market/event/"
+  urlExcel = "https://badaeventos.herokuapp.com/market/csv/"
 
   constructor(private http: HttpClient) { }
 
@@ -26,5 +27,9 @@ export class LoginService {
 
   getEvent(id: string): Observable<any> {
     return this.http.get<any>(this.urlDetail+id+"/");
+  }
+
+  getExcel(): Observable<any> {
+    return this.http.get<any>(this.urlExcel);
   }
 }

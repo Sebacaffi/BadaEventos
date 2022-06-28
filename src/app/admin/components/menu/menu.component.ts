@@ -14,6 +14,7 @@ export class MenuComponent implements OnInit {
   eventID = ""
   event = []
   errorMessage = "";
+  excelEvento: any;
 
   constructor(private service: LoginService) { }
 
@@ -56,6 +57,12 @@ export class MenuComponent implements OnInit {
       text: 'Ingrese el ID nuevamente',
       confirmButtonColor:'btn-primary mx-2 shadow',
     })
+  }
+
+  generarExcel() {
+    this.service.getExcel().subscribe((excel) =>
+      this.excelEvento = excel
+    ), error => console.error(error)
   }
 
 }
