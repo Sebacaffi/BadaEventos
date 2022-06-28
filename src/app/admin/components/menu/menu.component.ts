@@ -64,5 +64,4 @@ export class MenuComponent implements OnInit {
       this.excelEvento = excel
     ), error => console.error(error)
   }
-
 }
