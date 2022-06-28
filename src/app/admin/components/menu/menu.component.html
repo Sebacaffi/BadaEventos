@@ -4,7 +4,7 @@
     <div class="container-lg d-flex flex-wrap justify-content-between">
       <div>
       <button class="reporte btn btn-warning m-3 shadow medium" id="reporte-btn" (click)="listEvents()">Lista de eventos</button>
-      <button class="reporte btn btn-secondary m-3 shadow medium" id="informe-btn" href="ttps://badaeventos.herokuapp.com/market/csv/" (click)="generarExcel()">Generar Informe Excel</button>
+      <button class="reporte btn btn-secondary m-3 shadow medium" id="informe-btn" href="https://badaeventos.herokuapp.com/market/csv/" (click)="generarExcel()">Generar Informe Excel</button>
       </div>
       <div>
         <form id="searchForm" #search="ngForm" class="form-row" (ngSubmit)="showEvent(id.value);search.reset()">
