@@ -50,6 +50,34 @@ export class MenuComponent implements OnInit {
     this.event = []
   }
 
+  generarExcel() {
+    this.service.getExcel().subscribe(excel => {
+      this.alertaReporte()
+    }, error => {
+      console.error(error)
+      this.alertaErrorReporte()
+    })
+  }
+
+  //--------ALERTAS---------//
+
+  alertaReporte() {
+    Swal.fire({
+      icon: 'success',
+      title: 'Se envío el reporte al correo corporativo!',
+      confirmButtonColor:'btn-primary mx-2 shadow',
+    })
+  }
+
+  alertaErrorReporte() {
+    Swal.fire({
+      icon: 'error',
+      title: 'No pudimos generar el reporte!',
+      text: 'Favor de intentar nuevamente',
+      confirmButtonColor:'btn-primary mx-2 shadow',
+    })
+  }
+
   alertaValidacion() {
     Swal.fire({
       icon: 'error',
@@ -59,9 +87,4 @@ export class MenuComponent implements OnInit {
     })
   }
 
-  generarExcel() {
-    this.service.getExcel().subscribe((excel) =>
-      this.excelEvento = excel
-    ), error => console.error(error)
-  }
 }
